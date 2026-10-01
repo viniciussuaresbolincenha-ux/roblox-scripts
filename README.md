@@ -1,25 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08080b">
-
-<title>VinlumeXz00 | Roblox Scripts</title>
+<meta name="theme-color" content="#07070a">
+<title>Roblox Scripts | Vinlumexz00</title>
 
 <style>
 :root{
   --primary:#8b5cf6;
   --primary2:#6d28d9;
   --bg:#050507;
-  --bg2:#09090d;
   --card:#101014;
   --card2:#15151b;
   --text:#fff;
   --muted:#a1a1aa;
   --border:rgba(255,255,255,.09);
-  --success:#22c55e;
-  --danger:#ef4444;
+  --green:#22c55e;
 }
 
 *{
@@ -29,30 +27,25 @@
   scroll-behavior:smooth;
 }
 
-html{
-  background:var(--bg);
-}
-
 body{
-  font-family:Inter,Arial,Helvetica,sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:
     radial-gradient(circle at 50% -10%,rgba(139,92,246,.18),transparent 35%),
     var(--bg);
   color:var(--text);
-  min-height:100vh;
   overflow-x:hidden;
 }
 
-body::before{
+body:before{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
+  opacity:.35;
   background-image:
-    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
   background-size:55px 55px;
-  mask-image:linear-gradient(to bottom,#000,transparent 85%);
 }
 
 a{
@@ -64,10 +57,11 @@ button{
   font:inherit;
 }
 
-/* ================= NAVBAR ================= */
+/* NAV */
 
 .navbar{
   position:fixed;
+  z-index:1000;
   top:14px;
   left:50%;
   transform:translateX(-50%);
@@ -79,28 +73,24 @@ button{
   align-items:center;
   justify-content:space-between;
 
-  background:rgba(10,10,14,.78);
+  background:rgba(10,10,14,.8);
   border:1px solid var(--border);
   border-radius:18px;
-
   backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
 
-  z-index:1000;
-  box-shadow:0 15px 50px rgba(0,0,0,.3);
+  box-shadow:0 15px 50px rgba(0,0,0,.35);
 }
 
 .logo{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:9px;
   font-weight:900;
-  letter-spacing:.5px;
 }
 
 .logo-icon{
-  width:35px;
-  height:35px;
+  width:36px;
+  height:36px;
   display:grid;
   place-items:center;
   border-radius:10px;
@@ -114,7 +104,7 @@ button{
 
 .nav-links{
   display:flex;
-  gap:25px;
+  gap:24px;
 }
 
 .nav-links a{
@@ -124,42 +114,28 @@ button{
 }
 
 .nav-links a:hover{
-  color:white;
+  color:#fff;
 }
 
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.icon-button{
+.icon-btn{
   width:40px;
   height:40px;
   border:1px solid var(--border);
   background:#111116;
-  color:white;
+  color:#fff;
   border-radius:11px;
   cursor:pointer;
-  transition:.2s;
 }
 
-.icon-button:hover{
-  border-color:var(--primary);
-  transform:translateY(-2px);
-}
-
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
   min-height:850px;
   padding:170px 20px 100px;
-
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
-
   position:relative;
 }
 
@@ -169,21 +145,19 @@ button{
   height:600px;
   border-radius:50%;
   background:var(--primary);
-  opacity:.09;
-  filter:blur(100px);
-  pointer-events:none;
+  opacity:.08;
+  filter:blur(110px);
 }
 
 .hero-content{
   max-width:900px;
   position:relative;
-  z-index:1;
 }
 
 .badge{
   display:inline-flex;
-  align-items:center;
   gap:8px;
+  align-items:center;
   padding:8px 13px;
   border:1px solid rgba(139,92,246,.25);
   background:rgba(139,92,246,.08);
@@ -193,11 +167,11 @@ button{
   margin-bottom:25px;
 }
 
-.badge-dot{
+.dot{
   width:7px;
   height:7px;
-  background:#22c55e;
   border-radius:50%;
+  background:#22c55e;
   box-shadow:0 0 12px #22c55e;
 }
 
@@ -208,27 +182,22 @@ button{
   font-weight:950;
 }
 
-.hero h1 span{
+.gradient{
   background:linear-gradient(90deg,var(--primary),#c4b5fd,var(--primary));
   background-size:200%;
   -webkit-background-clip:text;
   color:transparent;
-  animation:gradient 4s linear infinite;
-}
-
-@keyframes gradient{
-  to{background-position:200%}
 }
 
 .hero p{
-  max-width:670px;
-  margin:27px auto 35px;
+  max-width:680px;
+  margin:28px auto 35px;
   color:var(--muted);
   font-size:18px;
   line-height:1.8;
 }
 
-.hero-buttons{
+.buttons{
   display:flex;
   justify-content:center;
   gap:12px;
@@ -236,60 +205,54 @@ button{
 }
 
 .btn{
+  min-height:48px;
+  padding:0 21px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:9px;
-  min-height:48px;
-  padding:0 21px;
+  gap:8px;
   border-radius:12px;
-  font-weight:800;
   border:1px solid var(--border);
-  transition:.25s;
+  font-weight:800;
   cursor:pointer;
+  transition:.25s;
 }
 
 .btn:hover{
   transform:translateY(-3px);
 }
 
-.btn-primary{
+.primary{
   background:linear-gradient(135deg,var(--primary),var(--primary2));
   border-color:transparent;
   box-shadow:0 10px 35px rgba(139,92,246,.22);
 }
 
-.btn-secondary{
+.secondary{
   background:#111116;
 }
 
-.btn-secondary:hover{
-  border-color:var(--primary);
-}
-
-.hero-stats{
+.stats{
   display:flex;
   justify-content:center;
-  gap:40px;
-  margin-top:65px;
-  color:var(--muted);
+  gap:45px;
+  margin-top:60px;
 }
 
 .stat strong{
   display:block;
-  color:white;
   font-size:21px;
 }
 
 .stat span{
+  color:var(--muted);
   font-size:12px;
 }
 
-/* ================= GLOBAL ================= */
+/* GENERAL */
 
 .section{
   padding:105px 20px;
-  position:relative;
 }
 
 .container{
@@ -297,74 +260,64 @@ button{
   margin:auto;
 }
 
-.section-heading{
+.heading{
   text-align:center;
   margin-bottom:50px;
 }
 
-.section-heading .mini{
+.heading small{
   color:var(--primary);
-  text-transform:uppercase;
-  font-size:12px;
   font-weight:900;
   letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-.section-heading h2{
+.heading h2{
   font-size:clamp(32px,5vw,48px);
-  margin:9px 0;
-  letter-spacing:-1.5px;
+  margin:8px 0;
 }
 
-.section-heading p{
+.heading p{
   color:var(--muted);
 }
 
-/* ================= HOW ================= */
+/* CATEGORIES */
 
-.steps{
+.categories{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
 }
 
-.step{
-  background:linear-gradient(145deg,var(--card),#0b0b0e);
+.category{
+  padding:22px;
+  background:var(--card);
   border:1px solid var(--border);
-  border-radius:20px;
-  padding:30px;
-  transition:.3s;
+  border-radius:17px;
+  transition:.25s;
 }
 
-.step:hover{
-  transform:translateY(-7px);
+.category:hover{
+  transform:translateY(-5px);
   border-color:rgba(139,92,246,.4);
 }
 
-.step-number{
-  width:45px;
-  height:45px;
-  display:grid;
-  place-items:center;
-  background:rgba(139,92,246,.13);
-  color:#c4b5fd;
-  border:1px solid rgba(139,92,246,.25);
-  border-radius:13px;
-  font-weight:900;
-  margin-bottom:22px;
+.category-icon{
+  font-size:27px;
+  margin-bottom:12px;
 }
 
-.step h3{
-  font-size:20px;
-  margin-bottom:9px;
+.category h3{
+  font-size:16px;
 }
 
-.step p{
+.category p{
+  margin-top:5px;
   color:var(--muted);
-  font-size:14px;
+  font-size:12px;
 }
 
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 
 .products{
   display:grid;
@@ -379,144 +332,141 @@ button{
   border-radius:22px;
   padding:28px;
   transition:.3s;
-  overflow:hidden;
-}
-
-.product::before{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  background:var(--primary);
-  opacity:.06;
-  filter:blur(50px);
-  top:-80px;
-  right:-60px;
 }
 
 .product:hover{
-  transform:translateY(-8px);
-  border-color:rgba(139,92,246,.5);
-  box-shadow:0 25px 70px rgba(0,0,0,.3);
-}
-
-.product.popular{
+  transform:translateY(-7px);
   border-color:rgba(139,92,246,.5);
 }
 
-.popular-label{
+.popular{
   position:absolute;
   top:15px;
   right:15px;
   background:var(--primary);
-  padding:6px 10px;
+  padding:5px 9px;
   border-radius:7px;
   font-size:10px;
   font-weight:900;
 }
 
-.product-tag{
+.tag{
   display:inline-block;
   padding:5px 9px;
-  background:rgba(255,255,255,.05);
   border-radius:7px;
-  color:#a1a1aa;
+  background:rgba(255,255,255,.05);
+  color:#aaa;
   font-size:10px;
   font-weight:900;
-  letter-spacing:1px;
 }
 
 .product h3{
-  font-size:24px;
+  font-size:23px;
   margin:18px 0 10px;
 }
 
-.product-description{
+.description{
   color:var(--muted);
-  min-height:67px;
+  min-height:65px;
   font-size:14px;
 }
 
-.product-price{
-  margin-top:25px;
-  font-size:30px;
+.price{
+  margin-top:22px;
+  font-size:27px;
   font-weight:950;
 }
 
-.product-price small{
+.price small{
   color:#22c55e;
-  font-size:13px;
-  margin-left:5px;
+  font-size:12px;
 }
 
 .buy{
   width:100%;
-  margin-top:20px;
+  margin-top:12px;
 }
 
-.buy.disabled{
-  opacity:.55;
-  cursor:not-allowed;
+.money{
+  background:#15151a;
 }
 
-.buy.disabled:hover{
-  transform:none;
+.robux{
+  background:rgba(34,197,94,.1);
+  border-color:rgba(34,197,94,.25);
+  color:#86efac;
 }
 
-/* ================= STUDIO ================= */
+/* CUSTOM */
+
+.custom-box{
+  padding:50px 30px;
+  text-align:center;
+  background:
+    radial-gradient(circle at center,rgba(139,92,246,.13),transparent 60%),
+    var(--card);
+  border:1px solid var(--border);
+  border-radius:23px;
+}
+
+.custom-box h2{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.custom-box p{
+  color:var(--muted);
+  max-width:650px;
+  margin:0 auto 25px;
+}
+
+/* STUDIO */
 
 .studio{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
-  align-items:stretch;
+  gap:18px;
 }
 
-.studio-main,
-.profile-card{
+.studio-card,
+.profile{
+  background:var(--card);
   border:1px solid var(--border);
   border-radius:22px;
-  background:linear-gradient(145deg,var(--card),#0a0a0d);
   padding:35px;
 }
 
-.studio-main h3{
-  font-size:30px;
+.studio-card h3{
+  font-size:28px;
   margin-bottom:13px;
 }
 
-.studio-main p{
+.studio-card p{
   color:var(--muted);
   line-height:1.8;
-  margin-bottom:25px;
 }
 
 .features{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
+  margin:25px 0;
 }
 
 .feature{
   padding:13px;
-  background:#0b0b0f;
   border:1px solid var(--border);
+  background:#0b0b0f;
   border-radius:11px;
   font-size:13px;
 }
 
-/* ================= PROFILE ================= */
-
-.profile-card{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
+/* ROBLOX PROFILE */
 
 .profile-top{
   display:flex;
   align-items:center;
-  gap:17px;
+  gap:15px;
 }
 
 .avatar{
@@ -530,88 +480,86 @@ button{
   font-weight:900;
 }
 
-.profile-info h3{
+.profile h3{
   font-size:21px;
 }
 
-.profile-info p{
+.profile-name{
   color:var(--muted);
   font-size:13px;
 }
 
-.profile-status{
-  margin-top:25px;
-  padding:13px;
-  background:rgba(34,197,94,.07);
-  border:1px solid rgba(34,197,94,.15);
-  color:#86efac;
+.status{
+  margin:25px 0 15px;
+  padding:14px;
   border-radius:11px;
+  background:rgba(34,197,94,.07);
+  border:1px solid rgba(34,197,94,.18);
+  color:#86efac;
   font-size:13px;
 }
 
-/* ================= CONTACT ================= */
+.loading{
+  color:#facc15;
+}
 
-.contact-box{
+.error{
+  color:#fca5a5;
+  background:rgba(239,68,68,.07);
+  border-color:rgba(239,68,68,.2);
+}
+
+/* CONTACT */
+
+.contact{
   text-align:center;
   padding:75px 20px;
-  border-radius:25px;
-  border:1px solid var(--border);
   background:
     radial-gradient(circle at center,rgba(139,92,246,.13),transparent 60%),
     #0b0b0f;
+  border:1px solid var(--border);
+  border-radius:25px;
 }
 
-.contact-box h2{
-  font-size:clamp(34px,5vw,52px);
+.contact h2{
+  font-size:45px;
   margin-bottom:10px;
 }
 
-.contact-box p{
+.contact p{
   color:var(--muted);
   margin-bottom:28px;
 }
 
-.contact-buttons{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
+/* APPEARANCE */
 
-/* ================= APPEARANCE ================= */
-
-.appearance-panel{
+.panel{
   position:fixed;
   top:88px;
   right:18px;
   width:290px;
   padding:22px;
-  background:rgba(12,12,16,.96);
+  background:rgba(12,12,16,.97);
   border:1px solid var(--border);
   border-radius:20px;
-  backdrop-filter:blur(20px);
   z-index:2000;
   box-shadow:0 25px 80px rgba(0,0,0,.55);
-  transform:translateY(-15px) scale(.97);
   opacity:0;
+  transform:translateY(-10px) scale(.98);
   pointer-events:none;
   transition:.2s;
 }
 
-.appearance-panel.active{
-  transform:none;
+.panel.active{
   opacity:1;
+  transform:none;
   pointer-events:auto;
 }
 
-.appearance-panel h3{
-  margin-bottom:4px;
-}
-
-.appearance-panel p{
+.panel p{
   color:var(--muted);
   font-size:12px;
-  margin-bottom:18px;
+  margin:5px 0 18px;
 }
 
 .colors{
@@ -621,34 +569,33 @@ button{
 }
 
 .color{
-  height:48px;
-  border-radius:12px;
+  height:46px;
+  border-radius:11px;
   border:2px solid transparent;
   cursor:pointer;
-  transition:.2s;
 }
 
 .color:hover{
   transform:scale(1.08);
-  border-color:white;
+  border-color:#fff;
 }
 
-/* ================= TOAST ================= */
+/* TOAST */
 
 .toast{
   position:fixed;
   bottom:25px;
   left:50%;
   transform:translate(-50%,20px);
+  opacity:0;
+  pointer-events:none;
   background:#17171d;
   border:1px solid var(--border);
   padding:13px 18px;
   border-radius:12px;
-  font-size:13px;
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
   z-index:3000;
+  transition:.25s;
+  font-size:13px;
 }
 
 .toast.show{
@@ -656,7 +603,7 @@ button{
   transform:translate(-50%,0);
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
   padding:35px 20px;
@@ -670,7 +617,7 @@ footer strong{
   color:var(--primary);
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:850px){
 
@@ -678,49 +625,20 @@ footer strong{
     display:none;
   }
 
-  .hero{
-    min-height:760px;
-  }
-
-  .hero h1{
-    letter-spacing:-2px;
-  }
-
-  .hero-stats{
-    gap:20px;
-  }
-
-  .steps,
+  .categories,
   .products,
   .studio{
     grid-template-columns:1fr;
   }
-}
-
-@media(max-width:500px){
-
-  .navbar{
-    height:58px;
-  }
-
-  .logo{
-    font-size:14px;
-  }
-
-  .logo-icon{
-    width:31px;
-    height:31px;
-  }
 
   .hero{
-    padding-top:130px;
+    min-height:760px;
   }
+}
 
-  .hero p{
-    font-size:15px;
-  }
+@media(max-width:600px){
 
-  .hero-stats{
+  .stats{
     flex-direction:column;
     gap:15px;
   }
@@ -729,20 +647,14 @@ footer strong{
     grid-template-columns:1fr;
   }
 
-  .product,
-  .step,
-  .studio-main,
-  .profile-card{
-    padding:24px;
-  }
-
-  .appearance-panel{
+  .panel{
     left:15px;
     right:15px;
     width:auto;
   }
 }
 </style>
+
 </head>
 
 <body>
@@ -758,24 +670,21 @@ footer strong{
 
   <div class="nav-links">
     <a href="#inicio">Início</a>
-    <a href="#como-funciona">Como funciona</a>
+    <a href="#categorias">Categorias</a>
     <a href="#scripts">Scripts</a>
     <a href="#studio">Studio</a>
     <a href="#contato">Contato</a>
   </div>
 
-  <div class="nav-actions">
-    <button class="icon-button" onclick="toggleAppearance()" title="Editar aparência">
-      🎨
-    </button>
-  </div>
+  <button class="icon-btn" onclick="togglePanel()">
+    🎨
+  </button>
 
 </nav>
 
-
 <!-- APPEARANCE -->
 
-<div class="appearance-panel" id="appearancePanel">
+<div class="panel" id="panel">
 
   <h3>Editar aparência</h3>
 
@@ -783,34 +692,35 @@ footer strong{
 
   <div class="colors">
 
-    <button class="color" style="background:#8b5cf6"
-      onclick="changeColor('#8b5cf6','#6d28d9')"></button>
+```
+<button class="color" style="background:#8b5cf6"
+  onclick="setColor('#8b5cf6','#6d28d9')"></button>
 
-    <button class="color" style="background:#ffffff"
-      onclick="changeColor('#ffffff','#cccccc')"></button>
+<button class="color" style="background:#fff"
+  onclick="setColor('#fff','#ccc')"></button>
 
-    <button class="color" style="background:#2563eb"
-      onclick="changeColor('#2563eb','#1d4ed8')"></button>
+<button class="color" style="background:#2563eb"
+  onclick="setColor('#2563eb','#1d4ed8')"></button>
 
-    <button class="color" style="background:#ef4444"
-      onclick="changeColor('#ef4444','#b91c1c')"></button>
+<button class="color" style="background:#ef4444"
+  onclick="setColor('#ef4444','#b91c1c')"></button>
 
-    <button class="color" style="background:#008cff"
-      onclick="changeColor('#008cff','#0066cc')"></button>
+<button class="color" style="background:#008cff"
+  onclick="setColor('#008cff','#0066cc')"></button>
 
-    <button class="color" style="background:#06d6d6"
-      onclick="changeColor('#06d6d6','#0891b2')"></button>
+<button class="color" style="background:#06d6d6"
+  onclick="setColor('#06d6d6','#0891b2')"></button>
 
-    <button class="color" style="background:#22c55e"
-      onclick="changeColor('#22c55e','#15803d')"></button>
+<button class="color" style="background:#22c55e"
+  onclick="setColor('#22c55e','#15803d')"></button>
 
-    <button class="color" style="background:#f97316"
-      onclick="changeColor('#f97316','#c2410c')"></button>
+<button class="color" style="background:#f97316"
+  onclick="setColor('#f97316','#c2410c')"></button>
+```
 
   </div>
 
 </div>
-
 
 <!-- HERO -->
 
@@ -820,118 +730,135 @@ footer strong{
 
   <div class="hero-content">
 
-    <div class="badge">
-      <span class="badge-dot"></span>
-      Scripts para Roblox
-    </div>
+```
+<div class="badge">
+  <span class="dot"></span>
+  Loja de scripts para Roblox
+</div>
 
-    <h1>
-      Construa.
-      <span>Crie.</span>
-      Evolua.
-    </h1>
+<h1>
+  Seus scripts.
+  <span class="gradient">Seu jogo.</span>
+</h1>
 
-    <p>
-      Scripts para Roblox Studio feitos para ajudar
-      você a criar experiências melhores, de forma simples
-      e organizada.
-    </p>
+<p>
+  Scripts, sistemas, painéis e soluções para
+  projetos no Roblox Studio. Com opções de
+  pagamento em Robux ou dinheiro.
+</p>
 
-    <div class="hero-buttons">
+<div class="buttons">
 
-      <a href="#scripts" class="btn btn-primary">
-        🛒 Ver scripts
-      </a>
+  <a href="#scripts" class="btn primary">
+    🛒 Ver scripts
+  </a>
 
-      <a href="#contato" class="btn btn-secondary">
-        💬 Falar comigo
-      </a>
+  <a href="#personalizado" class="btn secondary">
+    🔧 Script personalizado
+  </a>
 
-    </div>
+</div>
 
-    <div class="hero-stats">
+<div class="stats">
 
-      <div class="stat">
-        <strong>ROBLOX</strong>
-        <span>Studio</span>
-      </div>
+  <div class="stat">
+    <strong>ROBLOX</strong>
+    <span>Studio</span>
+  </div>
 
-      <div class="stat">
-        <strong>ROBUX</strong>
-        <span>Compra</span>
-      </div>
+  <div class="stat">
+    <strong>ROBUX</strong>
+    <span>Pagamento</span>
+  </div>
 
-      <div class="stat">
-        <strong>100%</strong>
-        <span>Online</span>
-      </div>
+  <div class="stat">
+    <strong>R$</strong>
+    <span>Pagamento</span>
+  </div>
 
-    </div>
+</div>
+```
 
   </div>
 
 </section>
 
+<!-- CATEGORIAS -->
 
-<!-- COMO FUNCIONA -->
-
-<section class="section" id="como-funciona">
+<section class="section" id="categorias">
 
   <div class="container">
 
-    <div class="section-heading">
-      <div class="mini">Processo</div>
-      <h2>Como funciona?</h2>
-      <p>Comprar um script é simples.</p>
-    </div>
+```
+<div class="heading">
 
-    <div class="steps">
+  <small>Serviços</small>
 
-      <div class="step">
+  <h2>O que eu faço</h2>
 
-        <div class="step-number">01</div>
+  <p>
+    Diferentes tipos de sistemas e scripts
+    para projetos Roblox.
+  </p>
 
-        <h3>Escolha seu script</h3>
+</div>
 
-        <p>
-          Veja os scripts disponíveis e escolha
-          aquele que deseja utilizar.
-        </p>
+<div class="categories">
 
-      </div>
+  <div class="category">
+    <div class="category-icon">🛡️</div>
+    <h3>Painéis Admin</h3>
+    <p>Interfaces administrativas para seu jogo.</p>
+  </div>
 
-      <div class="step">
+  <div class="category">
+    <div class="category-icon">⚙️</div>
+    <h3>Sistemas</h3>
+    <p>Sistemas personalizados para experiências.</p>
+  </div>
 
-        <div class="step-number">02</div>
+  <div class="category">
+    <div class="category-icon">🎮</div>
+    <h3>Gameplay</h3>
+    <p>Mecânicas e recursos para jogos.</p>
+  </div>
 
-        <h3>Compre com Robux</h3>
+  <div class="category">
+    <div class="category-icon">🖥️</div>
+    <h3>GUIs</h3>
+    <p>Interfaces modernas e personalizadas.</p>
+  </div>
 
-        <p>
-          Clique no botão de compra e acesse
-          o Game Pass correspondente.
-        </p>
+  <div class="category">
+    <div class="category-icon">💰</div>
+    <h3>Economia</h3>
+    <p>Moedas, lojas e sistemas econômicos.</p>
+  </div>
 
-      </div>
+  <div class="category">
+    <div class="category-icon">👤</div>
+    <h3>Jogadores</h3>
+    <p>Sistemas relacionados aos jogadores.</p>
+  </div>
 
-      <div class="step">
+  <div class="category">
+    <div class="category-icon">🔧</div>
+    <h3>Personalizados</h3>
+    <p>Projetos feitos conforme sua necessidade.</p>
+  </div>
 
-        <div class="step-number">03</div>
+  <div class="category">
+    <div class="category-icon">🧩</div>
+    <h3>Outros</h3>
+    <p>Outros tipos de scripts sob consulta.</p>
+  </div>
 
-        <h3>Entre em contato</h3>
-
-        <p>
-          Depois da compra, entre em contato
-          para receber as informações necessárias.
-        </p>
-
-      </div>
-
-    </div>
+</div>
+```
 
   </div>
 
 </section>
-
 
 <!-- PRODUTOS -->
 
@@ -939,232 +866,264 @@ footer strong{
 
   <div class="container">
 
-    <div class="section-heading">
+```
+<div class="heading">
 
-      <div class="mini">Loja</div>
+  <small>Loja</small>
 
-      <h2>Scripts disponíveis</h2>
+  <h2>Scripts disponíveis</h2>
 
-      <p>
-        Escolha uma opção abaixo.
-      </p>
+  <p>
+    Escolha o produto e selecione a forma de pagamento.
+  </p>
 
+</div>
+
+<div class="products">
+
+
+  <!-- ADMIN -->
+
+  <div class="product">
+
+    <span class="tag">ADMIN</span>
+
+    <h3>Painel Admin</h3>
+
+    <p class="description">
+      Painel administrativo para controlar
+      recursos do seu jogo.
+    </p>
+
+    <div class="price">
+      R$ 20,00
     </div>
 
+    <a
+      href="COLE_AQUI_SEU_LINK_DE_PAGAMENTO_1"
+      target="_blank"
+      class="btn buy money"
+      onclick="checkPayment(event)">
+      💰 Comprar com dinheiro
+    </a>
 
-    <div class="products">
+    <a
+      href="COLE_AQUI_SEU_GAMEPASS_1"
+      target="_blank"
+      class="btn buy robux"
+      onclick="checkPayment(event)">
+      🟩 Comprar com Robux
+    </a>
 
-
-      <!-- PRODUTO 1 -->
-
-      <div class="product">
-
-        <span class="product-tag">
-          BÁSICO
-        </span>
-
-        <h3>Script Básico</h3>
-
-        <p class="product-description">
-          Uma opção simples para projetos
-          e experiências no Roblox Studio.
-        </p>
-
-        <div class="product-price">
-          100 <small>R$</small>
-        </div>
-
-        <a
-          href="COLE_SEU_LINK_DO_GAMEPASS_1"
-          target="_blank"
-          class="btn btn-primary buy"
-          onclick="buyProduct(event,'Script Básico')">
-
-          💰 Comprar com Robux
-
-        </a>
-
-      </div>
+  </div>
 
 
-      <!-- PRODUTO 2 -->
+  <!-- PREMIUM -->
 
-      <div class="product popular">
+  <div class="product">
 
-        <div class="popular-label">
-          POPULAR
-        </div>
+    <div class="popular">POPULAR</div>
 
-        <span class="product-tag">
-          PREMIUM
-        </span>
+    <span class="tag">PREMIUM</span>
 
-        <h3>Script Premium</h3>
+    <h3>Sistema Premium</h3>
 
-        <p class="product-description">
-          Uma opção mais completa para
-          projetos que precisam de mais recursos.
-        </p>
+    <p class="description">
+      Sistema completo para adicionar
+      funcionalidades ao seu projeto.
+    </p>
 
-        <div class="product-price">
-          200 <small>R$</small>
-        </div>
-
-        <a
-          href="COLE_SEU_LINK_DO_GAMEPASS_2"
-          target="_blank"
-          class="btn btn-primary buy"
-          onclick="buyProduct(event,'Script Premium')">
-
-          💰 Comprar com Robux
-
-        </a>
-
-      </div>
-
-
-      <!-- PRODUTO 3 -->
-
-      <div class="product">
-
-        <span class="product-tag">
-          PRO
-        </span>
-
-        <h3>Script Pro</h3>
-
-        <p class="product-description">
-          Para projetos maiores que precisam
-          de uma solução mais avançada.
-        </p>
-
-        <div class="product-price">
-          300 <small>R$</small>
-        </div>
-
-        <a
-          href="COLE_SEU_LINK_DO_GAMEPASS_3"
-          target="_blank"
-          class="btn btn-primary buy"
-          onclick="buyProduct(event,'Script Pro')">
-
-          💰 Comprar com Robux
-
-        </a>
-
-      </div>
-
+    <div class="price">
+      R$ 35,00
     </div>
+
+    <a
+      href="COLE_AQUI_SEU_LINK_DE_PAGAMENTO_2"
+      target="_blank"
+      class="btn buy money"
+      onclick="checkPayment(event)">
+      💰 Comprar com dinheiro
+    </a>
+
+    <a
+      href="COLE_AQUI_SEU_GAMEPASS_2"
+      target="_blank"
+      class="btn buy robux"
+      onclick="checkPayment(event)">
+      🟩 Comprar com Robux
+    </a>
+
+  </div>
+
+
+  <!-- PRO -->
+
+  <div class="product">
+
+    <span class="tag">PRO</span>
+
+    <h3>Script Pro</h3>
+
+    <p class="description">
+      Solução mais avançada para projetos
+      que precisam de recursos personalizados.
+    </p>
+
+    <div class="price">
+      R$ 60,00
+    </div>
+
+    <a
+      href="COLE_AQUI_SEU_LINK_DE_PAGAMENTO_3"
+      target="_blank"
+      class="btn buy money"
+      onclick="checkPayment(event)">
+      💰 Comprar com dinheiro
+    </a>
+
+    <a
+      href="COLE_AQUI_SEU_GAMEPASS_3"
+      target="_blank"
+      class="btn buy robux"
+      onclick="checkPayment(event)">
+      🟩 Comprar com Robux
+    </a>
+
+  </div>
+
+</div>
+```
 
   </div>
 
 </section>
 
+<!-- PERSONALIZADO -->
 
-<!-- ROBLOX STUDIO -->
+<section class="section" id="personalizado">
+
+  <div class="container">
+
+```
+<div class="custom-box">
+
+  <h2>🔧 Precisa de algo personalizado?</h2>
+
+  <p>
+    Se você precisa de um painel, sistema, GUI,
+    mecânica ou outro script específico, entre em
+    contato para explicar o que deseja.
+  </p>
+
+  <a
+    href="https://www.tiktok.com/@Vinlumezx00"
+    target="_blank"
+    class="btn primary">
+    🎵 Solicitar pelo TikTok
+  </a>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+<!-- STUDIO + ROBLOX -->
 
 <section class="section" id="studio">
 
   <div class="container">
 
-    <div class="section-heading">
+```
+<div class="heading">
 
-      <div class="mini">Desenvolvimento</div>
+  <small>Desenvolvimento</small>
 
-      <h2>Roblox Studio</h2>
+  <h2>Roblox Studio</h2>
 
-      <p>
-        O lugar onde seus projetos ganham vida.
-      </p>
+  <p>
+    Ferramentas e scripts para seus projetos.
+  </p>
+
+</div>
+
+
+<div class="studio">
+
+  <div class="studio-card">
+
+    <h3>🎮 Crie seu jogo</h3>
+
+    <p>
+      Roblox Studio permite criar mapas,
+      sistemas, interfaces, scripts e
+      experiências completas.
+    </p>
+
+    <div class="features">
+
+      <div class="feature">⚙️ Sistemas</div>
+      <div class="feature">🧩 Scripts</div>
+      <div class="feature">🌎 Mapas</div>
+      <div class="feature">🎨 Interfaces</div>
 
     </div>
 
+    <a
+      href="https://create.roblox.com/"
+      target="_blank"
+      class="btn primary">
+      Abrir Roblox Studio
+    </a>
 
-    <div class="studio">
+  </div>
 
-      <div class="studio-main">
 
-        <h3>🎮 Crie no Roblox Studio</h3>
+  <!-- PERFIL -->
 
-        <p>
-          O Roblox Studio permite criar mapas,
-          sistemas, interfaces, scripts e
-          experiências completas para Roblox.
-        </p>
+  <div class="profile">
 
-        <div class="features">
+    <div class="profile-top">
 
-          <div class="feature">⚙️ Sistemas</div>
-          <div class="feature">🧩 Scripts</div>
-          <div class="feature">🌎 Mapas</div>
-          <div class="feature">🎨 Interfaces</div>
-
-        </div>
-
-        <br>
-
-        <a
-          href="https://create.roblox.com/"
-          target="_blank"
-          class="btn btn-primary">
-
-          Abrir Roblox Studio
-
-        </a>
-
+      <div class="avatar">
+        V
       </div>
 
+      <div>
 
-      <!-- PERFIL -->
+        <h3 id="robloxName">
+          eyeywtwywywy
+        </h3>
 
-      <div class="profile-card">
-
-        <div class="profile-top">
-
-          <div class="avatar">
-            V
-          </div>
-
-          <div class="profile-info">
-
-            <h3>
-              Vinlumexz00
-            </h3>
-
-            <p>
-              Conta Roblox
-            </p>
-
-          </div>
-
+        <div class="profile-name">
+          Conta Roblox
         </div>
-
-
-        <div class="profile-status">
-
-          ● Usuário informado pelo proprietário do site
-
-        </div>
-
-        <br>
-
-        <a
-          href="https://www.roblox.com/search/users?keyword=Vinlumexz00"
-          target="_blank"
-          class="btn btn-secondary">
-
-          🔎 Ver no Roblox
-
-        </a>
 
       </div>
 
     </div>
+
+    <div class="status loading" id="robloxStatus">
+      🔎 Localizando conta Roblox...
+    </div>
+
+    <a
+      id="robloxProfile"
+      href="https://www.roblox.com/search/users?keyword=eyeywtwywywy"
+      target="_blank"
+      class="btn secondary">
+      🎮 Abrir perfil Roblox
+    </a>
+
+  </div>
+
+</div>
+```
 
   </div>
 
 </section>
-
 
 <!-- CONTATO -->
 
@@ -1172,113 +1131,83 @@ footer strong{
 
   <div class="container">
 
-    <div class="contact-box">
+```
+<div class="contact">
 
-      <div class="section-heading" style="margin-bottom:25px">
+  <h2>Entre em contato</h2>
 
-        <div class="mini">Contato</div>
+  <p>
+    Fale comigo pelo TikTok ou veja minha conta Roblox.
+  </p>
 
-        <h2>Vamos conversar?</h2>
+  <div class="buttons">
 
-        <p>
-          Entre em contato pelas minhas redes.
-        </p>
+    <a
+      href="https://www.tiktok.com/@Vinlumezx00"
+      target="_blank"
+      class="btn primary">
+      🎵 TikTok @Vinlumezx00
+    </a>
 
-      </div>
+    <a
+      id="contactRoblox"
+      href="https://www.roblox.com/search/users?keyword=eyeywtwywywy"
+      target="_blank"
+      class="btn secondary">
+      🎮 Roblox eyeywtwywywy
+    </a>
 
+  </div>
 
-      <div class="contact-buttons">
-
-        <a
-          href="https://www.tiktok.com/@Vinlumezx00"
-          target="_blank"
-          class="btn btn-primary">
-
-          🎵 TikTok @Vinlumezx00
-
-        </a>
-
-        <a
-          href="https://www.roblox.com/search/users?keyword=Vinlumexz00"
-          target="_blank"
-          class="btn btn-secondary">
-
-          🎮 Roblox Vinlumexz00
-
-        </a>
-
-      </div>
-
-    </div>
+</div>
+```
 
   </div>
 
 </section>
 
-
-<!-- FOOTER -->
-
 <footer>
 
-  © 2026
-  <strong>Roblox Scripts</strong>
-  • Desenvolvido para Roblox Studio
+© 2026 <strong>Roblox Scripts</strong>
+• Scripts, sistemas e soluções para Roblox Studio
 
 </footer>
 
-
-<!-- TOAST -->
-
 <div class="toast" id="toast"></div>
-
 
 <script>
 
 /* ================= APARÊNCIA ================= */
 
-const root = document.documentElement;
+const root=document.documentElement;
 
-function toggleAppearance(){
+function togglePanel(){
 
   document
-    .getElementById("appearancePanel")
+    .getElementById("panel")
     .classList.toggle("active");
 
 }
 
-
-function changeColor(primary,primary2){
+function setColor(primary,primary2){
 
   root.style.setProperty("--primary",primary);
   root.style.setProperty("--primary2",primary2);
 
-  localStorage.setItem("sitePrimary",primary);
-  localStorage.setItem("sitePrimary2",primary2);
+  localStorage.setItem("primary",primary);
+  localStorage.setItem("primary2",primary2);
 
-  showToast("Aparência atualizada!");
+  toast("Aparência atualizada!");
 
 }
 
-
-/* ================= CARREGAR COR ================= */
-
-const savedPrimary =
-  localStorage.getItem("sitePrimary");
-
-const savedPrimary2 =
-  localStorage.getItem("sitePrimary2");
+const savedPrimary=localStorage.getItem("primary");
+const savedPrimary2=localStorage.getItem("primary2");
 
 if(savedPrimary && savedPrimary2){
 
-  root.style.setProperty(
-    "--primary",
-    savedPrimary
-  );
-
-  root.style.setProperty(
-    "--primary2",
-    savedPrimary2
-  );
+  root.style.setProperty("--primary",savedPrimary);
+  root.style.setProperty("--primary2",savedPrimary2);
 
 }
 
@@ -1287,63 +1216,135 @@ if(savedPrimary && savedPrimary2){
 
 let toastTimer;
 
-function showToast(message){
+function toast(message){
 
-  const toast =
-    document.getElementById("toast");
+  const box=document.getElementById("toast");
 
-  toast.textContent = message;
-
-  toast.classList.add("show");
+  box.textContent=message;
+  box.classList.add("show");
 
   clearTimeout(toastTimer);
 
-  toastTimer = setTimeout(()=>{
-
-    toast.classList.remove("show");
-
+  toastTimer=setTimeout(()=>{
+    box.classList.remove("show");
   },2500);
 
 }
 
 
-/* ================= COMPRA ================= */
+/* ================= PAGAMENTO ================= */
 
-function buyProduct(event,name){
+function checkPayment(event){
 
-  const link =
-    event.currentTarget.getAttribute("href");
+  const link=event.currentTarget.getAttribute("href");
 
   if(
     !link ||
-    link.startsWith("COLE_")
+    link.startsWith("COLE_AQUI")
   ){
 
     event.preventDefault();
 
-    showToast(
-      "O link deste Game Pass ainda não foi configurado."
+    toast(
+      "Esse link de pagamento ainda não foi configurado."
     );
 
-    return;
   }
-
-  showToast(
-    "Abrindo compra de " + name + "..."
-  );
 
 }
 
 
+/* ================= ROBLOX ================= */
+
+/*
+  Nome da conta:
+  eyeywtwywywy
+
+  O Roblox possui um endpoint público que
+  permite obter usuários por nome de usuário.
+*/
+
+async function findRobloxUser(){
+
+  const username="eyeywtwywywy";
+
+  const status=document.getElementById("robloxStatus");
+  const name=document.getElementById("robloxName");
+  const profile=document.getElementById("robloxProfile");
+  const contact=document.getElementById("contactRoblox");
+
+  try{
+
+    const response=await fetch(
+      "https://users.roblox.com/v1/usernames/users",
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          usernames:[username],
+          excludeBannedUsers:false
+        })
+      }
+    );
+
+    if(!response.ok){
+      throw new Error("API");
+    }
+
+    const data=await response.json();
+
+    if(data.data && data.data.length>0){
+
+      const user=data.data[0];
+
+      name.textContent=user.name;
+
+      status.className="status";
+
+      status.style.color="#86efac";
+
+      status.textContent=
+        "✓ Conta encontrada no Roblox";
+
+      const url=
+        "https://www.roblox.com/users/"
+        + user.id
+        + "/profile";
+
+      profile.href=url;
+      contact.href=url;
+
+    }else{
+
+      status.className="status error";
+
+      status.textContent=
+        "Não foi possível localizar esse nome.";
+
+    }
+
+  }catch(error){
+
+    status.className="status error";
+
+    status.textContent=
+      "Não foi possível consultar o Roblox agora.";
+
+  }
+
+}
+
+findRobloxUser();
+
+
 /* ================= FECHAR PAINEL ================= */
 
-document.addEventListener("click",function(event){
+document.addEventListener("click",(event)=>{
 
-  const panel =
-    document.getElementById("appearancePanel");
-
-  const button =
-    document.querySelector(".icon-button");
+  const panel=document.getElementById("panel");
+  const button=document.querySelector(".icon-btn");
 
   if(
     panel.classList.contains("active") &&
