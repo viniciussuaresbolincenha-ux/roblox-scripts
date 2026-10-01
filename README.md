@@ -1,1364 +1,277 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07070a">
-<title>Roblox Scripts | Vinlumexz00</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scripts para Roblox Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- ============ CONFIGURAÇÕES: MUDE TUDO AQUI ============ -->
+<script>
+var CONFIG = {
+  // contatos
+  tiktokUser: "vinlumexz00",
+  robloxUser: "eyeywtwywywy",
+  robloxLink: "",                         // se tiver o link do perfil, cole aqui. Vazio = busca pelo usuário
+  botaoTiktok: "ENTRAR EM CONTATO TIKTOK",
+
+  // aparência
+  corInicial: "#8b5cf6",
+  cores: [
+    ["Roxo","#8b5cf6"],["Azul","#3b82f6"],["Amarelo","#facc15"],["Magenta","#ff00cc"],["Branco","#ffffff"],
+    ["Vermelho","#ef4444"],["Laranja","#fb923c"],["Verde","#22c55e"],["Ciano","#06b6d4"],["Rosa","#f472b6"],
+    ["Lima","#a3e635"],["Turquesa","#14b8a6"],["Dourado","#d4af37"],["Azul-marinho","#1e40af"],["Cinza","#9ca3af"]
+  ],
+  botaoAparencia: "Editar aparência",
+
+  // topo
+  tituloInicio: "Scripts prontos para o seu jogo no ",
+  tituloDestaque: "Roblox Studio",
+  descricao: "Painel ADM, sistema de patentes, portões, spawn por base, painel de festa e mais. Eu faço o script, você cola no seu jogo e ele funciona.",
+  frasesegura: "Site seguro: não baixa arquivos e não pede senha.",
+
+  // demonstração do painel ADM
+  demoTitulo: "Teste um painel ADM",
+  demoTexto: "Esta é uma demonstração. Clique nos botões para ver como o painel responde dentro do jogo.",
+  jogadores: ["Jogador_01","Jogador_02","Jogador_03"],
+  acoes: ["Expulsar","Voar","Velocidade"],
+  interruptores: [["Chat liberado",true],["Portões abertos",false],["Modo noite",false]],
+
+  // scripts à venda
+  scriptsTitulo: "O que eu faço",
+  scriptsTexto: "Peça o que o seu jogo precisa. Se não estiver na lista, eu crio sob medida.",
+  scripts: [
+    ["Painel ADM","Expulsar, banir, voar, velocidade, avisos e comandos de servidor."],
+    ["Tags e patentes","Nome e patente acima da cabeça, por grupo ou por cargo."],
+    ["Portões e portas","Abrem só para quem tem a patente ou o passe certo."],
+    ["Spawn por base","Cada jogador renasce na sua própria base."],
+    ["Painel de festa","Cores, volume, ID de música e aba só para ADM."],
+    ["Menus e lojas","Loja com gamepass, menu de roupas e interface mobile."]
+  ],
+
+  // como funciona a venda
+  vendaTitulo: "Como funciona a venda",
+  vendaTexto: "Tudo é feito no Roblox Studio, a ferramenta gratuita para criar jogos no Roblox.",
+  passos: [
+    ["Você me chama no TikTok","Conte qual jogo você tem e o que quer no script."],
+    ["Combinamos o valor","Eu explico o que está incluso antes de você pagar."],
+    ["Eu entrego o script","Você recebe os arquivos prontos: Script, LocalScript e ModuleScript."],
+    ["Você cola no Roblox Studio","Eu mostro em qual lugar colocar cada um (ServerScriptService, StarterGui, etc.)."],
+    ["Testamos juntos","Se algo não funcionar no seu jogo, eu ajusto."]
+  ],
+
+  // segurança
+  segTitulo: "Site seguro",
+  segTexto: "Eu quero que você se sinta tranquilo antes de falar comigo.",
+  seguranca: [
+    ["Não baixa nada","Os botões só abrem o meu TikTok e o meu perfil do Roblox. Nenhum arquivo é baixado."],
+    ["Nunca peço sua senha","Para fazer o script eu não preciso da sua senha nem do cookie do Roblox. Se alguém pedir isso, é golpe."],
+    ["Você confere antes","Antes de abrir qualquer link, o site mostra o endereço completo e você escolhe se quer continuar."]
+  ],
+
+  // final
+  ctaTitulo: "Quer um script para o seu jogo?",
+  rodape: "Não tenho ligação com a Roblox Corporation. Roblox e Roblox Studio são marcas da Roblox Corporation."
+};
+</script>
+<!-- ============ FIM DAS CONFIGURAÇÕES ============ -->
 
 <style>
-:root{
-  --primary:#8b5cf6;
-  --primary2:#6d28d9;
-  --bg:#050507;
-  --card:#101014;
-  --card2:#15151b;
-  --text:#fff;
-  --muted:#a1a1aa;
-  --border:rgba(255,255,255,.09);
-  --green:#22c55e;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:
-    radial-gradient(circle at 50% -10%,rgba(139,92,246,.18),transparent 35%),
-    var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-}
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.35;
-  background-image:
-    linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
-  background-size:55px 55px;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button{
-  font:inherit;
-}
-
-/* NAV */
-
-.navbar{
-  position:fixed;
-  z-index:1000;
-  top:14px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(1180px,calc(100% - 28px));
-  height:64px;
-  padding:0 18px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  background:rgba(10,10,14,.8);
-  border:1px solid var(--border);
-  border-radius:18px;
-  backdrop-filter:blur(18px);
-
-  box-shadow:0 15px 50px rgba(0,0,0,.35);
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  font-weight:900;
-}
-
-.logo-icon{
-  width:36px;
-  height:36px;
-  display:grid;
-  place-items:center;
-  border-radius:10px;
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  box-shadow:0 0 25px rgba(139,92,246,.35);
-}
-
-.logo span{
-  color:var(--primary);
-}
-
-.nav-links{
-  display:flex;
-  gap:24px;
-}
-
-.nav-links a{
-  color:#b9b9c2;
-  font-size:14px;
-  transition:.2s;
-}
-
-.nav-links a:hover{
-  color:#fff;
-}
-
-.icon-btn{
-  width:40px;
-  height:40px;
-  border:1px solid var(--border);
-  background:#111116;
-  color:#fff;
-  border-radius:11px;
-  cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-  min-height:850px;
-  padding:170px 20px 100px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
-}
-
-.hero-glow{
-  position:absolute;
-  width:600px;
-  height:600px;
-  border-radius:50%;
-  background:var(--primary);
-  opacity:.08;
-  filter:blur(110px);
-}
-
-.hero-content{
-  max-width:900px;
-  position:relative;
-}
-
-.badge{
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-  padding:8px 13px;
-  border:1px solid rgba(139,92,246,.25);
-  background:rgba(139,92,246,.08);
-  border-radius:999px;
-  color:#c4b5fd;
-  font-size:13px;
-  margin-bottom:25px;
-}
-
-.dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#22c55e;
-  box-shadow:0 0 12px #22c55e;
-}
-
-.hero h1{
-  font-size:clamp(48px,8vw,92px);
-  line-height:.98;
-  letter-spacing:-4px;
-  font-weight:950;
-}
-
-.gradient{
-  background:linear-gradient(90deg,var(--primary),#c4b5fd,var(--primary));
-  background-size:200%;
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.hero p{
-  max-width:680px;
-  margin:28px auto 35px;
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.8;
-}
-
-.buttons{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  min-height:48px;
-  padding:0 21px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  font-weight:800;
-  cursor:pointer;
-  transition:.25s;
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-}
-
-.primary{
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  border-color:transparent;
-  box-shadow:0 10px 35px rgba(139,92,246,.22);
-}
-
-.secondary{
-  background:#111116;
-}
-
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:45px;
-  margin-top:60px;
-}
-
-.stat strong{
-  display:block;
-  font-size:21px;
-}
-
-.stat span{
-  color:var(--muted);
-  font-size:12px;
-}
-
-/* GENERAL */
-
-.section{
-  padding:105px 20px;
-}
-
-.container{
-  width:min(1120px,100%);
-  margin:auto;
-}
-
-.heading{
-  text-align:center;
-  margin-bottom:50px;
-}
-
-.heading small{
-  color:var(--primary);
-  font-weight:900;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-
-.heading h2{
-  font-size:clamp(32px,5vw,48px);
-  margin:8px 0;
-}
-
-.heading p{
-  color:var(--muted);
-}
-
-/* CATEGORIES */
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.category{
-  padding:22px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:17px;
-  transition:.25s;
-}
-
-.category:hover{
-  transform:translateY(-5px);
-  border-color:rgba(139,92,246,.4);
-}
-
-.category-icon{
-  font-size:27px;
-  margin-bottom:12px;
-}
-
-.category h3{
-  font-size:16px;
-}
-
-.category p{
-  margin-top:5px;
-  color:var(--muted);
-  font-size:12px;
-}
-
-/* PRODUCTS */
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.product{
-  position:relative;
-  background:linear-gradient(145deg,#111116,#0b0b0f);
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:28px;
-  transition:.3s;
-}
-
-.product:hover{
-  transform:translateY(-7px);
-  border-color:rgba(139,92,246,.5);
-}
-
-.popular{
-  position:absolute;
-  top:15px;
-  right:15px;
-  background:var(--primary);
-  padding:5px 9px;
-  border-radius:7px;
-  font-size:10px;
-  font-weight:900;
-}
-
-.tag{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:7px;
-  background:rgba(255,255,255,.05);
-  color:#aaa;
-  font-size:10px;
-  font-weight:900;
-}
-
-.product h3{
-  font-size:23px;
-  margin:18px 0 10px;
-}
-
-.description{
-  color:var(--muted);
-  min-height:65px;
-  font-size:14px;
-}
-
-.price{
-  margin-top:22px;
-  font-size:27px;
-  font-weight:950;
-}
-
-.price small{
-  color:#22c55e;
-  font-size:12px;
-}
-
-.buy{
-  width:100%;
-  margin-top:12px;
-}
-
-.money{
-  background:#15151a;
-}
-
-.robux{
-  background:rgba(34,197,94,.1);
-  border-color:rgba(34,197,94,.25);
-  color:#86efac;
-}
-
-/* CUSTOM */
-
-.custom-box{
-  padding:50px 30px;
-  text-align:center;
-  background:
-    radial-gradient(circle at center,rgba(139,92,246,.13),transparent 60%),
-    var(--card);
-  border:1px solid var(--border);
-  border-radius:23px;
-}
-
-.custom-box h2{
-  font-size:34px;
-  margin-bottom:10px;
-}
-
-.custom-box p{
-  color:var(--muted);
-  max-width:650px;
-  margin:0 auto 25px;
-}
-
-/* STUDIO */
-
-.studio{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-.studio-card,
-.profile{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:35px;
-}
-
-.studio-card h3{
-  font-size:28px;
-  margin-bottom:13px;
-}
-
-.studio-card p{
-  color:var(--muted);
-  line-height:1.8;
-}
-
-.features{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin:25px 0;
-}
-
-.feature{
-  padding:13px;
-  border:1px solid var(--border);
-  background:#0b0b0f;
-  border-radius:11px;
-  font-size:13px;
-}
-
-/* ROBLOX PROFILE */
-
-.profile-top{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.avatar{
-  width:65px;
-  height:65px;
-  display:grid;
-  place-items:center;
-  border-radius:18px;
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  font-size:25px;
-  font-weight:900;
-}
-
-.profile h3{
-  font-size:21px;
-}
-
-.profile-name{
-  color:var(--muted);
-  font-size:13px;
-}
-
-.status{
-  margin:25px 0 15px;
-  padding:14px;
-  border-radius:11px;
-  background:rgba(34,197,94,.07);
-  border:1px solid rgba(34,197,94,.18);
-  color:#86efac;
-  font-size:13px;
-}
-
-.loading{
-  color:#facc15;
-}
-
-.error{
-  color:#fca5a5;
-  background:rgba(239,68,68,.07);
-  border-color:rgba(239,68,68,.2);
-}
-
-/* CONTACT */
-
-.contact{
-  text-align:center;
-  padding:75px 20px;
-  background:
-    radial-gradient(circle at center,rgba(139,92,246,.13),transparent 60%),
-    #0b0b0f;
-  border:1px solid var(--border);
-  border-radius:25px;
-}
-
-.contact h2{
-  font-size:45px;
-  margin-bottom:10px;
-}
-
-.contact p{
-  color:var(--muted);
-  margin-bottom:28px;
-}
-
-/* APPEARANCE */
-
-.panel{
-  position:fixed;
-  top:88px;
-  right:18px;
-  width:290px;
-  padding:22px;
-  background:rgba(12,12,16,.97);
-  border:1px solid var(--border);
-  border-radius:20px;
-  z-index:2000;
-  box-shadow:0 25px 80px rgba(0,0,0,.55);
-  opacity:0;
-  transform:translateY(-10px) scale(.98);
-  pointer-events:none;
-  transition:.2s;
-}
-
-.panel.active{
-  opacity:1;
-  transform:none;
-  pointer-events:auto;
-}
-
-.panel p{
-  color:var(--muted);
-  font-size:12px;
-  margin:5px 0 18px;
-}
-
-.colors{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
-.color{
-  height:46px;
-  border-radius:11px;
-  border:2px solid transparent;
-  cursor:pointer;
-}
-
-.color:hover{
-  transform:scale(1.08);
-  border-color:#fff;
-}
-
-/* TOAST */
-
-.toast{
-  position:fixed;
-  bottom:25px;
-  left:50%;
-  transform:translate(-50%,20px);
-  opacity:0;
-  pointer-events:none;
-  background:#17171d;
-  border:1px solid var(--border);
-  padding:13px 18px;
-  border-radius:12px;
-  z-index:3000;
-  transition:.25s;
-  font-size:13px;
-}
-
-.toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
-}
-
-/* FOOTER */
-
-footer{
-  padding:35px 20px;
-  border-top:1px solid var(--border);
-  text-align:center;
-  color:#71717a;
-  font-size:13px;
-}
-
-footer strong{
-  color:var(--primary);
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .categories,
-  .products,
-  .studio{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    min-height:760px;
-  }
-}
-
-@media(max-width:600px){
-
-  .stats{
-    flex-direction:column;
-    gap:15px;
-  }
-
-  .features{
-    grid-template-columns:1fr;
-  }
-
-  .panel{
-    left:15px;
-    right:15px;
-    width:auto;
-  }
-}
+:root{--ac:#8b5cf6;--on:#fff;--bg:#000;--card:#0d0d0d;--line:#222;--tx:#f2f2f2;--mu:#9a9a9a}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:"Space Grotesk",system-ui,sans-serif;line-height:1.55;padding-bottom:80px}
+a{color:inherit}
+.w{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:64px 0 40px}
+h1{font-size:clamp(2.1rem,7vw,3.8rem);line-height:1.05;letter-spacing:-.03em;max-width:15ch}
+h1 span{color:var(--ac)}
+.lead{color:var(--mu);max-width:52ch;margin:18px 0 26px;font-size:1.05rem}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:14px 20px;border-radius:10px;font-weight:700;font-size:.95rem;font-family:inherit;text-decoration:none;border:2px solid var(--ac);cursor:pointer}
+.pri{background:var(--ac);color:var(--on)}
+.sec{background:transparent;color:var(--tx)}
+.sec:hover{background:var(--ac);color:var(--on)}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-size:1.7rem;letter-spacing:-.02em;margin-bottom:6px}
+.sub{color:var(--mu);margin-bottom:22px;max-width:56ch}
+.ok{color:var(--mu);font-size:.85rem;margin-top:12px}
+.demo{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.bar{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);align-items:center;overflow-x:auto}
+.bar b{margin-right:auto;color:var(--ac);white-space:nowrap}
+.tab{background:none;border:0;color:var(--mu);padding:8px 12px;border-radius:8px;font:inherit;cursor:pointer;white-space:nowrap}
+.tab[aria-selected=true]{background:var(--ac);color:var(--on)}
+.pane{padding:16px;display:none}.pane.on{display:block}
+.pl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.pl:last-child{border:0}
+.pl strong{flex:1;min-width:110px}
+.sm{background:#161616;color:var(--tx);border:1px solid #333;border-radius:8px;padding:7px 11px;font:inherit;font-size:.85rem;cursor:pointer}
+.sm:hover{border-color:var(--ac);color:var(--ac)}
+.tg{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.sw{width:46px;height:26px;border-radius:99px;background:#2a2a2a;border:0;position:relative;cursor:pointer}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .15s}
+.sw[aria-pressed=true]{background:var(--ac)}
+.sw[aria-pressed=true]::after{transform:translateX(20px)}
+.log{background:#050505;border-top:1px solid var(--line);padding:12px 16px;font-size:.85rem;color:var(--mu);min-height:84px}
+.log p+p{margin-top:2px}.log em{color:var(--ac);font-style:normal}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.c h3{font-size:1.05rem;margin-bottom:4px}
+.c p{color:var(--mu);font-size:.93rem}
+ol.st{list-style:none;padding:0;counter-reset:s;display:grid;gap:12px}
+ol.st li{counter-increment:s;display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+ol.st li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--ac);color:var(--on);display:grid;place-items:center;font-weight:700}
+ol.st b{display:block}
+ol.st span{color:var(--mu);font-size:.93rem}
+.cta{text-align:center}
+.cta h2{margin-bottom:16px}.cta .row{justify-content:center}
+footer{color:var(--mu);text-align:center;font-size:.85rem;padding:30px 20px}
+#ed{position:fixed;right:16px;bottom:16px;z-index:5}
+#pn{position:fixed;right:16px;bottom:74px;width:min(320px,calc(100vw - 32px));background:#0b0b0b;border:1px solid #333;border-radius:14px;padding:16px;display:none;z-index:5;max-height:70vh;overflow:auto}
+#pn.on{display:block}
+#pn h3{font-size:1rem;margin-bottom:10px}
+.sws{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}
+.dot{aspect-ratio:1;border-radius:50%;border:2px solid #333;cursor:pointer;padding:0}
+.dot[aria-pressed=true]{outline:3px solid #fff;outline-offset:2px}
+.cp{display:flex;align-items:center;gap:10px;color:var(--mu);font-size:.9rem}
+.cp input{width:52px;height:38px;border:0;background:none;padding:0;cursor:pointer}
+#md{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;place-items:center;z-index:9;padding:20px}
+#md.on{display:grid}
+#md .bx{background:#0b0b0b;border:1px solid #333;border-radius:14px;padding:22px;max-width:380px;width:100%}
+#md h3{font-size:1.15rem;margin-bottom:6px}
+#md p{color:var(--mu);font-size:.93rem}
+#md .u{display:block;background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:10px;margin:14px 0;word-break:break-all;font-size:.9rem;color:var(--tx)}
+#md .row{margin-top:16px}
+:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
-
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-  <a href="#inicio" class="logo">
-    <div class="logo-icon">R</div>
-    ROBLOX <span>SCRIPTS</span>
-  </a>
-
-  <div class="nav-links">
-    <a href="#inicio">Início</a>
-    <a href="#categorias">Categorias</a>
-    <a href="#scripts">Scripts</a>
-    <a href="#studio">Studio</a>
-    <a href="#contato">Contato</a>
-  </div>
-
-  <button class="icon-btn" onclick="togglePanel()">
-    🎨
-  </button>
-
-</nav>
-
-<!-- APPEARANCE -->
-
-<div class="panel" id="panel">
-
-  <h3>Editar aparência</h3>
-
-  <p>Escolha a cor principal do site.</p>
-
-  <div class="colors">
-
-```
-<button class="color" style="background:#8b5cf6"
-  onclick="setColor('#8b5cf6','#6d28d9')"></button>
-
-<button class="color" style="background:#fff"
-  onclick="setColor('#fff','#ccc')"></button>
-
-<button class="color" style="background:#2563eb"
-  onclick="setColor('#2563eb','#1d4ed8')"></button>
-
-<button class="color" style="background:#ef4444"
-  onclick="setColor('#ef4444','#b91c1c')"></button>
-
-<button class="color" style="background:#008cff"
-  onclick="setColor('#008cff','#0066cc')"></button>
-
-<button class="color" style="background:#06d6d6"
-  onclick="setColor('#06d6d6','#0891b2')"></button>
-
-<button class="color" style="background:#22c55e"
-  onclick="setColor('#22c55e','#15803d')"></button>
-
-<button class="color" style="background:#f97316"
-  onclick="setColor('#f97316','#c2410c')"></button>
-```
-
-  </div>
-
-</div>
-
-<!-- HERO -->
-
-<section class="hero" id="inicio">
-
-  <div class="hero-glow"></div>
-
-  <div class="hero-content">
-
-```
-<div class="badge">
-  <span class="dot"></span>
-  Loja de scripts para Roblox
-</div>
-
-<h1>
-  Seus scripts.
-  <span class="gradient">Seu jogo.</span>
-</h1>
-
-<p>
-  Scripts, sistemas, painéis e soluções para
-  projetos no Roblox Studio. Com opções de
-  pagamento em Robux ou dinheiro.
-</p>
-
-<div class="buttons">
-
-  <a href="#scripts" class="btn primary">
-    🛒 Ver scripts
-  </a>
-
-  <a href="#personalizado" class="btn secondary">
-    🔧 Script personalizado
-  </a>
-
-</div>
-
-<div class="stats">
-
-  <div class="stat">
-    <strong>ROBLOX</strong>
-    <span>Studio</span>
-  </div>
-
-  <div class="stat">
-    <strong>ROBUX</strong>
-    <span>Pagamento</span>
-  </div>
-
-  <div class="stat">
-    <strong>R$</strong>
-    <span>Pagamento</span>
-  </div>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<!-- CATEGORIAS -->
-
-<section class="section" id="categorias">
-
-  <div class="container">
-
-```
-<div class="heading">
-
-  <small>Serviços</small>
-
-  <h2>O que eu faço</h2>
-
-  <p>
-    Diferentes tipos de sistemas e scripts
-    para projetos Roblox.
-  </p>
-
-</div>
-
-<div class="categories">
-
-  <div class="category">
-    <div class="category-icon">🛡️</div>
-    <h3>Painéis Admin</h3>
-    <p>Interfaces administrativas para seu jogo.</p>
-  </div>
-
-  <div class="category">
-    <div class="category-icon">⚙️</div>
-    <h3>Sistemas</h3>
-    <p>Sistemas personalizados para experiências.</p>
-  </div>
-
-  <div class="category">
-    <div class="category-icon">🎮</div>
-    <h3>Gameplay</h3>
-    <p>Mecânicas e recursos para jogos.</p>
-  </div>
-
-  <div class="category">
-    <div class="category-icon">🖥️</div>
-    <h3>GUIs</h3>
-    <p>Interfaces modernas e personalizadas.</p>
-  </div>
-
-  <div class="category">
-    <div class="category-icon">💰</div>
-    <h3>Economia</h3>
-    <p>Moedas, lojas e sistemas econômicos.</p>
-  </div>
-
-  <div class="category">
-    <div class="category-icon">👤</div>
-    <h3>Jogadores</h3>
-    <p>Sistemas relacionados aos jogadores.</p>
-  </div>
-
-  <div class="category">
-    <div class="category-icon">🔧</div>
-    <h3>Personalizados</h3>
-    <p>Projetos feitos conforme sua necessidade.</p>
-  </div>
-
-  <div class="category">
-    <div class="category-icon">🧩</div>
-    <h3>Outros</h3>
-    <p>Outros tipos de scripts sob consulta.</p>
-  </div>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<!-- PRODUTOS -->
-
-<section class="section" id="scripts">
-
-  <div class="container">
-
-```
-<div class="heading">
-
-  <small>Loja</small>
-
-  <h2>Scripts disponíveis</h2>
-
-  <p>
-    Escolha o produto e selecione a forma de pagamento.
-  </p>
-
-</div>
-
-<div class="products">
-
-
-  <!-- ADMIN -->
-
-  <div class="product">
-
-    <span class="tag">ADMIN</span>
-
-    <h3>Painel Admin</h3>
-
-    <p class="description">
-      Painel administrativo para controlar
-      recursos do seu jogo.
-    </p>
-
-    <div class="price">
-      R$ 20,00
+<div class="w" id="app"></div>
+
+<div id="md" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="bx">
+    <h3 id="mt">Você vai abrir o <span id="mn"></span></h3>
+    <p>Esse é o link do vendedor. Nenhum arquivo é baixado.</p>
+    <span class="u" id="mu"></span>
+    <div class="row">
+      <a class="btn pri" id="go" href="#" target="_blank" rel="noopener noreferrer">Continuar</a>
+      <button class="btn sec" id="vl" type="button">Voltar</button>
     </div>
-
-    <a
-      href="COLE_AQUI_SEU_LINK_DE_PAGAMENTO_1"
-      target="_blank"
-      class="btn buy money"
-      onclick="checkPayment(event)">
-      💰 Comprar com dinheiro
-    </a>
-
-    <a
-      href="COLE_AQUI_SEU_GAMEPASS_1"
-      target="_blank"
-      class="btn buy robux"
-      onclick="checkPayment(event)">
-      🟩 Comprar com Robux
-    </a>
-
   </div>
-
-
-  <!-- PREMIUM -->
-
-  <div class="product">
-
-    <div class="popular">POPULAR</div>
-
-    <span class="tag">PREMIUM</span>
-
-    <h3>Sistema Premium</h3>
-
-    <p class="description">
-      Sistema completo para adicionar
-      funcionalidades ao seu projeto.
-    </p>
-
-    <div class="price">
-      R$ 35,00
-    </div>
-
-    <a
-      href="COLE_AQUI_SEU_LINK_DE_PAGAMENTO_2"
-      target="_blank"
-      class="btn buy money"
-      onclick="checkPayment(event)">
-      💰 Comprar com dinheiro
-    </a>
-
-    <a
-      href="COLE_AQUI_SEU_GAMEPASS_2"
-      target="_blank"
-      class="btn buy robux"
-      onclick="checkPayment(event)">
-      🟩 Comprar com Robux
-    </a>
-
-  </div>
-
-
-  <!-- PRO -->
-
-  <div class="product">
-
-    <span class="tag">PRO</span>
-
-    <h3>Script Pro</h3>
-
-    <p class="description">
-      Solução mais avançada para projetos
-      que precisam de recursos personalizados.
-    </p>
-
-    <div class="price">
-      R$ 60,00
-    </div>
-
-    <a
-      href="COLE_AQUI_SEU_LINK_DE_PAGAMENTO_3"
-      target="_blank"
-      class="btn buy money"
-      onclick="checkPayment(event)">
-      💰 Comprar com dinheiro
-    </a>
-
-    <a
-      href="COLE_AQUI_SEU_GAMEPASS_3"
-      target="_blank"
-      class="btn buy robux"
-      onclick="checkPayment(event)">
-      🟩 Comprar com Robux
-    </a>
-
-  </div>
-
 </div>
-```
-
-  </div>
-
-</section>
-
-<!-- PERSONALIZADO -->
-
-<section class="section" id="personalizado">
-
-  <div class="container">
-
-```
-<div class="custom-box">
-
-  <h2>🔧 Precisa de algo personalizado?</h2>
-
-  <p>
-    Se você precisa de um painel, sistema, GUI,
-    mecânica ou outro script específico, entre em
-    contato para explicar o que deseja.
-  </p>
-
-  <a
-    href="https://www.tiktok.com/@Vinlumezx00"
-    target="_blank"
-    class="btn primary">
-    🎵 Solicitar pelo TikTok
-  </a>
-
+<footer id="rod"></footer>
+<button class="btn pri" id="ed" aria-expanded="false" aria-controls="pn"></button>
+<div id="pn" role="dialog" aria-label="Editar aparência">
+  <h3>Cor do site</h3>
+  <div class="sws" id="sws"></div>
+  <label class="cp">Qualquer outra cor <input type="color" id="cc"></label>
 </div>
-```
-
-  </div>
-
-</section>
-
-<!-- STUDIO + ROBLOX -->
-
-<section class="section" id="studio">
-
-  <div class="container">
-
-```
-<div class="heading">
-
-  <small>Desenvolvimento</small>
-
-  <h2>Roblox Studio</h2>
-
-  <p>
-    Ferramentas e scripts para seus projetos.
-  </p>
-
-</div>
-
-
-<div class="studio">
-
-  <div class="studio-card">
-
-    <h3>🎮 Crie seu jogo</h3>
-
-    <p>
-      Roblox Studio permite criar mapas,
-      sistemas, interfaces, scripts e
-      experiências completas.
-    </p>
-
-    <div class="features">
-
-      <div class="feature">⚙️ Sistemas</div>
-      <div class="feature">🧩 Scripts</div>
-      <div class="feature">🌎 Mapas</div>
-      <div class="feature">🎨 Interfaces</div>
-
-    </div>
-
-    <a
-      href="https://create.roblox.com/"
-      target="_blank"
-      class="btn primary">
-      Abrir Roblox Studio
-    </a>
-
-  </div>
-
-
-  <!-- PERFIL -->
-
-  <div class="profile">
-
-    <div class="profile-top">
-
-      <div class="avatar">
-        V
-      </div>
-
-      <div>
-
-        <h3 id="robloxName">
-          eyeywtwywywy
-        </h3>
-
-        <div class="profile-name">
-          Conta Roblox
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="status loading" id="robloxStatus">
-      🔎 Localizando conta Roblox...
-    </div>
-
-    <a
-      id="robloxProfile"
-      href="https://www.roblox.com/search/users?keyword=eyeywtwywywy"
-      target="_blank"
-      class="btn secondary">
-      🎮 Abrir perfil Roblox
-    </a>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<!-- CONTATO -->
-
-<section class="section" id="contato">
-
-  <div class="container">
-
-```
-<div class="contact">
-
-  <h2>Entre em contato</h2>
-
-  <p>
-    Fale comigo pelo TikTok ou veja minha conta Roblox.
-  </p>
-
-  <div class="buttons">
-
-    <a
-      href="https://www.tiktok.com/@Vinlumezx00"
-      target="_blank"
-      class="btn primary">
-      🎵 TikTok @Vinlumezx00
-    </a>
-
-    <a
-      id="contactRoblox"
-      href="https://www.roblox.com/search/users?keyword=eyeywtwywywy"
-      target="_blank"
-      class="btn secondary">
-      🎮 Roblox eyeywtwywywy
-    </a>
-
-  </div>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<footer>
-
-© 2026 <strong>Roblox Scripts</strong>
-• Scripts, sistemas e soluções para Roblox Studio
-
-</footer>
-
-<div class="toast" id="toast"></div>
 
 <script>
-
-/* ================= APARÊNCIA ================= */
-
-const root=document.documentElement;
-
-function togglePanel(){
-
-  document
-    .getElementById("panel")
-    .classList.toggle("active");
-
-}
-
-function setColor(primary,primary2){
-
-  root.style.setProperty("--primary",primary);
-  root.style.setProperty("--primary2",primary2);
-
-  localStorage.setItem("primary",primary);
-  localStorage.setItem("primary2",primary2);
-
-  toast("Aparência atualizada!");
-
-}
-
-const savedPrimary=localStorage.getItem("primary");
-const savedPrimary2=localStorage.getItem("primary2");
-
-if(savedPrimary && savedPrimary2){
-
-  root.style.setProperty("--primary",savedPrimary);
-  root.style.setProperty("--primary2",savedPrimary2);
-
-}
-
-
-/* ================= TOAST ================= */
-
-let toastTimer;
-
-function toast(message){
-
-  const box=document.getElementById("toast");
-
-  box.textContent=message;
-  box.classList.add("show");
-
-  clearTimeout(toastTimer);
-
-  toastTimer=setTimeout(()=>{
-    box.classList.remove("show");
-  },2500);
-
-}
-
-
-/* ================= PAGAMENTO ================= */
-
-function checkPayment(event){
-
-  const link=event.currentTarget.getAttribute("href");
-
-  if(
-    !link ||
-    link.startsWith("COLE_AQUI")
-  ){
-
-    event.preventDefault();
-
-    toast(
-      "Esse link de pagamento ainda não foi configurado."
-    );
-
-  }
-
-}
-
-
-/* ================= ROBLOX ================= */
-
-/*
-  Nome da conta:
-  eyeywtwywywy
-
-  O Roblox possui um endpoint público que
-  permite obter usuários por nome de usuário.
-*/
-
-async function findRobloxUser(){
-
-  const username="eyeywtwywywy";
-
-  const status=document.getElementById("robloxStatus");
-  const name=document.getElementById("robloxName");
-  const profile=document.getElementById("robloxProfile");
-  const contact=document.getElementById("contactRoblox");
-
-  try{
-
-    const response=await fetch(
-      "https://users.roblox.com/v1/usernames/users",
-      {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-          usernames:[username],
-          excludeBannedUsers:false
-        })
-      }
-    );
-
-    if(!response.ok){
-      throw new Error("API");
-    }
-
-    const data=await response.json();
-
-    if(data.data && data.data.length>0){
-
-      const user=data.data[0];
-
-      name.textContent=user.name;
-
-      status.className="status";
-
-      status.style.color="#86efac";
-
-      status.textContent=
-        "✓ Conta encontrada no Roblox";
-
-      const url=
-        "https://www.roblox.com/users/"
-        + user.id
-        + "/profile";
-
-      profile.href=url;
-      contact.href=url;
-
-    }else{
-
-      status.className="status error";
-
-      status.textContent=
-        "Não foi possível localizar esse nome.";
-
-    }
-
-  }catch(error){
-
-    status.className="status error";
-
-    status.textContent=
-      "Não foi possível consultar o Roblox agora.";
-
-  }
-
-}
-
-findRobloxUser();
-
-
-/* ================= FECHAR PAINEL ================= */
-
-document.addEventListener("click",(event)=>{
-
-  const panel=document.getElementById("panel");
-  const button=document.querySelector(".icon-btn");
-
-  if(
-    panel.classList.contains("active") &&
-    !panel.contains(event.target) &&
-    !button.contains(event.target)
-  ){
-
-    panel.classList.remove("active");
-
-  }
-
+(function(){
+var C=CONFIG;
+var TK="https://www.tiktok.com/@"+encodeURIComponent(C.tiktokUser);
+var RB=C.robloxLink||("https://www.roblox.com/search/users?keyword="+encodeURIComponent(C.robloxUser));
+
+function el(tag,cls,txt,par){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;if(par)par.appendChild(e);return e}
+function link(txt,href,cls,par){var a=el('a','btn '+cls,txt,par);a.href=href;a.target='_blank';a.rel='noopener';return a}
+function sec(id,titulo,texto,cls){var s=el('section',cls||'',null,app);s.id=id;el('h2','',titulo,s);if(texto)el('p','sub',texto,s);return s}
+
+var app=document.getElementById('app');
+
+// topo
+var h=el('header','',null,app);
+var h1=el('h1','',C.tituloInicio,h);el('span','',C.tituloDestaque,h1);
+el('p','lead',C.descricao,h);
+var r=el('div','row',null,h);
+link(C.botaoTiktok,TK,'pri',r);
+link('Perfil no Roblox: '+C.robloxUser,RB,'sec',r);
+el('p','ok',C.frasesegura,h);
+
+// demo
+var d=sec('demo',C.demoTitulo,C.demoTexto);
+var dm=el('div','demo',null,d);
+var bar=el('div','bar',null,dm);bar.setAttribute('role','tablist');
+el('b','','Painel ADM',bar);
+var abas=['Jogadores','Servidor','Avisos'],panes=[];
+var log=el('div','log',null,null);log.setAttribute('aria-live','polite');
+function say(a,b){if(log.dataset.v!=='1'){log.innerHTML='';log.dataset.v='1'}
+  var p=document.createElement('p');var e=el('em','',a,p);p.appendChild(document.createTextNode(' '+b));log.insertBefore(p,log.firstChild);while(log.children.length>4)log.lastChild.remove()}
+abas.forEach(function(n,i){
+  var t=el('button','tab',n,bar);t.setAttribute('role','tab');t.setAttribute('aria-selected',i===0);
+  var p=el('div','pane'+(i===0?' on':''),null,dm);panes.push(p);
+  t.onclick=function(){bar.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected',x===t)});panes.forEach(function(q){q.classList.toggle('on',q===p)})}
 });
+C.jogadores.forEach(function(j){
+  var l=el('div','pl',null,panes[0]);el('strong','',j,l);
+  C.acoes.forEach(function(a){var b=el('button','sm',a,l);b.onclick=function(){say(a,'aplicado em '+j)}});
+});
+C.interruptores.forEach(function(s){
+  var l=el('div','tg',null,panes[1]);el('span','',s[0],l);
+  var b=el('button','sw',null,l);b.setAttribute('aria-pressed',s[1]);b.setAttribute('aria-label',s[0]);
+  b.onclick=function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);say(s[0],on?'ligado':'desligado')}
+});
+[['Enviar aviso para todos','Enviar aviso','Aviso enviado em','todos'],['Reiniciar o servidor','Reiniciar','Reinício agendado em','servidor']].forEach(function(x){
+  var l=el('div','pl',null,panes[2]);el('strong','',x[0],l);var b=el('button','sm',x[1],l);b.onclick=function(){say(x[1],x[2]+' '+x[3])}
+});
+dm.appendChild(log);el('p','',null,log).textContent='Nenhuma ação ainda. Toque em um botão acima.';
 
+// scripts
+var s1=sec('scripts',C.scriptsTitulo,C.scriptsTexto);var g1=el('div','grid',null,s1);
+C.scripts.forEach(function(x){var c=el('div','c',null,g1);el('h3','',x[0],c);el('p','',x[1],c)});
+
+// venda
+var s2=sec('como',C.vendaTitulo,C.vendaTexto);var ol=el('ol','st',null,s2);
+C.passos.forEach(function(x){var li=el('li','',null,ol);var dv=el('div','',null,li);el('b','',x[0],dv);el('span','',x[1],dv)});
+
+// segurança
+var s3=sec('seguranca',C.segTitulo,C.segTexto);var g3=el('div','grid',null,s3);
+C.seguranca.forEach(function(x){var c=el('div','c',null,g3);el('h3','',x[0],c);el('p','',x[1],c)});
+
+// final
+var s4=el('section','cta',null,app);el('h2','',C.ctaTitulo,s4);
+var r4=el('div','row',null,s4);link(C.botaoTiktok,TK,'pri',r4);link('Roblox: '+C.robloxUser,RB,'sec',r4);
+var tx=el('p','sub','TikTok: @'+C.tiktokUser,s4);tx.style.margin='18px auto 0';
+
+document.getElementById('rod').textContent=C.rodape;
+document.title=C.tituloInicio+C.tituloDestaque;
+
+// aparência
+var root=document.documentElement,sws=document.getElementById('sws'),cc=document.getElementById('cc'),ed=document.getElementById('ed'),pn=document.getElementById('pn');
+ed.textContent=C.botaoAparencia;
+function aplicar(c){
+  root.style.setProperty('--ac',c);
+  var R=parseInt(c.substr(1,2),16),G=parseInt(c.substr(3,2),16),B=parseInt(c.substr(5,2),16);
+  root.style.setProperty('--on',(R*299+G*587+B*114)/1000>150?'#000':'#fff');
+  cc.value=c;
+  sws.querySelectorAll('.dot').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.c===c)});
+  try{localStorage.setItem('cor',c)}catch(e){}
+}
+C.cores.forEach(function(x){var b=el('button','dot',null,sws);b.style.background=x[1];b.dataset.c=x[1];b.title=x[0];b.setAttribute('aria-label',x[0]);b.setAttribute('aria-pressed','false');b.onclick=function(){aplicar(x[1])}});
+cc.oninput=function(){aplicar(cc.value)};
+ed.onclick=function(){var o=pn.classList.toggle('on');ed.setAttribute('aria-expanded',o)};
+var salva=null;try{salva=localStorage.getItem('cor')}catch(e){}
+aplicar(/^#[0-9a-f]{6}$/i.test(salva||'')?salva:C.corInicial);
+
+// links externos com aviso
+var md=document.getElementById('md'),go=document.getElementById('go');
+function fechar(){md.classList.remove('on')}
+document.querySelectorAll('a[target=_blank]').forEach(function(a){
+  if(a===go)return;
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    document.getElementById('mn').textContent=a.href.indexOf('tiktok')>-1?'TikTok':'Roblox';
+    document.getElementById('mu').textContent=a.href;
+    go.href=a.href;md.classList.add('on');go.focus();
+  });
+});
+go.addEventListener('click',function(){setTimeout(fechar,200)});
+document.getElementById('vl').onclick=fechar;
+md.addEventListener('click',function(e){if(e.target===md)fechar()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')fechar()});
+})();
 </script>
-
 </body>
 </html>
