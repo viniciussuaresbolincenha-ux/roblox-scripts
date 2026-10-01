@@ -67,7 +67,7 @@ var CONFIG = {
   seguranca: [
     ["Não baixa nada","Os botões só abrem o meu TikTok e o meu perfil do Roblox. Nenhum arquivo é baixado."],
     ["Nunca peço sua senha","Para fazer o script eu não preciso da sua senha nem do cookie do Roblox. Se alguém pedir isso, é golpe."],
-    ["Você confere antes","Antes de abrir qualquer link, o site mostra o endereço completo e você escolhe se quer continuar."]
+    ["Você confere antes","Antes de abrir qualquer link, o site mostra para onde você vai e você escolhe se quer continuar."]
   ],
 
   // final
@@ -152,15 +152,16 @@ footer{color:var(--mu);text-align:center;font-size:.85rem;padding:30px 20px}
 
 <div id="md" role="dialog" aria-modal="true" aria-labelledby="mt">
   <div class="bx">
-    <h3 id="mt">Você vai abrir o <span id="mn"></span></h3>
-    <p>Esse é o link do vendedor. Nenhum arquivo é baixado.</p>
+    <h3 id="mt">Link oficial do <span id="mn"></span> ✅</h3>
+    <p>Pode entrar tranquilo. Este é o perfil de verdade do vendedor, não baixa nada e nunca pede sua senha.</p>
     <span class="u" id="mu"></span>
     <div class="row">
-      <a class="btn pri" id="go" href="#" target="_blank" rel="noopener noreferrer">Continuar</a>
+      <a class="btn pri" id="go" href="#" target="_blank" rel="noopener noreferrer">Abrir com segurança</a>
       <button class="btn sec" id="vl" type="button">Voltar</button>
     </div>
   </div>
 </div>
+
 <footer id="rod"></footer>
 <button class="btn pri" id="ed" aria-expanded="false" aria-controls="pn"></button>
 <div id="pn" role="dialog" aria-label="Editar aparência">
@@ -198,7 +199,7 @@ el('b','','Painel ADM',bar);
 var abas=['Jogadores','Servidor','Avisos'],panes=[];
 var log=el('div','log',null,null);log.setAttribute('aria-live','polite');
 function say(a,b){if(log.dataset.v!=='1'){log.innerHTML='';log.dataset.v='1'}
-  var p=document.createElement('p');var e=el('em','',a,p);p.appendChild(document.createTextNode(' '+b));log.insertBefore(p,log.firstChild);while(log.children.length>4)log.lastChild.remove()}
+  var p=document.createElement('p');el('em','',a,p);p.appendChild(document.createTextNode(' '+b));log.insertBefore(p,log.firstChild);while(log.children.length>4)log.lastChild.remove()}
 abas.forEach(function(n,i){
   var t=el('button','tab',n,bar);t.setAttribute('role','tab');t.setAttribute('aria-selected',i===0);
   var p=el('div','pane'+(i===0?' on':''),null,dm);panes.push(p);
@@ -262,8 +263,9 @@ document.querySelectorAll('a[target=_blank]').forEach(function(a){
   if(a===go)return;
   a.addEventListener('click',function(e){
     e.preventDefault();
-    document.getElementById('mn').textContent=a.href.indexOf('tiktok')>-1?'TikTok':'Roblox';
-    document.getElementById('mu').textContent=a.href;
+    var tik=a.href.indexOf('tiktok')>-1;
+    document.getElementById('mn').textContent=tik?'TikTok':'Roblox';
+    document.getElementById('mu').textContent=tik?'@'+C.tiktokUser+' no TikTok':C.robloxUser+' no Roblox';
     go.href=a.href;md.classList.add('on');go.focus();
   });
 });
