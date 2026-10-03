@@ -48,7 +48,14 @@ var CONFIG = {
   acoes: ["Expulsar","Voar","Velocidade"],
   interruptores: [["Chat liberado",true],["Portões abertos",false],["Modo noite",false]],
 
-  // scripts à venda
+  // teste ao vivo (tag + portão)
+  labTitulo: "Veja no seu jogo, com o seu nome",
+  labTexto: "Escreva seu nome, escolha uma patente e teste o portão. É assim que fica para o jogador.",
+  labNomePadrao: "SeuNome",
+  labPatentes: [["Soldado","#9ca3af"],["Cabo","#22c55e"],["Sargento","#3b82f6"],["Tenente","#facc15"],["Capitão","#fb923c"],["General","#ef4444"]],
+  labPatenteMin: 2,   // posição da patente mínima para abrir o portão (0 = primeira da lista)
+
+  // scripts à venda (mantenha "Tags e patentes" e "Portões e portas" na 2ª e 3ª posição)
   scriptsTitulo: "O que eu faço",
   scriptsTexto: "Peça o que o seu jogo precisa. Se não estiver na lista, eu crio sob medida.",
   scripts: [
@@ -160,6 +167,24 @@ h2{font-size:1.75rem;letter-spacing:-.02em;margin-bottom:6px}
 .sw[aria-pressed=true]::after{transform:translateX(20px)}
 .log{background:#050505;border-top:1px solid var(--line);padding:12px 16px;font-size:.85rem;color:var(--mu);min-height:84px}
 .log p+p{margin-top:2px}.log em{color:var(--ac);font-style:normal}
+.lab{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.lc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.lc input,.lc select{background:#111;color:var(--tx);border:1px solid #333;border-radius:10px;padding:11px 12px;font:inherit;flex:1;min-width:130px}
+.cena{position:relative;height:230px;border-radius:12px;overflow:hidden;background:linear-gradient(#050505,#0d0d0d 70%,#161616 70%);border:1px solid var(--line)}
+.bon{position:absolute;bottom:38px;left:8%;width:60px;display:flex;flex-direction:column;align-items:center;transition:left .9s ease}
+.cena.perto .bon{left:calc(90% - 170px)}
+.tag{white-space:nowrap;font-size:.78rem;font-weight:700;padding:3px 9px;border-radius:6px;background:#000;border:2px solid var(--ac);margin-bottom:6px}
+.head{width:26px;height:26px;border-radius:6px;background:#d9d9d9}
+.corpo{width:40px;height:44px;border-radius:6px;background:var(--ac);margin-top:2px}
+.pernas{width:30px;height:26px;background:#333;border-radius:0 0 6px 6px}
+.gate{position:absolute;right:10%;bottom:38px;width:96px;height:124px;border:2px solid #333;border-radius:6px;overflow:hidden;background:radial-gradient(var(--ac),#000)}
+.gate i{position:absolute;top:0;bottom:0;width:50%;background:#1b1b1b;transition:transform .7s}
+.gate i:first-child{left:0;border-right:1px solid #333}
+.gate i:last-child{right:0}
+.gate.open i:first-child{transform:translateX(-100%)}
+.gate.open i:last-child{transform:translateX(100%)}
+.st2{margin:10px 0 14px;min-height:1.4em;font-weight:700}
+.st2.liberado{color:#22c55e}.st2.negado{color:#ef4444}
 .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
 .c h3{font-size:1.05rem;margin-bottom:4px}
@@ -289,6 +314,42 @@ C.interruptores.forEach(function(s){
   var l=el('div','pl',null,panes[2]);el('strong','',x[0],l);var b=el('button','sm',x[1],l);b.onclick=function(){say(x[1],x[2]+' '+x[3])}
 });
 dm.appendChild(log);el('p','','Nenhuma ação ainda. Toque em um botão acima.',log);
+
+// teste ao vivo
+var s8=sec('lab',C.labTitulo,C.labTexto);
+var lb=el('div','lab',null,s8),lc=el('div','lc',null,lb);
+var ln=el('input','',null,lc);ln.type='text';ln.maxLength=14;ln.value=C.labNomePadrao;ln.setAttribute('aria-label','Seu nome');
+var lp=el('select','',null,lc);lp.setAttribute('aria-label','Patente');
+C.labPatentes.forEach(function(p,i){var o=el('option','',p[0],lp);o.value=i});
+var lbt=el('button','btn sec','Aproximar do portão',lc);lbt.type='button';
+var cena=el('div','cena',null,lb),bon=el('div','bon',null,cena),tg=el('div','tag',null,bon);
+el('div','head',null,bon);el('div','corpo',null,bon);el('div','pernas',null,bon);
+var gt=el('div','gate',null,cena);el('i','',null,gt);el('i','',null,gt);
+var ls=el('p','st2',null,lb);ls.setAttribute('aria-live','polite');
+var tmo;
+function nomeLab(){return ln.value.trim()||C.labNomePadrao}
+function patLab(){return C.labPatentes[+lp.value]}
+function atualizarTag(){
+  clearTimeout(tmo);var p=patLab();
+  tg.textContent=nomeLab()+' | '+p[0];tg.style.borderColor=p[1];tg.style.color=p[1];
+  cena.classList.remove('perto');gt.classList.remove('open');ls.textContent='';ls.className='st2';
+}
+ln.oninput=atualizarTag;lp.onchange=atualizarTag;atualizarTag();
+lbt.onclick=function(){
+  clearTimeout(tmo);cena.classList.add('perto');
+  var ok=(+lp.value)>=C.labPatenteMin;
+  tmo=setTimeout(function(){
+    if(ok){gt.classList.add('open');ls.textContent='Acesso liberado para '+patLab()[0]+'.';ls.className='st2 liberado'}
+    else{ls.textContent='Acesso negado. Precisa ser '+C.labPatentes[C.labPatenteMin][0]+' ou mais.';ls.className='st2 negado'}
+    tmo=setTimeout(atualizarTag,3200);
+  },900);
+};
+var lcta=el('a','btn pri big','Quero isso no meu jogo',lb);lcta.href='#pedido';
+lcta.onclick=function(){
+  [1,2].forEach(function(k){if(inputs[k])inputs[k].checked=true});
+  montar();
+  ta.value=ta.value.replace('\nPode me falar o valor?','\nQuero igual ao teste do site: tag "'+nomeLab()+' | '+patLab()[0]+'" e portão que só abre para '+C.labPatentes[C.labPatenteMin][0]+' ou mais.\n\nPode me falar o valor?');
+};
 
 // scripts
 cards(sec('scripts',C.scriptsTitulo,C.scriptsTexto),C.scripts);
