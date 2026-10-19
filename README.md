@@ -102,6 +102,13 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 .sw button.on{border-color:var(--txt);box-shadow:0 0 0 2px var(--card) inset}
 .custom{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--mut)}
 .custom input{width:46px;height:32px;border:0;background:none;cursor:pointer}
+.topbar{background:var(--tint);border-bottom:1px solid var(--line);font-size:13px;color:var(--mut);padding:8px 0}
+.topbar .wrap{display:flex;gap:6px 18px;justify-content:center;flex-wrap:wrap;align-items:center}
+.topbar a{color:var(--gold2);font-weight:600}
+.topbar a:hover{text-decoration:underline}
+.hero .hero-contact{margin:40px auto 0;padding-top:28px;border-top:1px solid var(--line);max-width:560px}
+.hero .hero-contact p{margin:0 0 16px;font-size:14px;max-width:none}
+.hero-contact .btn{margin:0 5px 10px}
 /* Diamante 360 em loop */
 .gem-wrap{position:relative;width:190px;height:190px;margin:0 auto 18px;perspective:700px;animation:float 3.5s ease-in-out infinite}
 .glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 45%,transparent),transparent 65%);animation:pulse 3s ease-in-out infinite}
@@ -146,6 +153,12 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 </head>
 <body>
 
+<div class="topbar"><div class="wrap">
+  <span>📩 Contato:</span>
+  <a id="ftTiktok" href="#" target="_blank" rel="noopener">TikTok @vinlumexz00</a>
+  <a id="ftRoblox" href="#" target="_blank" rel="noopener">Roblox eyeywtwywywy</a>
+</div></div>
+
 <nav><div class="wrap">
   <a class="logo" href="#">LUMEX <span>FORGE</span></a>
   <ul id="menu"><li><a href="#loja">Loja</a></li><li><a href="#eb">Exército RP</a></li><li><a href="#como">Como funciona</a></li><li><a href="#faq">Dúvidas</a></li><li><a href="#contato">Contato</a></li></ul>
@@ -178,6 +191,11 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
     <div><b id="nProd">0</b><small>scripts</small></div>
     <div><b>Luau</b><small>código limpo</small></div>
     <div><b>Robux + R$</b><small>formas de pagar</small></div>
+  </div>
+  <div class="hero-contact">
+    <p>Fale com a gente e tire suas dúvidas</p>
+    <a class="btn gold" id="heroTiktok" href="#" target="_blank" rel="noopener">TikTok @vinlumexz00</a>
+    <a class="btn line" id="heroRoblox" href="#" target="_blank" rel="noopener">Roblox eyeywtwywywy</a>
   </div>
 </div></header>
 
@@ -228,7 +246,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
   </div>
 </div></section>
 
-<footer><div class="wrap">© <span id="ano"></span> Lumex Forge · <a id="ftTiktok" href="#" target="_blank" rel="noopener" style="color:var(--gold2)">TikTok @vinlumexz00</a> · <a id="ftRoblox" href="#" target="_blank" rel="noopener" style="color:var(--gold2)">Roblox eyeywtwywywy</a><br> Roblox e Roblox Studio são marcas da Roblox Corporation. Este site não é afiliado à Roblox nem ao Exército Brasileiro, e nenhum brasão ou insígnia oficial é incluído.</div></footer>
+<footer><div class="wrap">© <span id="ano"></span> Lumex Forge<br> Roblox e Roblox Studio são marcas da Roblox Corporation. Este site não é afiliado à Roblox nem ao Exército Brasileiro, e nenhum brasão ou insígnia oficial é incluído.</div></footer>
 
 <div class="modal" id="modal"><div class="box">
   <h3 id="mNome"></h3>
@@ -413,6 +431,8 @@ $("#lnkTiktok").href = CONFIG.tiktok;
 $("#ftTiktok").href = CONFIG.tiktok;
 $("#lnkRoblox").href = CONFIG.roblox;
 $("#ftRoblox").href = CONFIG.roblox;
+$("#heroTiktok").href = CONFIG.tiktok;
+$("#heroRoblox").href = CONFIG.roblox;
 $("#ano").textContent = new Date().getFullYear();
 
 /* Cores do site: caixinha de cores (lembra a escolha) */
