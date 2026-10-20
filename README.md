@@ -109,6 +109,53 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 .hero .hero-contact{margin:40px auto 0;padding-top:28px;border-top:1px solid var(--line);max-width:560px}
 .hero .hero-contact p{margin:0 0 16px;font-size:14px;max-width:none}
 .hero-contact .btn{margin:0 5px 10px}
+.box input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--txt);font:inherit;margin-bottom:8px}
+.box input:focus{outline:none;border-color:var(--gold)}
+.err{color:#ff7a7a;font-size:13px;min-height:18px;margin:2px 0 6px}
+.vpill{display:inline-block;background:hsl(var(--h) 55% 20%);border:1px solid hsl(var(--h) 70% 52%);color:hsl(var(--h) 90% 84%);border-radius:99px;padding:3px 10px;font-size:12px;font-weight:700;white-space:nowrap}
+.vtag{position:fixed;left:12px;bottom:12px;z-index:30;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 12px;display:flex;gap:8px;align-items:center}
+.vtag small{color:var(--mut);font-size:11px}
+.note{font-size:12px;color:var(--mut);margin:6px 0 12px}
+.admlink{color:var(--mut);font-size:12px;cursor:pointer;display:inline-block;margin-top:10px}
+.admlink:hover{color:var(--gold2)}
+.adm{position:fixed;inset:0;background:var(--bg);z-index:100;display:none;overflow:auto;padding:16px}
+.adm.open{display:block}
+.adm-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.adm-top b{font-size:18px}
+.admmodo{font-size:12px;color:var(--mut)}
+.grow{flex:1}
+.adm-login{display:flex;justify-content:center;margin-top:50px}
+.adm-login .box{max-width:380px;width:100%}
+.adm-tabs{display:flex;gap:8px;margin-bottom:14px}
+.adm-tabs .chip b{margin-left:6px;background:var(--gold);color:#111;border-radius:99px;padding:1px 8px;font-size:11px}
+.kan{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(290px,1fr);gap:14px;overflow-x:auto;padding-bottom:14px;align-items:start}
+.col{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
+.col h4{font-size:13px;margin-bottom:10px;display:flex;justify-content:space-between}
+.col h4 span{color:var(--mut)}
+.vazio{color:var(--mut);font-size:12px;text-align:center;padding:14px}
+.oc{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px;font-size:13px}
+.oc.new{border-color:var(--gold);animation:pulseb 2s ease-in-out infinite}
+@keyframes pulseb{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 14px color-mix(in srgb,var(--gold) 45%,transparent)}}
+.ocTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.ocTop small,.vrow small{color:var(--mut)}
+.ocMeta,.ocCont{color:var(--mut);margin-top:4px}
+.ocCont a{color:var(--gold2);margin-left:6px}
+.oc details{margin-top:10px}
+.oc summary{cursor:pointer;color:var(--gold2);font-weight:600}
+.oc textarea{width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px;color:var(--txt);font:12px/1.45 Inter,sans-serif;padding:8px;margin-top:8px;resize:vertical}
+.ocBtns{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.ocBtns button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:8px 10px;font:600 12px Inter,sans-serif;cursor:pointer}
+.ocBtns button:hover{border-color:var(--gold)}
+.ocBtns .bad:hover{border-color:#ff5a5a;color:#ff9a9a}
+.vrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
+.comp{color:var(--gold2)}
+.toast{position:fixed;right:16px;top:16px;z-index:200;background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:14px 18px;max-width:320px;box-shadow:0 10px 30px rgba(0,0,0,.6);font-size:14px}
+@media(max-width:760px){.vtag small{display:none}.kan{grid-auto-columns:88%}}
+.cb{position:relative;background:linear-gradient(160deg,var(--tint),var(--card));border-color:var(--tint2)}
+.cb.top{border-color:var(--gold)}
+.cb .off{position:absolute;top:16px;right:16px;background:var(--gold);color:#111;font-weight:900;font-size:13px;border-radius:8px;padding:4px 10px}
+.cb .de{color:var(--mut);text-decoration:line-through;font-size:13px}
+.cb .eco{color:var(--gold2);font-size:13px;font-weight:600;margin-bottom:12px}
 /* Diamante 360 em loop */
 .gem-wrap{position:relative;width:190px;height:190px;margin:0 auto 18px;perspective:700px;animation:float 3.5s ease-in-out infinite}
 .glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 45%,transparent),transparent 65%);animation:pulse 3s ease-in-out infinite}
@@ -161,7 +208,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 
 <nav><div class="wrap">
   <a class="logo" href="#">LUMEX <span>FORGE</span></a>
-  <ul id="menu"><li><a href="#loja">Loja</a></li><li><a href="#eb">Exército RP</a></li><li><a href="#como">Como funciona</a></li><li><a href="#faq">Dúvidas</a></li><li><a href="#contato">Contato</a></li></ul>
+  <ul id="menu"><li><a href="#combos">Combos</a></li><li><a href="#loja">Loja</a></li><li><a href="#eb">Exército RP</a></li><li><a href="#como">Como funciona</a></li><li><a href="#faq">Dúvidas</a></li><li><a href="#contato">Contato</a></li></ul>
   <div class="right">
     <div class="palette" id="palette">
       <button class="pbtn" id="pbtn" aria-haspopup="true" aria-label="Escolher cor do site"><i></i><span>Cores</span></button>
@@ -185,8 +232,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
   <span class="badge">SCRIPTS PARA ROBLOX STUDIO</span>
   <h1>Acelere o seu jogo com scripts <em>prontos e elegantes</em></h1>
   <p>Sistemas completos, organizados e fáceis de instalar para quem cria jogos no Roblox Studio. Pague com Robux ou com dinheiro.</p>
-  <a class="btn gold" href="#loja">Explorar a loja</a>
-  <a class="btn line" href="#como">Como funciona</a>
+  <a class="btn gold" href="#combos">Ver pacotes com desconto</a>
+  <a class="btn line" href="#loja">Explorar a loja</a>
   <div class="stats">
     <div><b id="nProd">0</b><small>scripts</small></div>
     <div><b>Luau</b><small>código limpo</small></div>
@@ -198,6 +245,12 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
     <a class="btn line" id="heroRoblox" href="#" target="_blank" rel="noopener">Roblox eyeywtwywywy</a>
   </div>
 </div></header>
+
+<section id="combos"><div class="wrap">
+  <h2>Pacotes com desconto</h2>
+  <p class="sub">Leve o pacote completo e pague bem menos do que comprando script por script.</p>
+  <div class="grid" id="comboGrid"></div>
+</div></section>
 
 <section id="loja"><div class="wrap">
   <h2>Loja de scripts</h2>
@@ -246,13 +299,55 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
   </div>
 </div></section>
 
-<footer><div class="wrap">© <span id="ano"></span> Lumex Forge<br> Roblox e Roblox Studio são marcas da Roblox Corporation. Este site não é afiliado à Roblox nem ao Exército Brasileiro, e nenhum brasão ou insígnia oficial é incluído.</div></footer>
+<footer><div class="wrap">© <span id="ano"></span> Lumex Forge<br> Roblox e Roblox Studio são marcas da Roblox Corporation. Este site não é afiliado à Roblox nem ao Exército Brasileiro, e nenhum brasão ou insígnia oficial é incluído.<br><a href="#painel" id="abrirPainel" class="admlink">🔐 Painel do criador</a></div></footer>
+
+<div class="vtag" id="vtag"></div>
+
+<div class="adm" id="adm">
+  <div class="adm-top">
+    <b>🛡️ Painel do Criador</b>
+    <span class="admmodo" id="admModo"></span>
+    <span class="grow"></span>
+    <button class="chip" id="admNotif">🔔 Ativar avisos</button>
+    <button class="chip" id="admFechar">Fechar</button>
+    <button class="chip" id="admSair">Sair</button>
+  </div>
+  <div class="adm-login" id="admLogin"><div class="box">
+    <h3>Entrar no painel</h3>
+    <p id="admAviso"></p>
+    <input id="admEmail" type="email" placeholder="E-mail" autocomplete="username">
+    <input id="admSenha" type="password" placeholder="Senha" autocomplete="current-password">
+    <div class="err" id="admErro"></div>
+    <button class="btn gold" id="admEntrar" style="width:100%">Entrar</button>
+  </div></div>
+  <div id="admMain" style="display:none">
+    <div class="adm-tabs">
+      <button class="chip on" data-tab="ped">Pedidos <b id="cNovos">0</b></button>
+      <button class="chip" data-tab="vis">Visitantes</button>
+    </div>
+    <div id="tabPed"><div class="kan" id="kan"></div></div>
+    <div id="tabVis" style="display:none"><div id="visList"></div></div>
+  </div>
+</div>
 
 <div class="modal" id="modal"><div class="box">
   <h3 id="mNome"></h3>
-  <p>Escolha como deseja pagar:</p>
+  <div id="mStep1"><p>Escolha como deseja pagar:</p>
   <button class="opt" id="mRbx"><span>Comprar com Robux<small>Pagamento pelo Roblox</small></span><em id="mRbxP"></em></button>
   <button class="opt" id="mPix"><span>Pagar com dinheiro<small>Pix, cartão ou link de pagamento</small></span><em id="mPixP"></em></button>
+  </div>
+  <div id="mStep2" style="display:none">
+    <p>Para eu te chamar e entregar o script, informe seu contato:</p>
+    <input id="mContato" type="text" maxlength="80" placeholder="@seutiktok, usuário do Roblox ou WhatsApp">
+    <div class="err" id="mErro"></div>
+    <p class="note">Seu contato é usado só para te enviar o pedido.</p>
+    <button class="btn gold" id="mOk" style="width:100%">Confirmar pedido</button>
+  </div>
+  <div id="mStep3" style="display:none">
+    <p>✅ Pedido enviado! Em instantes o criador vai te chamar pelo contato informado.</p>
+    <p>Sua etiqueta neste pedido: <span id="mTagOk"></span></p>
+    <button class="btn gold" id="mFim" style="width:100%">Fechar</button>
+  </div>
   <button class="close" id="mClose">Cancelar</button>
 </div></div>
 
@@ -261,7 +356,13 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 const CONFIG = {
   tiktok: "https://www.tiktok.com/@vinlumexz00",
   roblox: "https://www.roblox.com/search/users?keyword=eyeywtwywywy",
-  moeda: "R$"
+  moeda: "R$",
+  pix: "SUA-CHAVE-PIX",      // sua chave Pix (aparece na mensagem pronta)
+  pinLocal: "1234",          // PIN do painel no MODO TESTE (troque!)
+  adminEmail: "encomuevade@gmail.com",  // e-mail do criador: já vem preenchido no login do painel
+  firebase: {                // cole aqui os dados do seu projeto Firebase (veja o guia)
+    apiKey: "", authDomain: "", projectId: "", appId: ""
+  }
 };
 
 /* Para cada produto: troque linkRobux pelo link do seu Game Pass
@@ -419,12 +520,50 @@ $("#grid").addEventListener("click", e => {
   $("#mNome").textContent = atual.nome;
   $("#mRbxP").textContent = atual.rbx + " Robux";
   $("#mPixP").textContent = fmt(atual.brl);
-  $("#modal").classList.add("open");
+  mostrarPasso(1); $("#modal").classList.add("open");
 });
-$("#mRbx").onclick = () => abrir(atual.linkRobux);
-$("#mPix").onclick = () => abrir(atual.linkPay);
 $("#mClose").onclick = () => $("#modal").classList.remove("open");
 $("#modal").addEventListener("click", e => { if(e.target.id === "modal") $("#modal").classList.remove("open"); });
+
+/* Pacotes com desconto: o preço é calculado somando os scripts do grupo e aplicando o desconto (off) */
+const COMBOS = [
+  {titulo:"Pacote Exército RP Completo", grupo:"Militar EB", ico:"🎖️", off:40, top:true, desc:"Patentes, comando, fichas, cursos, rádio, arsenal e mais."},
+  {titulo:"Pacote Cidade Roleplay", grupo:"Roleplay", ico:"🏙️", off:40, top:true, desc:"Documentos, celular, banco, empregos, casas, polícia e hospital."},
+  {titulo:"Pacote Simulador de Pets", grupo:"Pets & Simulador", ico:"🐾", off:35, desc:"Ovos, trocas, rebirth, mundos, batalhas e conquistas."},
+  {titulo:"Pacote Anime RPG", grupo:"Anime RPG", ico:"⚔️", off:35, desc:"Poderes, níveis, missões, chefes, combate e classes."},
+  {titulo:"Pacote Arena PvP", grupo:"PvP & Tiro", ico:"🎯", off:35, desc:"Armas, partidas, loadouts, battle royale e polícia e ladrão."},
+  {titulo:"Pacote Terror e Sobrevivência", grupo:"Terror & Sobrevivência", ico:"👹", off:30, desc:"Portas, monstro com IA, cutscenes, craft e fogueira."},
+  {titulo:"Pacote Veículos", grupo:"Veículos", ico:"🚗", off:30, desc:"Carros, garagem, combustível, concessionária, barcos e aeronaves."},
+  {titulo:"Pacote Minigames", grupo:"Minigames", ico:"🎲", off:30, desc:"Assassino e xerife, pique-esconde, votação, lobby e espectador."}
+];
+COMBOS.forEach(c => {
+  const it = PRODUTOS.filter(p => p.cat === c.grupo);
+  c.n = it.length;
+  c.soma = it.reduce((a, p) => a + p.brl, 0);
+  c.brl = Math.round(c.soma * (1 - c.off / 100) * 10) / 10;
+  c.rbx = Math.round(it.reduce((a, p) => a + p.rbx, 0) * (1 - c.off / 100));
+  c.eco = c.soma - c.brl;
+  c.nome = c.titulo + " (" + c.n + " scripts)";
+  c.cat = "Combo"; c.linkRobux = "#"; c.linkPay = "#";   // cole aqui os links de pagamento do pacote
+});
+$("#comboGrid").innerHTML = COMBOS.map((c, i) => `
+  <article class="card cb ${c.top ? "top" : ""}">
+    <span class="off">-${c.off}%</span>
+    <div class="ico">${c.ico}</div>
+    <h3>${c.titulo}</h3>
+    <p>${c.desc} Inclui ${c.n} scripts.</p>
+    <div class="price"><div><span class="de">${fmt(c.soma)}</span><br><b>${fmt(c.brl)}</b></div><i>ou ${c.rbx} R$ Robux</i></div>
+    <div class="eco">Você economiza ${fmt(c.eco)}</div>
+    <button class="btn gold" data-k="${i}">Quero o pacote</button>
+  </article>`).join("");
+$("#comboGrid").addEventListener("click", e => {
+  const k = e.target.dataset.k; if (k === undefined) return;
+  atual = COMBOS[k];
+  $("#mNome").textContent = atual.nome;
+  $("#mRbxP").textContent = atual.rbx + " Robux";
+  $("#mPixP").textContent = fmt(atual.brl);
+  mostrarPasso(1); $("#modal").classList.add("open");
+});
 
 $("#nProd").textContent = PRODUTOS.length;
 $("#lnkTiktok").href = CONFIG.tiktok;
@@ -509,6 +648,241 @@ $("#verEB").onclick=()=>{catAtual="Militar EB";chips();render();location.hash="#
 $("#burger").onclick = () => $("#menu").classList.toggle("open");
 $("#menu").addEventListener("click", e => { if(e.target.tagName === "A") $("#menu").classList.remove("open"); });
 chips(); render();
+</script>
+<script>
+/* ===== Pedidos, etiqueta de visitante e painel do criador ===== */
+const TIT = document.title;
+const lsGet = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+const esc = t => String(t == null ? "" : t).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* Mensagens prontas (edite o texto à vontade). Campos: {contato} {produto} {valor} {tag} {link} {pix} {loja} */
+const MSG = {
+  Robux: "Olá {contato}! 👋 Aqui é da {loja}.\nRecebi o seu pedido ({tag}): *{produto}* por {valor}.\n\nPara pagar com Robux, compre este Game Pass:\n{link}\n\nAssim que o pagamento cair, eu te envio o script e o guia de instalação. Qualquer dúvida é só me chamar! 🚀",
+  Dinheiro: "Olá {contato}! 👋 Aqui é da {loja}.\nRecebi o seu pedido ({tag}): *{produto}* por {valor}.\n\nPara pagar, use o Pix:\n{pix}{linkpay}\n\nDepois me mande o comprovante por aqui que eu te envio o script e o guia de instalação. Qualquer dúvida é só me chamar! 🚀"
+};
+function montarMsg(o) {
+  const campos = {
+    contato: o.contato, produto: o.produto, valor: o.valor, tag: o.tag,
+    link: o.link || "(vou te enviar o link)", pix: CONFIG.pix, loja: "Lumex Forge",
+    linkpay: o.link ? "\nOu pague pelo link: " + o.link : ""
+  };
+  return (MSG[o.pagamento] || MSG.Dinheiro).replace(/\{(\w+)\}/g, (_, k) => campos[k] == null ? "" : campos[k]);
+}
+
+/* ---------- Etiqueta do visitante ---------- */
+/* A etiqueta é sorteada pelo sistema (ninguém escolhe) e fica guardada neste navegador */
+const ETQ_BICHO = [["🦊","Raposa"],["🐺","Lobo"],["🦅","Águia"],["🐉","Dragão"],["🦁","Leão"],["🐯","Tigre"],["🦈","Tubarão"],["🐼","Panda"],["🦉","Coruja"],["🐙","Polvo"],["🦄","Unicórnio"],["🐧","Pinguim"],["🦋","Borboleta"],["🐢","Tartaruga"],["🦖","Dinossauro"],["🐸","Sapo"],["🐬","Golfinho"],["🦂","Escorpião"],["🐻","Urso"],["🦜","Papagaio"]];
+const ETQ_ESTILO = ["Neon","Turbo","Astral","Pixel","Laser","Veloz","Feroz","Audaz","Ágil","Radiante","Brilhante","Cometa","Trovão","Fantasma","Ninja","Vulcão"];
+const sorteio = n => { try { const a = new Uint32Array(1); crypto.getRandomValues(a); return a[0] % n; } catch (e) { return Math.floor(Math.random() * n); } };
+function sortearEtiqueta() {
+  const [e, b] = ETQ_BICHO[sorteio(ETQ_BICHO.length)];
+  return e + " " + b + " " + ETQ_ESTILO[sorteio(ETQ_ESTILO.length)] + " #" + (100 + sorteio(900));
+}
+let VTAG = lsGet("vtag", null);
+if (!VTAG || /^V-/.test(VTAG)) { VTAG = sortearEtiqueta(); lsSet("vtag", VTAG); }
+const matiz = t => { let h = 0; for (const c of String(t)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
+const pill = t => `<span class="vpill" style="--h:${matiz(t)}">${esc(t)}</span>`;
+$("#vtag").innerHTML = pill(VTAG) + "<small>sua etiqueta</small>";
+
+/* ---------- Banco de dados: Firebase (online) ou local (teste) ---------- */
+const FB = CONFIG.firebase || {};
+const DB = { mode: "local", refresh: {} };
+const carregar = src => new Promise((ok, er) => { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = er; document.head.appendChild(s); });
+DB.pronto = (async () => {
+  if (!FB.apiKey) return;
+  try {
+    const b = "https://www.gstatic.com/firebasejs/10.12.2/firebase-";
+    await carregar(b + "app-compat.js"); await carregar(b + "auth-compat.js"); await carregar(b + "firestore-compat.js");
+    firebase.initializeApp(FB);
+    DB.mode = "firebase"; DB.auth = firebase.auth(); DB.fs = firebase.firestore();
+  } catch (e) { console.warn("Firebase não carregou; usando modo local.", e); }
+})();
+DB.add = async (col, o) => {
+  await DB.pronto;
+  o.t = Date.now();
+  if (DB.mode === "firebase") { await DB.fs.collection(col).add(o); return; }
+  const a = lsGet(col, []); o.id = o.t + Math.random().toString(36).slice(2, 5); a.push(o); lsSet(col, a);
+  if (DB.refresh[col]) DB.refresh[col]();
+};
+DB.up = async (col, id, patch) => {
+  await DB.pronto;
+  if (DB.mode === "firebase") { await DB.fs.collection(col).doc(id).update(patch); return; }
+  lsSet(col, lsGet(col, []).map(x => x.id === id ? { ...x, ...patch } : x));
+  if (DB.refresh[col]) DB.refresh[col]();
+};
+DB.on = async (col, cb) => {
+  await DB.pronto;
+  if (DB.mode === "firebase") {
+    return DB.fs.collection(col).orderBy("t", "desc").limit(300).onSnapshot(
+      q => cb(q.docs.map(d => ({ id: d.id, ...d.data() }))),
+      er => toast("⚠️ Sem acesso a " + col + " (" + er.code + "). Confira as regras do Firestore e o e-mail do criador.")
+    );
+  }
+  const ler = () => cb(lsGet(col, []).slice().sort((a, b) => b.t - a.t));
+  DB.refresh[col] = ler;
+  window.addEventListener("storage", e => { if (e.key === col) ler(); });
+  ler();
+  return () => {};
+};
+
+/* Registra a visita (uma vez por sessão) */
+(() => {
+  let j = false;
+  try { j = sessionStorage.getItem("vis"); sessionStorage.setItem("vis", "1"); } catch (e) {}
+  if (!j) DB.add("visitas", { tag: VTAG, disp: /Mobi|Android/i.test(navigator.userAgent) ? "📱 Celular" : "💻 Computador" }).catch(() => {});
+})();
+
+/* ---------- Pedido do cliente (janela de compra em 3 passos) ---------- */
+let formaSel = "";
+function mostrarPasso(n) {
+  ["1", "2", "3"].forEach(i => { $("#mStep" + i).style.display = i == n ? "block" : "none"; });
+  if (n == 2) setTimeout(() => $("#mContato").focus(), 50);
+}
+function criarPedido(forma, contato) {
+  const link = forma === "Robux" ? atual.linkRobux : atual.linkPay;
+  const ok = (link || "").startsWith("http");
+  DB.add("pedidos", {
+    tag: VTAG, produto: atual.nome, cat: atual.cat, pagamento: forma,
+    valor: forma === "Robux" ? atual.rbx + " Robux" : fmt(atual.brl),
+    contato: contato.slice(0, 80), link: ok ? link : "", status: "novo"
+  }).catch(e => console.warn("Pedido não enviado", e));
+  if (ok) window.open(link, "_blank", "noopener");
+}
+$("#mRbx").onclick = () => { formaSel = "Robux"; mostrarPasso(2); };
+$("#mPix").onclick = () => { formaSel = "Dinheiro"; mostrarPasso(2); };
+$("#mOk").onclick = () => {
+  const c = $("#mContato").value.trim();
+  if (c.length < 3) { $("#mErro").textContent = "Informe seu TikTok, Roblox ou WhatsApp para eu te chamar."; $("#mContato").focus(); return; }
+  $("#mErro").textContent = "";
+  criarPedido(formaSel, c);
+  $("#mTagOk").innerHTML = pill(VTAG);
+  $("#mContato").value = "";
+  mostrarPasso(3);
+};
+$("#mFim").onclick = () => $("#modal").classList.remove("open");
+
+/* ---------- Painel do criador ---------- */
+let PEDIDOS = [], VISITAS = [], conhecidos = null, ligado = false, unsubs = [];
+const COLS = [["novo", "🆕 Novos"], ["atendendo", "💬 Atendendo"], ["pago", "💰 Pagos"], ["entregue", "📦 Entregues"], ["cancelado", "✖ Cancelados"]];
+const PROX = { novo: ["atendendo", "▶️ Iniciar atendimento"], atendendo: ["pago", "✅ Marcar como pago"], pago: ["entregue", "📦 Marcar entregue"] };
+const hora = t => new Date(t).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+
+function toast(t) {
+  const d = document.createElement("div");
+  d.className = "toast"; d.textContent = t;
+  d.style.top = (16 + document.querySelectorAll(".toast").length * 76) + "px";
+  document.body.appendChild(d); setTimeout(() => d.remove(), 9000);
+}
+function bip() {
+  try {
+    const a = new (window.AudioContext || window.webkitAudioContext)(), o = a.createOscillator(), g = a.createGain();
+    o.connect(g); g.connect(a.destination); o.frequency.value = 880; g.gain.setValueAtTime(.15, a.currentTime);
+    o.start(); o.stop(a.currentTime + .3);
+  } catch (e) {}
+}
+function avisar(o) {
+  toast("🔔 Novo pedido! " + o.tag + " quer " + o.produto + " (" + o.pagamento + ")");
+  bip();
+  try { if (Notification.permission === "granted") new Notification("Novo pedido na Lumex Forge", { body: o.tag + " · " + o.produto + " · " + o.valor }); } catch (e) {}
+}
+function card(o, st) {
+  const p = PROX[st], c = o.contato || "";
+  const tk = c[0] === "@" ? ` <a href="https://www.tiktok.com/@${encodeURIComponent(c.slice(1))}" target="_blank" rel="noopener">abrir TikTok</a>` : "";
+  return `<div class="oc ${st === "novo" ? "new" : ""}" data-id="${esc(o.id)}">
+    <div class="ocTop">${pill(o.tag || "?")}<small>${hora(o.t)}</small></div>
+    <b>${esc(o.produto)}</b>
+    <div class="ocMeta">${o.pagamento === "Robux" ? "🟣 Robux" : "💵 Dinheiro"} · ${esc(o.valor)}</div>
+    <div class="ocCont">👤 ${esc(c)}${tk}</div>
+    <details ${st === "novo" ? "open" : ""}><summary>Mensagem pronta</summary><textarea readonly rows="8">${esc(montarMsg(o))}</textarea></details>
+    <div class="ocBtns"><button data-a="copy">📋 Copiar mensagem</button>${p ? `<button data-a="st" data-s="${p[0]}">${p[1]}</button>` : ""}${st === "cancelado" ? '<button data-a="st" data-s="novo">↩ Reabrir</button>' : st !== "entregue" ? '<button class="bad" data-a="st" data-s="cancelado">✖ Cancelar</button>' : ""}</div>
+  </div>`;
+}
+function renderKan() {
+  const n = PEDIDOS.filter(o => (o.status || "novo") === "novo").length;
+  $("#cNovos").textContent = n;
+  document.title = (n ? "🔔 (" + n + ") " : "") + TIT;
+  $("#kan").innerHTML = COLS.map(([st, tt]) => {
+    const l = PEDIDOS.filter(o => (o.status || "novo") === st);
+    return `<div class="col"><h4>${tt}<span>${l.length}</span></h4>${l.map(o => card(o, st)).join("") || '<div class="vazio">vazio</div>'}</div>`;
+  }).join("");
+}
+function renderVis() {
+  $("#visList").innerHTML = `<p class="sub">${VISITAS.length} visitas registradas (as últimas 150 aparecem aqui)</p>` +
+    VISITAS.slice(0, 150).map(v => {
+      const n = PEDIDOS.filter(o => o.tag === v.tag).length;
+      return `<div class="vrow">${pill(v.tag)}<span>${esc(v.disp || "")}</span><small>${hora(v.t)}</small>${n ? `<b class="comp">🛒 ${n} pedido(s)</b>` : ""}</div>`;
+    }).join("");
+}
+function aoReceberPedidos(lista) {
+  PEDIDOS = lista;
+  const novos = conhecidos ? lista.filter(o => !conhecidos.has(o.id)) : [];
+  conhecidos = new Set(lista.map(o => o.id));
+  renderKan(); renderVis();
+  novos.forEach(avisar);
+}
+async function iniciarPainel() {
+  $("#admLogin").style.display = "none"; $("#admMain").style.display = "block";
+  if (ligado) return;
+  ligado = true;
+  unsubs.push(await DB.on("pedidos", aoReceberPedidos));
+  unsubs.push(await DB.on("visitas", l => { VISITAS = l; renderVis(); }));
+}
+function pararPainel() {
+  ligado = false; conhecidos = null; PEDIDOS = []; VISITAS = [];
+  unsubs.forEach(f => { try { f(); } catch (e) {} }); unsubs = [];
+  document.title = TIT;
+  $("#admLogin").style.display = "flex"; $("#admMain").style.display = "none";
+}
+async function abrirPainel() {
+  $("#adm").classList.add("open"); document.body.style.overflow = "hidden";
+  await DB.pronto;
+  const fb = DB.mode === "firebase";
+  $("#admModo").textContent = fb ? "🟢 Online" : "🟡 Modo teste (só neste navegador)";
+  $("#admEmail").style.display = fb ? "block" : "none";
+  if (fb && CONFIG.adminEmail && !$("#admEmail").value) { $("#admEmail").value = CONFIG.adminEmail; setTimeout(() => $("#admSenha").focus(), 50); }
+  $("#admSenha").placeholder = fb ? "Senha" : "PIN";
+  $("#admAviso").textContent = fb ? "Entre com o e-mail e a senha do criador." : "Modo teste: configure o Firebase para receber pedidos de qualquer pessoa. Digite o PIN definido em CONFIG.pinLocal.";
+}
+DB.pronto.then(() => { if (DB.mode === "firebase") DB.auth.onAuthStateChanged(u => u ? iniciarPainel() : pararPainel()); });
+
+$("#abrirPainel").onclick = e => { e.preventDefault(); abrirPainel(); };
+if (location.hash === "#painel") abrirPainel();
+$("#admFechar").onclick = () => { $("#adm").classList.remove("open"); document.body.style.overflow = ""; };
+$("#admSair").onclick = async () => {
+  await DB.pronto;
+  if (DB.mode === "firebase") await DB.auth.signOut(); else pararPainel();
+  $("#admFechar").click();
+};
+$("#admEntrar").onclick = async () => {
+  $("#admErro").textContent = "";
+  try {
+    await DB.pronto;
+    if (DB.mode === "firebase") await DB.auth.signInWithEmailAndPassword($("#admEmail").value.trim(), $("#admSenha").value);
+    else if ($("#admSenha").value === CONFIG.pinLocal) iniciarPainel();
+    else throw new Error("PIN incorreto");
+  } catch (e) { $("#admErro").textContent = "Não foi possível entrar: " + (e.message || "erro"); }
+};
+$("#admSenha").addEventListener("keydown", e => { if (e.key === "Enter") $("#admEntrar").click(); });
+$("#admNotif").onclick = async () => {
+  try { const r = await Notification.requestPermission(); toast(r === "granted" ? "🔔 Avisos do navegador ativados" : "Avisos bloqueados no navegador"); }
+  catch (e) { toast("Este navegador não permite avisos"); }
+  bip();
+};
+document.querySelectorAll(".adm-tabs .chip").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".adm-tabs .chip").forEach(x => x.classList.toggle("on", x === b));
+  $("#tabPed").style.display = b.dataset.tab === "ped" ? "block" : "none";
+  $("#tabVis").style.display = b.dataset.tab === "vis" ? "block" : "none";
+});
+$("#kan").addEventListener("click", async e => {
+  const b = e.target.closest("button[data-a]"); if (!b) return;
+  const c = b.closest(".oc");
+  if (b.dataset.a === "copy") {
+    const ta = c.querySelector("textarea");
+    try { await navigator.clipboard.writeText(ta.value); } catch (_) { ta.select(); document.execCommand("copy"); }
+    b.textContent = "✔ Copiado!"; setTimeout(() => { b.textContent = "📋 Copiar mensagem"; }, 1500);
+  } else DB.up("pedidos", c.dataset.id, { status: b.dataset.s }).catch(er => toast("Erro ao atualizar: " + er.message));
+});
 </script>
 </body>
 </html>
