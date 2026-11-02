@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lumex Forge | Scripts para Roblox Studio</title>
 <meta name="description" content="Scripts prontos para Roblox Studio: roleplay, Exército RP, pets, anime RPG, tiro, terror e mais. Pacotes com desconto, Pix ou Robux.">
-<meta name="theme-color" content="#0a0a0b">
+<meta name="theme-color" content="#0a0b10">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lumex Forge | Scripts para Roblox Studio">
 <meta property="og:description" content="Sistemas prontos para o seu jogo no Roblox Studio, com pacotes e desconto. Pague com Pix ou Robux.">
@@ -15,18 +15,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0a0b;--card:#131316;--line:#26262c;--txt:#f2f2f3;--mut:#8b8b95;--gold:#d4af37;--gold2:#f5d77a;--tint:color-mix(in srgb,var(--gold) 12%,#0a0a0b);--tint2:color-mix(in srgb,var(--gold) 30%,#0a0a0b)}
-[data-theme=azul]{--gold:#3b9eff;--gold2:#8ccbff}
-[data-theme=roxo]{--gold:#9b6bff;--gold2:#c9b0ff}
-[data-theme=verde]{--gold:#2fd18b;--gold2:#8cf0c3}
-[data-theme=rosa]{--gold:#ff5fa2;--gold2:#ffa6cc}
-[data-theme=vermelho]{--gold:#ff4d4d;--gold2:#ff9c9c}
+:root{
+  /* Paleta "Obsidiana & Ametista": fundo azul-noite, neutros platina e UM acento (ametista). --gold/--gold2 = acento e acento claro */
+  --bg:#0a0b10;--card:#11131b;--line:#232636;--txt:#f1f2f7;--mut:#9096aa;
+  --gold:#6f5fe6;--gold2:#b8adff;
+  --tint:color-mix(in srgb,var(--gold) 12%,#0a0b10);--tint2:color-mix(in srgb,var(--gold) 30%,#0a0b10);
+  --brilho:linear-gradient(100deg,#e6e8f4 0%,var(--gold2) 40%,#dcd8ff 62%,#e6e8f4 100%)
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;line-height:1.55}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-nav{position:sticky;top:0;z-index:20;background:rgba(10,10,11,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{position:sticky;top:0;z-index:20;background:rgba(10,11,16,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{font-weight:900;letter-spacing:.18em;font-size:20px}
 .logo span{color:var(--gold);margin-left:2px}
@@ -38,7 +39,7 @@ nav ul a:hover{color:var(--txt)}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{max-width:560px;margin:20px auto 32px;color:var(--mut);font-size:17px}
 .btn{display:inline-block;border:0;cursor:pointer;font:600 15px Inter,sans-serif;padding:13px 26px;border-radius:10px;transition:.18s}
-.btn.gold{background:linear-gradient(90deg,var(--gold),var(--gold2));color:#111}
+.btn.gold{background:linear-gradient(90deg,var(--gold),var(--gold2));color:#fff}
 .btn.gold:hover{transform:translateY(-2px);box-shadow:0 8px 24px color-mix(in srgb,var(--gold) 35%,transparent)}
 .btn.line{background:transparent;border:1px solid var(--line);color:var(--txt)}
 .btn.line:hover{border-color:var(--gold);color:var(--gold2)}
@@ -54,7 +55,7 @@ h2{font-size:30px;font-weight:700;margin-bottom:8px}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
 .chip{background:var(--card);border:1px solid var(--line);color:var(--mut);border-radius:99px;padding:8px 16px;font:500 13px Inter,sans-serif;cursor:pointer;transition:.15s}
 .chip:hover{color:var(--txt)}
-.chip.on{background:var(--gold);border-color:var(--gold);color:#111;font-weight:700}
+.chip.on{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:700}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;transition:.2s}
 .card:hover{border-color:var(--gold);transform:translateY(-4px)}
@@ -75,7 +76,7 @@ h2{font-size:30px;font-weight:700;margin-bottom:8px}
 .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
 .faq summary{cursor:pointer;font-weight:600}
 .faq p{color:var(--mut);margin-top:10px;font-size:14px}
-.cta{text-align:center;background:linear-gradient(135deg,var(--tint),#0f0f11);border:1px solid var(--tint2);border-radius:20px;padding:56px 24px}
+.cta{text-align:center;background:linear-gradient(135deg,var(--tint),#0d0f17);border:1px solid var(--tint2);border-radius:20px;padding:56px 24px}
 footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--mut);font-size:13px}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);display:none;place-items:center;z-index:50;padding:20px}
 .modal.open{display:grid}
@@ -136,7 +137,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 .adm-login{display:flex;justify-content:center;margin-top:50px}
 .adm-login .box{max-width:380px;width:100%}
 .adm-tabs{display:flex;gap:8px;margin-bottom:14px}
-.adm-tabs .chip b{margin-left:6px;background:var(--gold);color:#111;border-radius:99px;padding:1px 8px;font-size:11px}
+.adm-tabs .chip b{margin-left:6px;background:var(--gold);color:#fff;border-radius:99px;padding:1px 8px;font-size:11px}
 .kan{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(290px,1fr);gap:14px;overflow-x:auto;padding-bottom:14px;align-items:start}
 .col{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
 .col h4{font-size:13px;margin-bottom:10px;display:flex;justify-content:space-between}
@@ -171,8 +172,8 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 .bot-h button{background:none;border:0;color:var(--mut);cursor:pointer;font-size:16px}
 .bot-b{padding:14px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:8px;min-height:120px}
 .bm{max-width:88%;padding:9px 12px;border-radius:12px;font-size:13px;line-height:1.5}
-.bm.bot{background:var(--bg);border:1px solid var(--line);align-self:flex-start}
-.bm.eu{background:var(--gold);color:#111;align-self:flex-end;font-weight:600}
+.bm.bt{background:var(--bg);border:1px solid var(--line);align-self:flex-start}
+.bm.eu{background:var(--gold);color:#fff;align-self:flex-end;font-weight:600}
 .bot-f{padding:10px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px;max-height:34vh;overflow:auto}
 .bot-f button{background:var(--bg);border:1px solid var(--line);color:var(--txt);border-radius:99px;padding:8px 12px;font:600 12px Inter,sans-serif;cursor:pointer}
 .bot-f button:hover{border-color:var(--gold);color:var(--gold2)}
@@ -184,7 +185,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 @media(max-width:760px){.vtag .vt-s{display:none}.kan{grid-auto-columns:88%}}
 .cb{position:relative;background:linear-gradient(160deg,var(--tint),var(--card));border-color:var(--tint2)}
 .cb.top{border-color:var(--gold)}
-.cb .off{position:absolute;top:16px;right:16px;background:var(--gold);color:#111;font-weight:900;font-size:13px;border-radius:8px;padding:4px 10px}
+.cb .off{position:absolute;top:16px;right:16px;background:var(--gold);color:#fff;font-weight:900;font-size:13px;border-radius:8px;padding:4px 10px}
 .cb .de{color:var(--mut);text-decoration:line-through;font-size:13px}
 .cb .eco{color:var(--gold2);font-size:13px;font-weight:600;margin-bottom:12px}
 .trust{padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -198,7 +199,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 .demo{display:inline-block;font-size:13px;color:var(--gold2);font-weight:600;margin-bottom:12px}
 .cupom{display:flex;gap:8px;align-items:center;margin-top:6px}
 .cupom input{margin:0}
-.cartbtn{position:fixed;right:14px;bottom:14px;z-index:44;display:none;align-items:center;gap:8px;background:var(--gold);color:#111;border:0;border-radius:99px;padding:12px 18px;font:800 14px Inter,sans-serif;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.cartbtn{position:fixed;right:14px;bottom:14px;z-index:44;display:none;align-items:center;gap:8px;background:var(--gold);color:#fff;border:0;border-radius:99px;padding:12px 18px;font:800 14px Inter,sans-serif;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.5)}
 .cart{position:fixed;top:0;right:0;bottom:0;width:360px;max-width:100vw;background:var(--card);border-left:1px solid var(--line);z-index:46;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s}
 .cart.open{transform:none}
 .cart-h{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid var(--line)}
@@ -279,29 +280,29 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 @media(max-width:420px){.pbtn span{display:none}.themes{gap:6px}.dot{width:16px;height:16px}.logo{font-size:17px}.right{gap:10px}}
 
 /* ===== LUXO ===== */
-:root{--serif:"Playfair Display",Georgia,"Times New Roman",serif;--ouro:linear-gradient(135deg,#7d5f1a 0%,var(--gold) 32%,var(--gold2) 52%,var(--gold) 72%,#7d5f1a 100%)}
+:root{--serif:"Playfair Display",Georgia,"Times New Roman",serif;--ouro:linear-gradient(135deg,color-mix(in srgb,var(--gold) 72%,#0b0a22) 0%,var(--gold) 55%,color-mix(in srgb,var(--gold) 88%,#fff) 100%)}
 *{scrollbar-color:var(--tint2) var(--bg)}
-::selection{background:var(--gold);color:#111}
+::selection{background:var(--gold);color:#fff}
 body{background:radial-gradient(1100px 520px at 50% -160px,color-mix(in srgb,var(--gold) 10%,transparent),transparent 70%),var(--bg)}
 h1,h2,h3,.logo,.price b,.stats b,.nums b{font-family:var(--serif)}
 h2{font-size:clamp(28px,4vw,40px);font-weight:700}
-h2::after{content:"";display:block;width:64px;height:2px;margin:14px 0 8px;background:var(--ouro);border-radius:2px}
+h2::after{content:"";display:block;width:64px;height:2px;margin:14px 0 8px;background:linear-gradient(90deg,var(--gold2),var(--gold),transparent);border-radius:2px}
 .cta h2::after,.about h2::after{margin-left:auto;margin-right:auto}
-nav{background:rgba(8,8,9,.72);backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid color-mix(in srgb,var(--gold) 20%,transparent)}
+nav{background:rgba(10,11,16,.72);backdrop-filter:blur(18px) saturate(1.4);border-bottom:1px solid color-mix(in srgb,var(--gold) 20%,transparent)}
 .logo{font-size:21px;letter-spacing:.3em;font-weight:700}
 .topbar{background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--gold) 11%,transparent),transparent)}
 .hero h1{font-weight:800}
-.hero h1 em{background:var(--ouro);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:brilho 7s linear infinite}
+.hero h1 em{background:var(--brilho);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:brilho 7s linear infinite}
 @keyframes brilho{to{background-position:220% center}}
 .badge{letter-spacing:.22em;font-size:11px;background:color-mix(in srgb,var(--gold) 9%,transparent)}
 .stats b{font-size:32px}
 .btn.gold{background:var(--ouro);background-size:200% auto;font-weight:700;letter-spacing:.02em;box-shadow:0 8px 22px -8px color-mix(in srgb,var(--gold) 60%,transparent),inset 0 1px 0 rgba(255,255,255,.4);transition:background-position .4s,transform .2s,box-shadow .3s}
 .btn.gold:hover{background-position:right center}
-.card{background:linear-gradient(160deg,color-mix(in srgb,var(--gold) 5%,#17171b),#0f0f12);border:1px solid color-mix(in srgb,var(--gold) 16%,var(--line));box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 18px 40px -26px #000;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s;animation:subir .55s cubic-bezier(.2,.7,.2,1) both}
+.card{background:linear-gradient(160deg,color-mix(in srgb,var(--gold) 5%,#161927),#0d0f17);border:1px solid color-mix(in srgb,var(--gold) 16%,var(--line));box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 18px 40px -26px #000;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s;animation:subir .55s cubic-bezier(.2,.7,.2,1) both}
 .card:nth-child(2){animation-delay:.05s}.card:nth-child(3){animation-delay:.1s}.card:nth-child(4){animation-delay:.15s}.card:nth-child(5){animation-delay:.2s}.card:nth-child(n+6){animation-delay:.25s}
 @keyframes subir{from{opacity:0;transform:translateY(22px)}}
 @media(hover:hover){.card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 26px 54px -24px color-mix(in srgb,var(--gold) 50%,transparent),0 1px 0 rgba(255,255,255,.06) inset}}
-.card.cb{background:linear-gradient(160deg,color-mix(in srgb,var(--gold) 15%,#17140a),#0e0d0a)}
+.card.cb{background:linear-gradient(160deg,color-mix(in srgb,var(--gold) 15%,#12141f),#0b0c13)}
 .card.cb.top{box-shadow:0 0 0 1px var(--gold),0 28px 60px -26px color-mix(in srgb,var(--gold) 60%,transparent)}
 .cb .off{top:0;right:0;border-radius:0 16px 0 14px;padding:8px 14px;background:var(--ouro)}
 .ico{border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);box-shadow:0 0 24px -6px color-mix(in srgb,var(--gold) 55%,transparent)}
@@ -315,16 +316,16 @@ footer{border-top:1px solid color-mix(in srgb,var(--gold) 22%,var(--line));backg
 /* Desempenho: só desenha seções quando se aproximam da tela */
 section:not(.trust):not(#combos),footer{content-visibility:auto;contain-intrinsic-size:auto 720px}
 .card,.chip,.btn{contain:layout style}
-@media(max-width:760px){nav{backdrop-filter:none;background:rgba(8,8,9,.95)}.stats b{font-size:26px}}
+@media(max-width:760px){nav{backdrop-filter:none;background:rgba(10,11,16,.95)}.stats b{font-size:26px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
 
 /* ===== BLACK EDITION ===== */
-.blk{text-align:center;background:radial-gradient(800px 300px at 50% 0,color-mix(in srgb,var(--gold) 15%,transparent),transparent 70%),linear-gradient(180deg,#0c0b08,#060606);border:1px solid color-mix(in srgb,var(--gold) 38%,var(--line));border-radius:24px;padding:46px 22px;box-shadow:0 40px 90px -50px color-mix(in srgb,var(--gold) 65%,transparent)}
+.blk{text-align:center;background:radial-gradient(800px 300px at 50% 0,color-mix(in srgb,var(--gold) 15%,transparent),transparent 70%),linear-gradient(180deg,#0d0f18,#07080c);border:1px solid color-mix(in srgb,var(--gold) 38%,var(--line));border-radius:24px;padding:46px 22px;box-shadow:0 40px 90px -50px color-mix(in srgb,var(--gold) 65%,transparent)}
 .blk .badge{margin-bottom:16px}
 .blk h2::after{margin-left:auto;margin-right:auto}
 .blk .sub{max-width:620px;margin:0 auto}
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px;margin-top:30px;text-align:left}
-.plan{background:linear-gradient(160deg,#15120a,#090908);border:1px solid color-mix(in srgb,var(--gold) 26%,var(--line));border-radius:18px;padding:26px;display:flex;flex-direction:column}
+.plan{background:linear-gradient(160deg,#141626,#0a0b11);border:1px solid color-mix(in srgb,var(--gold) 26%,var(--line));border-radius:18px;padding:26px;display:flex;flex-direction:column}
 .plan.top{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 30px 60px -30px color-mix(in srgb,var(--gold) 60%,transparent)}
 .plan h3{font-size:24px}
 .pico{font-size:26px;margin-bottom:8px}
@@ -334,9 +335,97 @@ section:not(.trust):not(#combos),footer{content-visibility:auto;contain-intrinsi
 .plan li::before{content:"✦";position:absolute;left:0;top:12px;color:var(--gold2);font-size:11px}
 .plan .btn{width:100%}
 .hero .micro{font-size:13px;color:var(--mut);margin:18px auto 0;max-width:none}
+.okc{color:var(--gold2);font-weight:700;font-size:14px}
+.opt em s{color:var(--mut);font-weight:400;font-size:.8em;margin-right:6px}
+.flash{animation:flashp .7s ease}
+@keyframes flashp{0%{transform:scale(1.18);filter:brightness(1.7)}100%{transform:none;filter:none}}
+.ico span,.pico span{display:inline-block;filter:grayscale(1) brightness(1.35) contrast(1.05);opacity:.95}
+::selection{background:var(--gold);color:#fff}
+
+/* ===== CONFORTO ===== */
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:#fff;padding:10px 16px;border-radius:8px;z-index:300;font-weight:700}
+.skip:focus{left:12px}
+.conf{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.conf h5{font-size:13px;color:var(--mut);font-weight:600;margin-bottom:6px}
+.crow2{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px;margin-top:10px;cursor:pointer}
+.tams{display:flex;gap:6px}
+.crow2 input{width:20px;height:20px;accent-color:var(--gold);cursor:pointer}
+.note{font-size:13px}
+.tags span,.soonTag{font-size:12px}
+.por{color:var(--mut);font-size:13px;margin:-6px 0 12px}
+html.tam-1 body{zoom:1.12}
+html.tam-2 body{zoom:1.25}
+html.sem-mov *,html.sem-mov *::before,html.sem-mov *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html.sem-mov .js .rv{opacity:1;transform:none}
+html.alto-c{--txt:#fff;--mut:#d6dae8;--line:#4d5370}
+html.alto-c .card,html.alto-c .plan,html.alto-c .box{border-color:#7d83a6}
+html.alto-c .btn.line,html.alto-c .chip{border-color:#c7cbe0}
+@media(pointer:coarse){.btn,.chip,.opt{min-height:44px}.dot{min-width:32px;min-height:32px}}
+/* ===== ANIMAÇÕES FINAS ===== */
+html:not(.pronto) body{animation:fade .6s ease}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.96)}}
+@keyframes entra{from{opacity:0;transform:translateX(24px)}}
+.modal.open{animation:fade .2s ease}
+.modal.open .box{animation:pop .3s cubic-bezier(.2,.8,.2,1)}
+.bot.open{animation:pop .3s cubic-bezier(.2,.8,.2,1)}
+.pbox.open{animation:pop .22s cubic-bezier(.2,.8,.2,1)}
+.toast{animation:entra .35s cubic-bezier(.2,.8,.2,1)}
+.btn:active,.chip:active,.opt:active{transform:scale(.97)}
+.opt{transition:border-color .2s,transform .15s,background .2s}
+.fl{display:block;font-size:13px;color:var(--mut);margin-bottom:8px}
+.box a{color:var(--gold2);text-decoration:underline}
+.pedc{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:13px;text-align:left}
+#authModal{z-index:70}
+#authModal.gate{background:var(--bg);backdrop-filter:none;z-index:90}
+#authModal.gate #authX{display:none}
+.vis-sep{height:1px;background:var(--line);margin:18px 0 6px}
+.vis-link{width:100%;background:none;border:0;color:var(--mut);font:600 15px Inter,sans-serif;text-decoration:underline;cursor:pointer;padding:12px;min-height:44px}
+.vis-link:hover{color:var(--gold2)}
+
+/* ===== CELULAR E TABLET (ajustes finais) ===== */
+/* menu em botão ☰ já a partir de 1100px: o menu completo não cabe em tablets */
+@media(max-width:1100px){
+  .burger{display:block}
+  nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);max-height:calc(100vh - 110px);overflow:auto}
+  nav ul.open{display:flex}
+  nav ul a{display:block;padding:16px 20px;border-top:1px solid var(--line)}
+  .vbtn{display:none}
+}
+@media(max-width:760px){
+  .tools{flex-wrap:nowrap}              /* sem isso a busca esticava até 1700px */
+  .tools input,.tools select{min-width:0;width:100%}
+  .chips{max-width:100%;-webkit-overflow-scrolling:touch}
+  .hero h1{font-size:clamp(28px,8.4vw,40px);line-height:1.15}
+  .hero-contact .btn{display:block;margin:8px auto;max-width:320px}
+  .stats{gap:18px}
+  .box{padding:22px 18px}
+  .cart{width:100%}
+  .about{padding:26px 16px}
+  .blk{padding:30px 14px}
+  .plan{padding:20px}
+  .topbar{font-size:12px}
+}
+@media(max-width:420px){
+  .wrap{padding:0 14px}
+  .logo{font-size:15px;letter-spacing:.2em}
+  .right{gap:8px}
+  .vtag{left:8px;bottom:8px;padding:5px 10px;max-width:calc(100vw - 96px)}
+  .vtag .vpill{overflow:hidden;text-overflow:ellipsis;max-width:200px}
+  .cartbtn{right:8px;bottom:8px}
+}
+@media(pointer:coarse){.pbtn,.burger,.vis-link,.close{min-height:44px;min-width:44px}.dot{min-width:36px;min-height:36px}}
+.badge,.vt-s{font-size:12px}
+@media(pointer:coarse){.vtag{min-height:44px}}
+.vtag small{font-size:12px}
+.opt em{white-space:nowrap;margin-left:8px}
+.opt span{min-width:0}
+section[id]{scroll-margin-top:84px}
+@media(max-width:760px){#authModal.gate.open{place-items:center;padding:14px}#authModal.gate .box{border-radius:18px}}
 </style>
 </head>
 <body>
+<a class="skip" href="#loja">Pular para a loja</a>
 
 <div class="topbar"><div class="wrap">
   <span>📩 Contato:</span>
@@ -348,12 +437,18 @@ section:not(.trust):not(#combos),footer{content-visibility:auto;contain-intrinsi
   <a class="logo" href="#">LUMEX <span>FORGE</span></a>
   <ul id="menu"><li><a href="#black">Black Edition</a></li><li><a href="#combos">Combos</a></li><li><a href="#loja">Loja</a></li><li><a href="#eb">Exército RP</a></li><li><a href="#como">Como funciona</a></li><li><a href="#faq">Dúvidas</a></li><li><a href="#contato">Contato</a></li></ul>
   <div class="right">
+    <button class="btn line" id="btnConta" style="display:none;padding:9px 16px;font-size:14px">Entrar</button>
     <div class="palette" id="palette">
-      <button class="pbtn" id="pbtn" aria-haspopup="true" aria-label="Escolher cor do site"><i></i><span>Cores</span></button>
+      <button class="pbtn" id="pbtn" aria-haspopup="true" aria-label="Cores e conforto de leitura"><i></i><span>Ajustes</span></button>
       <div class="pbox" id="pbox">
         <h5>🎨 Escolha a cor do site</h5>
         <div class="sw" id="sw"></div>
-        <label class="custom">Cor personalizada<input type="color" id="pcustom" value="#d4af37"></label>
+        <label class="custom">Cor personalizada<input type="color" id="pcustom" value="#6f5fe6"></label>
+        <div class="conf"><h5>Conforto</h5>
+          <div class="crow2"><span>Tamanho do texto</span><span class="tams"><button class="chip" data-tam="0">A</button><button class="chip" data-tam="1">A+</button><button class="chip" data-tam="2">A++</button></span></div>
+          <label class="crow2"><span>Menos movimento</span><input type="checkbox" id="cfMov"></label>
+          <label class="crow2"><span>Alto contraste</span><input type="checkbox" id="cfCont"></label>
+        </div>
       </div>
     </div>
     <a class="btn gold vbtn" href="#loja" style="padding:9px 18px;font-size:14px">Ver scripts</a>
@@ -372,7 +467,7 @@ section:not(.trust):not(#combos),footer{content-visibility:auto;contain-intrinsi
   <p>Roleplay, Exército RP, pets, tiro, terror e mais. Scripts em Luau com guia de instalação e suporte, para você colocar no Roblox Studio e publicar.</p>
   <a class="btn gold" href="#loja">Ver os scripts</a>
   <a class="btn line" href="#combos">Pacotes com desconto</a>
-  <p class="micro">Pix ou Robux · Guia de instalação · Suporte pelo TikTok e Roblox</p>
+  <p class="micro" id="microTxt">Pix ou Robux · Guia de instalação · Suporte pelo TikTok e Roblox</p>
   <div class="stats">
     <div><b id="nProd">0</b><small>scripts</small></div>
     <div><b>Luau</b><small>código limpo</small></div>
@@ -407,6 +502,7 @@ section:not(.trust):not(#combos),footer{content-visibility:auto;contain-intrinsi
   <div class="tools">
     <input id="busca" type="search" placeholder="Pesquisar script...">
     <select id="ordem" aria-label="Ordenar"><option value="">Ordenar</option><option value="menor">Menor preço</option><option value="maior">Maior preço</option><option value="az">A–Z</option></select>
+    <select id="faixa" aria-label="Faixa de preço"><option value="">Todos os preços</option><option value="25">Até R$ 25</option><option value="40">Até R$ 40</option><option value="40+">Acima de R$ 40</option></select>
     <div class="chips" id="chips"></div>
   </div>
   <div class="grid" id="grid"></div>
@@ -525,6 +621,8 @@ section:not(.trust):not(#combos),footer{content-visibility:auto;contain-intrinsi
   </div>
 </div>
 
+<div class="modal" id="authModal" role="dialog" aria-modal="true" aria-label="Minha conta"><div class="box"><div id="authBody"></div><button class="close" id="authX">Fechar</button></div></div>
+
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Finalizar compra"><div class="box">
   <h3 id="mNome"></h3>
   <div id="mStep1"><p>Escolha como deseja pagar:</p>
@@ -574,6 +672,9 @@ const CONFIG = {
   emailKey: "COLE-SUA-CHAVE-WEB3FORMS", // chave grátis do web3forms.com (envia pedidos e interesses para o seu Gmail)
   cupons: {                             // "CÓDIGO": % (para tudo) ou { produtos: %, pacotes: % }. Vale o MAIOR desconto, não soma
     "TIKTOK10": 10,
+    "FORGE10": { produtos: 10, pacotes: 10, dias: 7, primeiraCompra: true },   // 7 dias a partir da 1ª visita da pessoa; só 1ª compra
+    "LUMEX15": { produtos: 15, pacotes: 15, horas: 48 },                       // 48h a partir da 1ª visita. Para data fixa use: ate: "2026-10-30T23:59:59-03:00"
+    "PRIMEIROFOGO": { produtos: 20, pacotes: 20, limite: 50 },                 // só as 50 primeiras compras (exige o Firebase)
     "NOVALumexforge": { produtos: 20, pacotes: 30 },
     "Vinlumexz300": { produtos: 20, pacotes: 30 },
     "LANÇAMENTO": { produtos: 10, pacotes: 30 }
@@ -600,6 +701,9 @@ const CONFIG = {
     ]
   },
   destaques: ["Menu Principal ALPHA", "Sistema de Inventário", "Chat RP"],   // "Comece por aqui": aparecem primeiro na loja (troque pelos seus preferidos)
+  apiUrl: "",                           // endereço do SERVIDOR (ex: "https://api.seudominio.com.br"). Vazio = a loja funciona como antes, sem contas
+  googleClientId: "",                   // Client ID do Google (Entrar com Google). Vazio = o botão do Google não aparece
+  apiPollMs: 5000,                      // de quanto em quanto tempo a tela confere se o Pix foi pago
   prontos: [],                          // nomes dos scripts que você JÁ TEM PRONTOS. Vazio = tudo à venda. Preenchido = só estes; o resto vira "Em breve"
   scriptGratis: "",                     // nome de um script GRÁTIS para atrair clientes (vazio = não aparece)
   depoimentos: [],                      // só quando tiver REAIS (e com permissão): [{nome:"João", texto:"Funcionou!", nota:5, verificado:true}]
@@ -749,6 +853,8 @@ function render(){
   const lista = PRODUTOS.filter(p =>
     (catAtual === "Todos" || p.cat === catAtual) &&
     (p.nome + p.desc + p.tags.join(" ")).toLowerCase().includes(q));
+  const fx = $("#faixa").value;
+  if (fx) for (let i = lista.length - 1; i >= 0; i--) { const v = lista[i].brl; if (fx === "25" ? v > 25 : fx === "40" ? v > 40 : v <= 40) lista.splice(i, 1); }
   const o = $("#ordem").value;
   if (o === "menor") lista.sort((a, b) => a.brl - b.brl);
   else if (o === "maior") lista.sort((a, b) => b.brl - a.brl);
@@ -761,12 +867,12 @@ function render(){
     return `
     <article class="card ${ok ? "" : "soon"}">
       ${ok ? (dest.includes(p.nome) ? '<span class="soonTag">★ Comece por aqui</span>' : "") : '<span class="soonTag">Em breve</span>'}
-      <div class="ico">${p.ico}</div>
+      <div class="ico"><span>${p.ico}</span></div>
       <h3>${p.nome}</h3>
       <p>${p.desc}</p>
       <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
       ${(DEMOS[p.nome] || "").startsWith("http") ? `<a class="demo" href="${DEMOS[p.nome]}" target="_blank" rel="noopener">▶ Ver demonstração</a>` : ""}
-      <div class="price"><b>${fmt(p.brl)}</b><i>ou ${p.rbx} R$ Robux</i></div>
+      <div class="price"><b>${fmt(p.brl)}</b><i>ou ${p.rbx} Robux</i></div>
       ${ok ? `<div class="cbtns"><button class="btn gold" data-i="${i}">Comprar</button><button class="btn line" data-add="${i}">＋ Carrinho</button></div>`
            : `<button class="btn line" style="width:100%" data-avise="${i}">🔔 Avise-me quando sair</button>`}
     </article>`;
@@ -784,16 +890,28 @@ $("#chips").addEventListener("click", e => {
 });
 let _bt; $("#busca").addEventListener("input", () => { clearTimeout(_bt); _bt = setTimeout(() => { mostrar = 24; render(); }, 120); });
 $("#ordem").addEventListener("change", () => { mostrar = 24; render(); });
+$("#faixa").addEventListener("change", () => { mostrar = 24; render(); });
 $("#maisWrap").addEventListener("click", e => { if (e.target.id === "maisBtn") { mostrar += 24; render(); } });
 
 /* ---- Compra unificada: produto, pacote ou carrinho, com cupom (vale o MAIOR desconto) ---- */
 let baseCompra = null, CUPOM = null;
 const precoDe = (b, off) => ({ brl: Math.round(b.somaBrl * (1 - off / 100) * 10) / 10, rbx: Math.round(b.somaRbx * (1 - off / 100)) });
+let T0 = Date.now();   // primeira visita desta pessoa (guardada no navegador)
+try { T0 = +localStorage.getItem("t0") || 0; if (!T0) { T0 = Date.now(); localStorage.setItem("t0", T0); } } catch (e) {}
+function cupomExpirado(c) {
+  const agora = Date.now();
+  if ((c.ate && agora > Date.parse(c.ate)) || (c.dias && agora > T0 + c.dias * 864e5) || (c.horas && agora > T0 + c.horas * 36e5)) return "Este cupom já expirou.";
+  try { if (c.primeiraCompra && localStorage.getItem("comprou")) return "Este cupom vale só para a primeira compra."; } catch (e) {}
+  return "";
+}
 const normCupom = t => String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toUpperCase();
 function acharCupom(txt) {
   const k = normCupom(txt); if (!k) return null;
   for (const [cod, v] of Object.entries(CONFIG.cupons || {})) {
-    if (normCupom(cod) === k) return { codigo: cod, produtos: typeof v === "number" ? v : (v.produtos || 0), pacotes: typeof v === "number" ? v : (v.pacotes || 0) };
+    if (normCupom(cod) === k) {
+      const o = typeof v === "number" ? { produtos: v, pacotes: v } : v;
+      return { codigo: cod, id: k.toLowerCase(), produtos: o.produtos || 0, pacotes: o.pacotes || 0, ate: o.ate, dias: o.dias, horas: o.horas, limite: o.limite, primeiraCompra: o.primeiraCompra };
+    }
   }
   return null;
 }
@@ -803,19 +921,41 @@ function aplicarPrecos() {
   const off = Math.max(base, cOff), usouCupom = cOff > base, pr = precoDe(b, off);
   atual = { nome: b.nome + (usouCupom ? " [cupom " + CUPOM.codigo + " -" + cOff + "%]" : ""), cat: b.cat, brl: pr.brl, rbx: pr.rbx, linkRobux: b.linkRobux, linkPay: b.linkPay };
   $("#mNome").textContent = b.nome;
-  $("#mRbxP").textContent = pr.rbx + " Robux";
-  $("#mPixP").textContent = fmt(pr.brl);
-  $("#mCupomMsg").textContent = !CUPOM ? "" : usouCupom ? "✅ Cupom aplicado: -" + cOff + "% neste item" : "O desconto deste item já é maior que o do cupom.";
+  const sem = precoDe(b, base);   // preço sem cupom
+  if (usouCupom) {
+    $("#mRbxP").innerHTML = "<s>" + sem.rbx + "</s> " + pr.rbx + " Robux";
+    $("#mPixP").innerHTML = "<s>" + fmt(sem.brl) + "</s> " + fmt(pr.brl);
+    ["#mRbxP", "#mPixP"].forEach(id => { const el = $(id); el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); });
+  } else {
+    $("#mRbxP").textContent = pr.rbx + " Robux";
+    $("#mPixP").textContent = fmt(pr.brl);
+  }
+  $("#mCupomMsg").className = "note" + (usouCupom ? " okc" : "");
+  $("#mCupomMsg").textContent = !CUPOM ? "" : usouCupom ? "✅ Cupom aplicado: -" + cOff + "%. Você economiza " + fmt(sem.brl - pr.brl) + "."
+    : "Este item já tem " + (b.offReal || base) + "% de desconto, mais que o cupom (" + cOff + "%). Os descontos não se somam.";
 }
 function abrirCompra(b) {
   baseCompra = b; CUPOM = null; $("#mCupom").value = "";
   aplicarPrecos(); mostrarPasso(1); $("#modal").classList.add("open");
 }
-$("#mCupomOk").onclick = () => {
-  const txt = $("#mCupom").value;
-  CUPOM = acharCupom(txt);
+$("#mCupomOk").onclick = async () => {
+  const txt = $("#mCupom").value, c = acharCupom(txt);
+  let msg = "";
+  CUPOM = null;
+  if (!c) msg = txt.trim() ? "Cupom inválido." : "Digite o código do cupom.";
+  else {
+    msg = cupomExpirado(c);
+    if (!msg && c.limite) {
+      const usos = await cupomUsos(c);
+      if (usos === null) msg = "Este cupom não está disponível agora.";
+      else if (usos >= c.limite) msg = "Cupom esgotado: as " + c.limite + " vagas já foram usadas.";
+      else c.restam = c.limite - usos;
+    }
+    if (!msg) CUPOM = c;
+  }
   aplicarPrecos();
-  if (!CUPOM) $("#mCupomMsg").textContent = txt.trim() ? "Cupom inválido." : "Digite o código do cupom.";
+  if (msg) $("#mCupomMsg").textContent = msg;
+  else if (CUPOM && CUPOM.restam && $("#mCupomMsg").textContent.startsWith("✅")) $("#mCupomMsg").textContent += " Restam " + CUPOM.restam + " de " + CUPOM.limite + " vagas.";
 };
 
 /* ---- Carrinho com desconto por quantidade ---- */
@@ -857,7 +997,7 @@ $("#cartF").addEventListener("click", e => {
   abrirCompra({
     nome: ("Carrinho (" + it.length + " scripts): " + it.map(x => x.p.nome).join("; ")).slice(0, 280), cat: "Carrinho",
     somaBrl: it.reduce((a, x) => a + x.p.brl, 0), somaRbx: it.reduce((a, x) => a + x.p.rbx, 0),
-    offBase: offVolume(it.length), linkRobux: "#", linkPay: "#"
+    offBase: offVolume(it.length), via: "carrinho", ref: it.map(x => x.p.nome), linkRobux: "#", linkPay: "#"
   });
 });
 renderCarrinho();
@@ -869,13 +1009,14 @@ $("#grid").addEventListener("click", e => {
   if (av !== undefined) return avisarMe(PRODUTOS[av].nome);
   if (i === undefined) return;
   const p = PRODUTOS[i];
-  abrirCompra({ nome: p.nome, cat: p.cat, somaBrl: p.brl, somaRbx: p.rbx, offBase: 0, linkRobux: p.linkRobux, linkPay: p.linkPay });
+  abrirCompra({ nome: p.nome, cat: p.cat, somaBrl: p.brl, somaRbx: p.rbx, offBase: 0, via: "produto", ref: p.nome, linkRobux: p.linkRobux, linkPay: p.linkPay });
 });
 $("#mClose").onclick = () => $("#modal").classList.remove("open");
 $("#modal").addEventListener("click", e => { if(e.target.id === "modal") $("#modal").classList.remove("open"); });
 
 /* Pacotes com desconto: o preço é calculado somando os scripts do grupo e aplicando o desconto (off) */
 const COMBOS = [
+  {titulo:"Kit Inicial", itens:true, ico:"🚀", off:15, top:true, desc:"Os scripts mais indicados para começar, juntos e mais baratos."},
   {titulo:"Pacote Exército RP Completo", grupo:"Militar EB", ico:"🎖️", off:25, top:true, desc:"Patentes, comando, fichas, cursos, rádio, arsenal e mais."},
   {titulo:"Pacote Cidade Roleplay", grupo:"Roleplay", ico:"🏙️", off:25, top:true, desc:"Documentos, celular, banco, empregos, casas, polícia e hospital."},
   {titulo:"Pacote Simulador de Pets", grupo:"Pets & Simulador", ico:"🐾", off:25, desc:"Ovos, trocas, rebirth, mundos, batalhas e conquistas."},
@@ -886,7 +1027,7 @@ const COMBOS = [
   {titulo:"Pacote Minigames", grupo:"Minigames", ico:"🎲", off:20, desc:"Assassino e xerife, pique-esconde, votação, lobby e espectador."}
 ];
 COMBOS.forEach(c => {
-  const it = PRODUTOS.filter(p => p.cat === c.grupo);
+  const it = c.itens ? PRODUTOS.filter(p => (CONFIG.destaques || []).includes(p.nome)) : PRODUTOS.filter(p => p.cat === c.grupo);
   c.n = it.length;
   c.ok = it.length > 0 && it.every(pronto);
   const fp = CONFIG.precoFatorPacote || 1;
@@ -903,11 +1044,12 @@ COMBOS.forEach(c => {
 $("#comboGrid").innerHTML = COMBOS.map((c, i) => `
   <article class="card cb ${c.top ? "top" : ""}">
     <span class="off">-${c.offReal}%</span>
-    <div class="ico">${c.ico}</div>
+    <div class="ico"><span>${c.ico}</span></div>
     <h3>${c.titulo}</h3>
     <p>${c.desc} Inclui ${c.n} scripts.</p>
-    <div class="price"><div><span class="de">${fmt(c.soma)}</span><br><b>${fmt(c.brl)}</b></div><i>ou ${c.rbx} R$ Robux</i></div>
+    <div class="price"><div><span class="de">${fmt(c.soma)}</span><br><b>${fmt(c.brl)}</b></div><i>ou ${c.rbx} Robux</i></div>
     <div class="eco">Você economiza ${fmt(c.eco)}</div>
+    ${c.n ? `<div class="por">≈ ${fmt(c.brl / c.n)} por script</div>` : ""}
     ${c.ok ? `<button class="btn gold" data-k="${i}">Quero o pacote</button>` : `<button class="btn line" data-av="${i}">🔔 Avise-me quando sair</button>`}
   </article>`).join("");
 $("#comboGrid").addEventListener("click", e => {
@@ -915,7 +1057,7 @@ $("#comboGrid").addEventListener("click", e => {
   if (av !== undefined) return avisarMe(COMBOS[av].nome);
   const k = e.target.dataset.k; if (k === undefined) return;
   const c = COMBOS[k];
-  abrirCompra({ nome: c.nome, cat: c.cat, somaBrl: c.somaCalc, somaRbx: c.somaRCalc, offBase: c.off, tipo: "pacote", linkRobux: c.linkRobux, linkPay: c.linkPay });
+  abrirCompra({ nome: c.nome, cat: c.cat, somaBrl: c.somaCalc, somaRbx: c.somaRCalc, offBase: c.off, offReal: c.offReal, tipo: "pacote", via: "pacote", ref: c.titulo, linkRobux: c.linkRobux, linkPay: c.linkPay });
 });
 
 /* Garantia, entrega, suporte, exclusividade e autoridade (os textos ficam em CONFIG) */
@@ -925,7 +1067,7 @@ $("#comboGrid").addEventListener("click", e => {
   if (CONFIG.entregaPrazo) g.push(["📦", "Entrega " + CONFIG.entregaPrazo, "Você recebe o script e o guia de instalação pelo contato que informou."]);
   g.push(["🧑‍💻", "Suporte de instalação", "Travou ao colocar o script no seu jogo? Chame no TikTok ou no Roblox."]);
   g.push(["🔒", "Pagamento conferido", "No Pix, o app do seu banco mostra o recebedor e o valor antes de você confirmar."]);
-  $("#garGrid").innerHTML = g.map(([i, t, d]) => `<div class="card"><div class="ico">${i}</div><h3>${t}</h3><p>${d}</p></div>`).join("");
+  $("#garGrid").innerHTML = g.map(([i, t, d]) => `<div class="card"><div class="ico"><span>${i}</span></div><h3>${t}</h3><p>${d}</p></div>`).join("");
   $("#mGar").textContent = CONFIG.garantiaDias ? "🛡️ Garantia de " + CONFIG.garantiaDias + " dias nesta compra." : "";
   if (CONFIG.garantiaDias) $("#faqGarT").textContent = CONFIG.garantiaTexto; else $("#faqGar").style.display = "none";
 
@@ -934,7 +1076,7 @@ $("#comboGrid").addEventListener("click", e => {
     ["🛠️", "Personalização", "Ajustamos o script ao visual e às regras do seu jogo."],
     ["⚡", "Acesso antecipado", "Receba os novos scripts antes de eles chegarem à loja."]
   ];
-  $("#exGrid").innerHTML = EX.map(([i, t, d], k) => `<div class="card ex"><div class="ico">${i}</div><h3>${t}</h3><p>${d}</p><button class="btn gold" data-ex="${k}">Quero saber mais</button></div>`).join("");
+  $("#exGrid").innerHTML = EX.map(([i, t, d], k) => `<div class="card ex"><div class="ico"><span>${i}</span></div><h3>${t}</h3><p>${d}</p><button class="btn gold" data-ex="${k}">Quero saber mais</button></div>`).join("");
   $("#exGrid").addEventListener("click", e => { const k = e.target.dataset.ex; if (k !== undefined) pedirExtra(EX[k][1], EX[k][2]); });
 
   const A = CONFIG.autoridade;
@@ -950,7 +1092,7 @@ $("#comboGrid").addEventListener("click", e => {
   const B = CONFIG.black;
   if (!B || !B.ativo || !(B.planos || []).length) { $("#black").style.display = "none"; return; }
   $("#blkBox").innerHTML = `<span class="badge">${String(B.titulo).toUpperCase()}</span><h2>Exclusividade para poucos</h2><p class="sub">${B.sub}</p>
-    <div class="plans">${B.planos.map((p, i) => `<div class="plan ${p.destaque ? "top" : ""}"><div class="pico">${p.icone}</div><h3>${p.nome}</h3><div class="pp">${p.preco}</div>
+    <div class="plans">${B.planos.map((p, i) => `<div class="plan ${p.destaque ? "top" : ""}"><div class="pico"><span>${p.icone}</span></div><h3>${p.nome}</h3><div class="pp">${p.preco}</div>
       <ul>${p.itens.map(x => `<li>${x}</li>`).join("")}</ul><button class="btn ${p.destaque ? "gold" : "line"}" data-bk="${i}">Solicitar proposta privada</button></div>`).join("")}</div>`;
   $("#blkBox").addEventListener("click", e => { const k = e.target.dataset.bk; if (k !== undefined) pedirExtra("Black Edition: " + B.planos[k].nome, "Proposta privada para o plano " + B.planos[k].nome); });
 })();
@@ -967,7 +1109,16 @@ if (CONFIG.depoimentos && CONFIG.depoimentos.length) {
   $("#depo").style.display = "block";
 }
 
-$("#nProd").textContent = PRODUTOS.length;
+{
+  const aVenda = PRODUTOS.filter(pronto), minp = Math.min(...aVenda.map(p => p.brl));
+  if (isFinite(minp)) $("#microTxt").textContent = "Scripts a partir de " + fmt(minp) + " · " + $("#microTxt").textContent;
+}
+/* contador animado (sem animação se a pessoa prefere menos movimento) */
+{
+  const N = PRODUTOS.length, el = $("#nProd");
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) el.textContent = N;
+  else { let n = 0; const passo = () => { n = Math.min(N, n + Math.ceil(N / 24)); el.textContent = n; if (n < N) requestAnimationFrame(passo); }; passo(); }
+}
 $("#lnkTiktok").href = CONFIG.tiktok;
 $("#ftTiktok").href = CONFIG.tiktok;
 $("#lnkRoblox").href = CONFIG.roblox;
@@ -977,14 +1128,13 @@ $("#heroRoblox").href = CONFIG.roblox;
 $("#ano").textContent = new Date().getFullYear();
 
 /* Cores do site: caixinha de cores (lembra a escolha) */
-const CORES=[["Dourado","#d4af37"],["Laranja","#ff9f1c"],["Coral","#ff7a59"],["Vermelho","#ff4d4d"],["Carmim","#e63946"],["Rosa","#ff5fa2"],
-["Magenta","#ff77e9"],["Roxo","#9b6bff"],["Índigo","#6c5ce7"],["Azul","#3b9eff"],["Ciano","#00c2ff"],["Turquesa","#18d9c8"],
-["Verde","#2fd18b"],["Lima","#8ee000"],["Amarelo","#f5e663"],["Bronze","#c9a27a"],["Prata","#b0b8c4"],["Branco","#ffffff"]];
+const CORES=[["Ametista","#6f5fe6"],["Índigo","#4b53d6"],["Safira","#3d7bf0"],["Ártico","#3fb6d6"],["Esmeralda","#1fa97f"],["Orquídea","#a35cd9"],
+["Lavanda","#8d82e8"],["Rosé","#d0668a"],["Bordô","#b4435f"],["Platina","#8f98b0"],["Grafite","#6b7388"],["Safira escura","#2f5fc4"]];
 const clarear=(h,p)=>{const n=parseInt(h.slice(1),16),m=v=>Math.round(v+(255-v)*p).toString(16).padStart(2,"0");return "#"+m(n>>16)+m(n>>8&255)+m(n&255);};
 function aplicarCor(h){
   const r=document.documentElement.style;
   document.documentElement.removeAttribute("data-theme");
-  if(h.toLowerCase()==="#d4af37"){r.removeProperty("--gold");r.removeProperty("--gold2");}
+  if(h.toLowerCase()==="#6f5fe6"){r.removeProperty("--gold");r.removeProperty("--gold2");}
   else{r.setProperty("--gold",h);r.setProperty("--gold2",clarear(h,.45));}
   $("#pbtn i").style.background=h; $("#pcustom").value=h;
   document.querySelectorAll("#sw button").forEach(x=>x.classList.toggle("on",x.dataset.c.toLowerCase()===h.toLowerCase()));
@@ -996,8 +1146,26 @@ $("#pcustom").addEventListener("input",e=>aplicarCor(e.target.value));
 $("#pbtn").onclick=e=>{e.stopPropagation();$("#pbox").classList.toggle("open");};
 document.addEventListener("click",e=>{if(!e.target.closest("#pbox"))$("#pbox").classList.remove("open");});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#pbox").classList.remove("open");});
-let corSalva="#d4af37";try{corSalva=localStorage.getItem("cor")||corSalva;}catch(e){}
-aplicarCor(/^#[0-9a-f]{6}$/i.test(corSalva)?corSalva:"#d4af37");
+let corSalva="#6f5fe6";try{if(localStorage.getItem("corv")!=="2"){localStorage.setItem("corv","2");}else corSalva=localStorage.getItem("cor")||corSalva;}catch(e){}   // quem tinha o dourado antigo recebe a paleta nova
+aplicarCor(/^#[0-9a-f]{6}$/i.test(corSalva)?corSalva:"#6f5fe6");
+
+setTimeout(() => document.documentElement.classList.add("pronto"), 900);
+/* Conforto: tamanho do texto, menos movimento e alto contraste (lembra a escolha) */
+(() => {
+  const H = document.documentElement; let cf = { tam: 0, mov: false, cont: false };
+  try { cf = { ...cf, ...JSON.parse(localStorage.getItem("conforto") || "{}") }; } catch (e) {}
+  const aplicar = () => {
+    H.classList.remove("tam-1", "tam-2"); if (cf.tam) H.classList.add("tam-" + cf.tam);
+    H.classList.toggle("sem-mov", !!cf.mov); H.classList.toggle("alto-c", !!cf.cont);
+    document.querySelectorAll("[data-tam]").forEach(b => b.classList.toggle("on", +b.dataset.tam === cf.tam));
+    $("#cfMov").checked = !!cf.mov; $("#cfCont").checked = !!cf.cont;
+    try { localStorage.setItem("conforto", JSON.stringify(cf)); } catch (e) {}
+  };
+  document.querySelectorAll("[data-tam]").forEach(b => b.onclick = () => { cf.tam = +b.dataset.tam; aplicar(); });
+  $("#cfMov").onchange = e => { cf.mov = e.target.checked; aplicar(); };
+  $("#cfCont").onchange = e => { cf.cont = e.target.checked; aplicar(); };
+  aplicar();
+})();
 
 /* Patentes (seção do Exército) */
 const PATENTES={
@@ -1045,7 +1213,8 @@ $("#verEB").onclick=()=>{catAtual="Militar EB";mostrar=24;chips();render();locat
   else{
     let visivel = true;
     if ("IntersectionObserver" in window) new IntersectionObserver(es => { visivel = es[0].isIntersecting; }).observe(cv);
-    (function loop(){ if (visivel && !document.hidden) { t+=.016; draw(); } requestAnimationFrame(loop); })();
+    let desenhado = false;
+    (function loop(){ const parado = document.documentElement.classList.contains("sem-mov"); if (visivel && !document.hidden && (!parado || !desenhado)) { if (!parado) t+=.016; draw(); desenhado = true; } requestAnimationFrame(loop); })();
   }
 })();
 
@@ -1086,10 +1255,10 @@ function sortearEtiqueta() {
 }
 let VTAG = lsGet("vtag", null);
 if (VTAG && /^V-/.test(VTAG)) VTAG = null;   // formato antigo: será sorteada de novo
-const matiz = t => { let h = 0; for (const c of String(t)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
+const matiz = t => { let h = 0; for (const c of String(t)) h = (h * 31 + c.charCodeAt(0)) % 360; return 238 + h % 40; };
 const pill = t => `<span class="vpill" style="--h:${matiz(t)}">${esc(t)}</span>`;
 function desenharTag() {
-  $("#vtag").innerHTML = (VTAG ? pill(VTAG) : '<span class="vpill" style="--h:200">🎲 sorteando…</span>') + '<span>💬</span><small class="vt-s">fale com a gente</small>';
+  $("#vtag").innerHTML = (VTAG ? pill(VTAG) : '<span class="vpill" style="--h:255">🎲 sorteando…</span>') + '<span>💬</span><small class="vt-s">fale com a gente</small>';
 }
 desenharTag();
 
@@ -1204,10 +1373,18 @@ function criarPedido(forma, contato) {
 }
 $("#mRbx").onclick = () => { formaSel = "Robux"; $("#mOk").textContent = "Continuar para o pagamento"; mostrarPasso(2); };
 $("#mPix").onclick = () => { formaSel = "Dinheiro"; $("#mOk").textContent = "Gerar meu Pix"; mostrarPasso(2); };
-$("#mOk").onclick = () => {
+$("#mOk").onclick = async () => {
   const c = $("#mContato").value.trim();
   if (c.length < 3) { $("#mErro").textContent = "Informe seu TikTok, Roblox ou WhatsApp para eu te chamar."; $("#mContato").focus(); return; }
   $("#mErro").textContent = "";
+  if (API) { await pagarViaApi(formaSel, c); return; }   // com servidor: o servidor calcula o preço, reserva o cupom e gera o Pix
+  if (CUPOM && CUPOM.limite && atual.nome.includes("[cupom " + CUPOM.codigo)) {
+    $("#mOk").disabled = true;
+    const ok = await reservarCupom(CUPOM);
+    $("#mOk").disabled = false;
+    if (!ok) { CUPOM = null; aplicarPrecos(); mostrarPasso(1); $("#mCupomMsg").textContent = "Esse cupom acabou de esgotar. O preço voltou ao normal."; return; }
+  }
+  try { localStorage.setItem("comprou", "1"); } catch (e) {}
   const envio = criarPedido(formaSel, c);
   $("#mAviso").textContent = "";
   if (atual.cat === "Carrinho") { CARRINHO = []; salvarCarrinho(); renderCarrinho(); }
@@ -1270,7 +1447,7 @@ const montarMsgInt = o => MSGINT.replace(/\{(\w+)\}/g, (_, k) => ({ contato: o.c
 const TIPOS = [...(CONFIG.scriptGratis ? [["gratis", "🎁 Ganhar grátis: " + CONFIG.scriptGratis]] : []), ["pacote", "🎁 Pacotes com desconto"], ["avulso", "🧩 Script avulso"], ["medida", "🛠️ Script sob medida"], ["duvida", "💬 Tirar dúvida"], ["outro", "✨ Outro assunto"]];
 let botDados = {}, botIniciado = false;
 function botMsg(h, de) {
-  const d = document.createElement("div"); d.className = "bm " + (de || "bot"); d.innerHTML = h;
+  const d = document.createElement("div"); d.className = "bm " + (de || "bt"); d.innerHTML = h;
   $("#botB").appendChild(d); $("#botB").scrollTop = 1e6;
 }
 function botOpcoes(l) { $("#botF").innerHTML = l.map(([k, t]) => `<button data-o="${esc(k)}">${esc(t)}</button>`).join(""); }
@@ -1335,6 +1512,26 @@ if ("IntersectionObserver" in window) {
 }
 $("#freeBtn").onclick = () => { if (!$("#bot").classList.contains("open")) $("#vtag").click(); };
 /* "Avise-me quando sair": registra o interesse num script que ainda não está pronto (mostra a demanda real) */
+/* Cupom limitado: o contador fica no Firebase e a vaga é reservada de forma atômica */
+async function cupomUsos(c) {
+  if (API) { try { return (await api("/coupons/" + c.id)).usos; } catch (e) { return null; } }
+  await DB.pronto;
+  if (DB.mode !== "firebase") return null;
+  try { const d = await DB.fs.collection("cupons").doc(c.id).get(); return d.exists ? (d.data().usos || 0) : 0; } catch (e) { return null; }
+}
+async function reservarCupom(c) {
+  await DB.pronto;
+  if (DB.mode !== "firebase") return false;
+  const ref = DB.fs.collection("cupons").doc(c.id);
+  try {
+    await DB.fs.runTransaction(async tx => {
+      const d = await tx.get(ref), usos = d.exists ? (d.data().usos || 0) : 0;
+      if (usos >= c.limite) throw new Error("esgotado");
+      tx.set(ref, { usos: usos + 1 });
+    });
+    return true;
+  } catch (e) { return false; }
+}
 function pedirExtra(tipo, detalhe) {
   if (!$("#bot").classList.contains("open")) $("#vtag").click();
   botMsg("Quero saber mais sobre: <b>" + esc(tipo) + "</b>", "eu");
@@ -1350,6 +1547,135 @@ function avisarMe(nome) {
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") { $("#modal").classList.remove("open"); fecharCarrinho(); $("#bot").classList.remove("open"); }
 });
+
+/* ---------- Conta e pagamento pelo servidor (liga só se CONFIG.apiUrl estiver preenchido) ---------- */
+const API = (CONFIG.apiUrl || "").replace(/\/$/, "");
+let TOKEN = lsGet("tk", null), USUARIO = null, VISITANTE = null, authEmail = "", _poll = null;
+async function api(rota, metodo, corpo, extra) {
+  const r = await fetch(API + rota, { method: metodo || "GET", headers: { "Content-Type": "application/json", ...(TOKEN ? { Authorization: "Bearer " + TOKEN } : {}), ...(extra || {}) }, body: corpo ? JSON.stringify(corpo) : undefined });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) { if (r.status === 401 && TOKEN) sairLocal(); throw Object.assign(new Error(j.erro || "Erro " + r.status), { status: r.status }); }
+  return j;
+}
+function sairLocal() { TOKEN = null; USUARIO = null; lsSet("tk", null); desenharConta(); }
+function desenharConta() { $("#btnConta").textContent = USUARIO ? "👤 " + USUARIO.nome.split(" ")[0] : "Entrar"; }
+const STATUS_PT = { pendente: "Aguardando pagamento", pago: "Pago", entregue: "Entregue", cancelado: "Cancelado", expirado: "Expirado", falhou: "Não concluído", divergente: "Em análise" };
+function authHtml(v, aviso) {
+  const campo = (id, rot, tipo, extra) => `<label class="fl">${rot}<input id="${id}" type="${tipo}" ${extra || ""}></label>`;
+  const erro = `<div class="err" id="authErro">${esc(aviso || "")}</div>`, btn = (ac, t) => `<button class="btn gold" style="width:100%" data-ac="${ac}">${t}</button>`;
+  if (v === "criar") return `<h3>Criar conta</h3>${campo("aNome", "Nome", "text", 'maxlength="80" autocomplete="name"')}${campo("aEmail", "E-mail", "email", 'autocomplete="username"')}${campo("aContato", "TikTok, Roblox ou WhatsApp (opcional)", "text", 'maxlength="80"')}${campo("aSenha", "Senha (8 ou mais caracteres)", "password", 'autocomplete="new-password"')}${erro}${btn("criar", "Criar minha conta")}<p class="note"><a href="#" data-ac="v-entrar">Já tenho conta</a></p>`;
+  if (v === "esqueci") return `<h3>Esqueci minha senha</h3><p class="note">Informe o e-mail da sua conta. Enviaremos um código de 6 dígitos.</p>${campo("aEmail", "E-mail", "email", 'autocomplete="username"')}${erro}${btn("enviar-codigo", "Enviar código")}<p class="note"><a href="#" data-ac="v-entrar">Voltar</a></p>`;
+  if (v === "codigo") return `<h3>Digite o código</h3><p class="note">Se o e-mail ${esc(authEmail)} tiver cadastro, enviamos um código. Ele vale por 15 minutos.</p>${campo("aCodigo", "Código de 6 dígitos", "text", 'inputmode="numeric" maxlength="6" autocomplete="one-time-code"')}${campo("aSenha", "Nova senha (8 ou mais caracteres)", "password", 'autocomplete="new-password"')}${erro}${btn("redefinir", "Redefinir senha")}<p class="note"><a href="#" data-ac="v-esqueci">Pedir outro código</a></p>`;
+  if (v === "conta") return `<h3>Minha conta</h3><p class="note">${esc(USUARIO.nome)} · ${esc(USUARIO.email)}</p><div id="aPedidos" class="note">Carregando pedidos…</div><button class="btn line" style="width:100%;margin-top:12px" data-ac="sair">Sair</button>`;
+  const gb = '<div id="gBtn" style="display:flex;justify-content:center;margin:4px 0 14px;min-height:44px"></div>', ou = '<p class="note ou" style="text-align:center">ou</p>';
+  const google = CONFIG.googleClientId ? gb + ou : "", googleDepois = CONFIG.googleClientId ? ou + gb : "";
+  const gate = $("#authModal").classList.contains("gate");
+  if (v === "escolha") return `<h3>Como você quer continuar?</h3><p class="note">Você pode comprar sem criar conta.</p>${google}<button class="btn gold" style="width:100%;margin-bottom:8px" data-ac="v-visitante">Continuar como visitante</button><button class="btn line" style="width:100%" data-ac="v-entrar">Entrar com e-mail e senha</button><p class="note"><a href="#" data-ac="v-criar">Criar conta</a></p>`;
+  if (v === "visitante") return `<h3>Continuar como visitante</h3><p class="note">Sem senha e sem cadastro. Usamos o e-mail só para enviar a confirmação do pagamento.</p>${campo("aNome", "Seu nome", "text", 'maxlength="80" autocomplete="name"')}${campo("aEmail", "E-mail", "email", 'autocomplete="email"')}${erro}${btn("visitante", "Continuar")}<p class="note"><a href="#" data-ac="v-escolha">Voltar</a></p>`;
+  return `${gate ? '<div class="logo" style="text-align:center;margin-bottom:12px">LUMEX <span>FORGE</span></div>' : ""}<h3>${gate ? "Bem-vindo(a)" : "Entrar"}</h3>${gate ? '<p class="note">Entre na sua conta para acompanhar seus pedidos.</p>' : ""}${campo("aEmail", "E-mail", "email", 'autocomplete="username"')}${campo("aSenha", "Senha", "password", 'autocomplete="current-password"')}${erro}${btn("entrar", "Entrar")}<p class="note"><a href="#" data-ac="v-esqueci">Esqueci minha senha</a> · <a href="#" data-ac="v-criar">Criar conta</a></p>${googleDepois}<div class="vis-sep"></div><button class="vis-link" data-ac="entrar-visitante">Entrar como visitante</button>`;
+}
+let _gsi = null;
+function carregarGoogle() {
+  if (!CONFIG.googleClientId) return Promise.resolve(false);
+  if (_gsi) return _gsi;
+  return _gsi = new Promise(ok => {
+    const fim = () => { try { google.accounts.id.initialize({ client_id: CONFIG.googleClientId, callback: r => entrarGoogle(r.credential) }); ok(true); } catch (e) { ok(false); } };
+    if (window.google && google.accounts && google.accounts.id) return fim();
+    const sc = document.createElement("script"); sc.src = "https://accounts.google.com/gsi/client"; sc.async = true; sc.onload = fim; sc.onerror = () => ok(false); document.head.appendChild(sc);
+  });
+}
+async function desenharGoogle() {
+  const el = $("#gBtn"); if (!el || !(await carregarGoogle())) { if (el) { el.style.display = "none"; document.querySelectorAll("#authBody .ou").forEach(x => x.style.display = "none"); } return; }   // sem o botão, some também o "ou"
+  google.accounts.id.renderButton(el, { theme: "outline", size: "large", text: "continue_with", locale: "pt-BR", width: 280 });
+}
+async function entrarGoogle(credencial) {   // chamado pelo botão do Google
+  try { logou(await api("/auth/google", "POST", { credential: credencial })); }
+  catch (e) { const el = $("#authErro"); if (el) el.textContent = e.message; }
+}
+let SESSAO_VISITANTE = false;
+function fecharAuth() { $("#authModal").classList.remove("open", "gate"); document.body.style.overflow = ""; }
+async function abrirAuth(v, aviso, porta) {
+  if (porta) $("#authModal").classList.add("gate"); else if (!$("#authModal").classList.contains("gate")) $("#authModal").classList.remove("gate");
+  $("#authBody").innerHTML = authHtml(v, aviso); $("#authModal").classList.add("open");
+  if ($("#authModal").classList.contains("gate")) document.body.style.overflow = "hidden";
+  if ($("#gBtn")) desenharGoogle();
+  if (v === "conta") {
+    try {
+      const j = await api("/me/orders");
+      $("#aPedidos").innerHTML = j.pedidos.length ? j.pedidos.map(o => `<div class="pedc"><span>${esc(o.produto).slice(0, 70)}<br><small>${esc(STATUS_PT[o.status] || o.status)}</small></span><span><b>${fmt(o.valor)}</b>${o.status === "pendente" && o.forma === "pix" ? `<br><a href="#" data-ac="verpix" data-id="${esc(o.id)}">Ver Pix</a>` : ""}</span></div>`).join("") : "Você ainda não fez pedidos.";
+    } catch (e) { $("#aPedidos").textContent = "Não foi possível carregar agora."; }
+  }
+}
+function logou(j) {
+  TOKEN = j.token; USUARIO = j.usuario; VISITANTE = null; lsSet("tk", TOKEN); desenharConta(); fecharAuth(); $("#mErro").textContent = "";
+  if ($("#modal").classList.contains("open") && $("#mStep2").style.display === "block") setTimeout(() => pagarViaApi(formaSel, $("#mContato").value.trim()), 0);   // estava no meio da compra: segue sozinho
+}
+$("#authBody").addEventListener("click", async e => {
+  const a = e.target.closest("[data-ac]"); if (!a) return; e.preventDefault();
+  const ac = a.dataset.ac, v = id => ($("#" + id) ? $("#" + id).value.trim() : "");
+  if (ac.startsWith("v-")) return abrirAuth(ac.slice(2));
+  const falhou = m => { const el = $("#authErro"); if (el) el.textContent = m; };
+  try {
+    if (ac !== "verpix" && a.tagName === "BUTTON") a.disabled = true;
+    if (ac === "entrar") logou(await api("/auth/login", "POST", { email: v("aEmail"), senha: $("#aSenha").value }));
+    else if (ac === "criar") logou(await api("/auth/register", "POST", { nome: v("aNome"), email: v("aEmail"), contato: v("aContato"), senha: $("#aSenha").value }));
+    else if (ac === "enviar-codigo") { authEmail = v("aEmail"); await api("/auth/forgot", "POST", { email: authEmail }); abrirAuth("codigo"); }
+    else if (ac === "redefinir") { await api("/auth/reset", "POST", { email: authEmail, codigo: v("aCodigo"), novaSenha: $("#aSenha").value }); abrirAuth("entrar", "Senha alterada. Entre com a nova senha."); }
+    else if (ac === "visitante") {
+      const nome = v("aNome"), email = v("aEmail");
+      if (nome.length < 2) throw new Error("Informe seu nome.");
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) throw new Error("E-mail inválido.");
+      VISITANTE = { nome, email }; fecharAuth();
+      await pagarViaApi(formaSel, $("#mContato").value.trim());
+    }
+    else if (ac === "entrar-visitante") { SESSAO_VISITANTE = true; try { sessionStorage.setItem("visitante", "1"); } catch (x) {} fecharAuth(); }
+    else if (ac === "sair") { try { await api("/auth/logout", "POST"); } catch (x) {} sairLocal(); SESSAO_VISITANTE = false; try { sessionStorage.removeItem("visitante"); } catch (x) {} fecharAuth(); abrirAuth("entrar", "", true); }
+    else if (ac === "verpix") { const o = await api("/orders/" + a.dataset.id + "?pix=1"); fecharAuth(); $("#modal").classList.add("open"); mostrarPedidoApi(o); acompanharPedido(o.id); }
+  } catch (err) { falhou(err.message); if (a.tagName === "BUTTON") a.disabled = false; }
+});
+async function pagarViaApi(forma, contato) {
+  if (!USUARIO && !VISITANTE) { abrirAuth(SESSAO_VISITANTE ? "visitante" : "escolha"); return; }
+  const b = baseCompra; $("#mOk").disabled = true;
+  try {
+    const corpo = { tipo: b.via, ref: b.ref, cupom: CUPOM ? CUPOM.codigo : "", forma: forma === "Robux" ? "robux" : "pix", contato };
+    const o = USUARIO ? await api("/orders", "POST", corpo) : await api("/guest/orders", "POST", { ...corpo, nome: VISITANTE.nome, email: VISITANTE.email });
+    try { localStorage.setItem("comprou", "1"); } catch (e) {}
+    mostrarPedidoApi(o); acompanharPedido(o.id, o.chave);
+  } catch (e) { $("#mErro").textContent = e.message; }
+  finally { $("#mOk").disabled = false; }
+}
+function mostrarPedidoApi(o) {
+  mostrarPasso(3); $("#mAviso").textContent = ""; $("#mTagOk").innerHTML = pill(VTAG || "…");
+  const p0 = document.querySelector("#mStep3 p"), ult = document.querySelector("#mPixBox .steps li:last-child");   // com servidor, não precisa mandar comprovante
+  if (p0) p0.textContent = o.forma === "robux" ? "✅ Pedido criado! O criador vai te chamar pelo contato informado." : "✅ Pedido criado!";
+  if (ult) ult.textContent = "Pronto! Esta tela confirma o pagamento sozinha e você recebe o script pelo contato informado.";
+  const pix = o.pix && /^[A-Za-z0-9+/=]+$/.test(o.pix.qrBase64 || "") ? o.pix : null;   // só aceita base64 puro (nada de HTML do gateway)
+  $("#mQr").innerHTML = pix ? `<img alt="QR Code Pix" width="176" height="176" src="data:image/png;base64,${pix.qrBase64}">` : "";
+  $("#mPixCod").value = pix ? pix.qr : ""; $("#mPixVal").textContent = fmt(o.valor); $("#mTitular").textContent = ""; $("#mPixKey").textContent = "gerada pelo banco para este pedido";
+  $("#mPixBox").style.display = pix ? "block" : "none";
+  $("#mNota").textContent = o.forma === "robux" ? "Você vai receber o link de pagamento em Robux pelo contato que informou." : "⏳ Aguardando o pagamento. Esta tela atualiza sozinha quando o Pix cair.";
+}
+function acompanharPedido(id, chave) {
+  clearInterval(_poll); const ini = Date.now();
+  _poll = setInterval(async () => {
+    if (Date.now() - ini > 40 * 60e3) return clearInterval(_poll);
+    try {
+      const o = chave ? await api("/guest/orders/" + id, "GET", null, { "X-Chave-Pedido": chave }) : await api("/orders/" + id);
+      if (o.status === "pago" || o.status === "entregue") { clearInterval(_poll); $("#mNota").textContent = "✅ Pagamento confirmado! Você vai receber o script pelo contato que informou."; $("#mPixBox").style.display = "none"; }
+      else if (["cancelado", "expirado", "falhou"].includes(o.status)) { clearInterval(_poll); $("#mNota").textContent = "Este pedido não foi concluído. Faça um novo pedido para tentar de novo."; }
+    } catch (e) {}
+  }, CONFIG.apiPollMs || 5000);
+}
+$("#btnConta").onclick = () => abrirAuth(USUARIO ? "conta" : "entrar");
+$("#authX").onclick = () => fecharAuth();
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#authModal").classList.contains("gate")) fecharAuth(); });
+if (API) {
+  $("#btnConta").style.display = ""; desenharConta();
+  try { SESSAO_VISITANTE = sessionStorage.getItem("visitante") === "1"; } catch (e) {}
+  const mostrarPorta = () => { if (!USUARIO && !SESSAO_VISITANTE) abrirAuth("entrar", "", true); };
+  if (TOKEN) api("/me").then(j => { USUARIO = j.usuario; desenharConta(); }).catch(mostrarPorta);   // com sessão guardada: confere antes de mostrar a porta
+  else mostrarPorta();
+}
 
 /* ---------- Painel do criador ---------- */
 let PEDIDOS = [], VISITAS = [], conhecidos = null, ligado = false, unsubs = [];
