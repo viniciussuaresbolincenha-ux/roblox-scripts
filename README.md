@@ -422,6 +422,7 @@ html:not(.pronto) body{animation:fade .6s ease}
 .opt span{min-width:0}
 section[id]{scroll-margin-top:84px}
 @media(max-width:760px){#authModal.gate.open{place-items:center;padding:14px}#authModal.gate .box{border-radius:18px}}
+.demo-aviso{background:var(--tint);border:1px solid var(--tint2);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--gold2);margin:4px 0 12px}
 </style>
 </head>
 <body>
@@ -702,6 +703,7 @@ const CONFIG = {
   },
   destaques: ["Menu Principal ALPHA", "Sistema de Inventário", "Chat RP"],   // "Comece por aqui": aparecem primeiro na loja (troque pelos seus preferidos)
   apiUrl: "",                           // endereço do SERVIDOR (ex: "https://api.seudominio.com.br"). Vazio = a loja funciona como antes, sem contas
+  entradaDemo: true,                    // mostra a TELA DE ENTRADA mesmo sem servidor (modo demonstração: só o visitante funciona). Quando o servidor estiver no ar, preencha apiUrl; para esconder a tela sem servidor, use false
   googleClientId: "",                   // Client ID do Google (Entrar com Google). Vazio = o botão do Google não aparece
   apiPollMs: 5000,                      // de quanto em quanto tempo a tela confere se o Pix foi pago
   prontos: [],                          // nomes dos scripts que você JÁ TEM PRONTOS. Vazio = tudo à venda. Preenchido = só estes; o resto vira "Em breve"
@@ -1572,7 +1574,7 @@ function authHtml(v, aviso) {
   const gate = $("#authModal").classList.contains("gate");
   if (v === "escolha") return `<h3>Como você quer continuar?</h3><p class="note">Você pode comprar sem criar conta.</p>${google}<button class="btn gold" style="width:100%;margin-bottom:8px" data-ac="v-visitante">Continuar como visitante</button><button class="btn line" style="width:100%" data-ac="v-entrar">Entrar com e-mail e senha</button><p class="note"><a href="#" data-ac="v-criar">Criar conta</a></p>`;
   if (v === "visitante") return `<h3>Continuar como visitante</h3><p class="note">Sem senha e sem cadastro. Usamos o e-mail só para enviar a confirmação do pagamento.</p>${campo("aNome", "Seu nome", "text", 'maxlength="80" autocomplete="name"')}${campo("aEmail", "E-mail", "email", 'autocomplete="email"')}${erro}${btn("visitante", "Continuar")}<p class="note"><a href="#" data-ac="v-escolha">Voltar</a></p>`;
-  return `${gate ? '<div class="logo" style="text-align:center;margin-bottom:12px">LUMEX <span>FORGE</span></div>' : ""}<h3>${gate ? "Bem-vindo(a)" : "Entrar"}</h3>${gate ? '<p class="note">Entre na sua conta para acompanhar seus pedidos.</p>' : ""}${campo("aEmail", "E-mail", "email", 'autocomplete="username"')}${campo("aSenha", "Senha", "password", 'autocomplete="current-password"')}${erro}${btn("entrar", "Entrar")}<p class="note"><a href="#" data-ac="v-esqueci">Esqueci minha senha</a> · <a href="#" data-ac="v-criar">Criar conta</a></p>${googleDepois}<div class="vis-sep"></div><button class="vis-link" data-ac="entrar-visitante">Entrar como visitante</button>`;
+  return `${gate ? '<div class="logo" style="text-align:center;margin-bottom:12px">LUMEX <span>FORGE</span></div>' : ""}<h3>${gate ? "Bem-vindo(a)" : "Entrar"}</h3>${gate ? '<p class="note">Entre na sua conta para acompanhar seus pedidos.</p>' : ""}${!API ? '<div class="demo-aviso">Modo de demonstração: o servidor ainda não está conectado. Por enquanto só o acesso como visitante funciona.</div>' : ""}${campo("aEmail", "E-mail", "email", 'autocomplete="username"')}${campo("aSenha", "Senha", "password", 'autocomplete="current-password"')}${erro}${btn("entrar", "Entrar")}<p class="note"><a href="#" data-ac="v-esqueci">Esqueci minha senha</a> · <a href="#" data-ac="v-criar">Criar conta</a></p>${googleDepois}<div class="vis-sep"></div><button class="vis-link" data-ac="entrar-visitante">Entrar como visitante</button>`;
 }
 let _gsi = null;
 function carregarGoogle() {
@@ -1615,6 +1617,10 @@ $("#authBody").addEventListener("click", async e => {
   const ac = a.dataset.ac, v = id => ($("#" + id) ? $("#" + id).value.trim() : "");
   if (ac.startsWith("v-")) return abrirAuth(ac.slice(2));
   const falhou = m => { const el = $("#authErro"); if (el) el.textContent = m; };
+  if (!API && ["entrar", "criar", "enviar-codigo", "redefinir", "verpix", "visitante"].includes(ac)) {
+    if (ac === "visitante") { SESSAO_VISITANTE = true; fecharAuth(); return; }   // visitante não precisa do servidor para o fluxo antigo (Pix estático)
+    return falhou("Contas ainda não estão disponíveis (o servidor não está conectado). Use \"Entrar como visitante\".");
+  }
   try {
     if (ac !== "verpix" && a.tagName === "BUTTON") a.disabled = true;
     if (ac === "entrar") logou(await api("/auth/login", "POST", { email: v("aEmail"), senha: $("#aSenha").value }));
@@ -1675,6 +1681,9 @@ if (API) {
   const mostrarPorta = () => { if (!USUARIO && !SESSAO_VISITANTE) abrirAuth("entrar", "", true); };
   if (TOKEN) api("/me").then(j => { USUARIO = j.usuario; desenharConta(); }).catch(mostrarPorta);   // com sessão guardada: confere antes de mostrar a porta
   else mostrarPorta();
+} else if (CONFIG.entradaDemo) {
+  try { SESSAO_VISITANTE = sessionStorage.getItem("visitante") === "1"; } catch (e) {}
+  if (!SESSAO_VISITANTE) abrirAuth("entrar", "", true);
 }
 
 /* ---------- Painel do criador ---------- */
