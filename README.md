@@ -1,650 +1,179 @@
-<!DOCTYPE html>
+[<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BOT LAB</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SHOO-PE | Compre e venda online</title>
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    background:
-        radial-gradient(circle at top left, #172554, transparent 35%),
-        radial-gradient(circle at bottom right, #312e81, transparent 35%),
-        #050816;
-    color: white;
-}
-
-header {
-    padding: 30px;
-    border-bottom: 1px solid #263252;
-    background: rgba(5, 8, 22, .75);
-    backdrop-filter: blur(12px);
-}
-
-.logo {
-    font-size: 32px;
-    font-weight: 900;
-    letter-spacing: 3px;
-}
-
-.logo span {
-    color: #38bdf8;
-}
-
-.subtitle {
-    color: #94a3b8;
-    margin-top: 8px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 25px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 20px;
-}
-
-.card {
-    background: rgba(15, 23, 42, .85);
-    border: 1px solid #263252;
-    border-radius: 18px;
-    padding: 22px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.25);
-}
-
-h2 {
-    margin-top: 0;
-}
-
-label {
-    display: block;
-    margin-top: 22px;
-    color: #cbd5e1;
-}
-
-input[type="range"] {
-    width: 100%;
-    margin-top: 12px;
-    accent-color: #38bdf8;
-}
-
-.value {
-    float: right;
-    color: #38bdf8;
-    font-weight: bold;
-}
-
-button {
-    width: 100%;
-    margin-top: 18px;
-    padding: 14px;
-    border: 0;
-    border-radius: 10px;
-    background: #38bdf8;
-    color: #03111c;
-    font-weight: 900;
-    cursor: pointer;
-    transition: .2s;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.1);
-}
-
-button.stop {
-    background: #334155;
-    color: white;
-}
-
-.status {
-    display: inline-block;
-    padding: 7px 12px;
-    border-radius: 20px;
-    background: #334155;
-    color: #cbd5e1;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.status.running {
-    background: #064e3b;
-    color: #6ee7b7;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-}
-
-.stat {
-    padding: 18px;
-    background: #080d1d;
-    border: 1px solid #1e293b;
-    border-radius: 13px;
-}
-
-.stat small {
-    color: #64748b;
-}
-
-.stat strong {
-    display: block;
-    margin-top: 8px;
-    font-size: 27px;
-}
-
-canvas {
-    width: 100%;
-    height: 280px;
-    margin-top: 20px;
-    background: #070b17;
-    border-radius: 14px;
-}
-
-.bot-area {
-    position: relative;
-    height: 280px;
-    overflow: hidden;
-    margin-top: 20px;
-    background: #070b17;
-    border-radius: 14px;
-    border: 1px solid #1e293b;
-}
-
-.bot {
-    position: absolute;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: #38bdf8;
-    box-shadow: 0 0 12px #38bdf8;
-}
-
-.target {
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 2px solid #a78bfa;
-    box-shadow: 0 0 30px #7c3aed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
-    color: #c4b5fd;
-}
-
-.log {
-    height: 150px;
-    overflow: auto;
-    padding: 15px;
-    background: #030712;
-    border-radius: 10px;
-    font-family: monospace;
-    font-size: 12px;
-    color: #86efac;
-}
-
-.warning {
-    margin-top: 15px;
-    padding: 12px;
-    border-radius: 10px;
-    background: #1e293b;
-    color: #94a3b8;
-    font-size: 12px;
-    line-height: 1.5;
-}
-
-@media(max-width: 800px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+:root{--or:#ee4d2d;--or2:#f53d2d;--bg:#f5f5f5;--card:#fff;--tx:#222;--mut:#757575;--line:#e8e8e8;--sk:#ececec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141414;--card:#1f1f1f;--tx:#f0f0f0;--mut:#a0a0a0;--line:#333;--sk:#2c2c2c}}
+:root[data-theme="dark"]{--bg:#141414;--card:#1f1f1f;--tx:#f0f0f0;--mut:#a0a0a0;--line:#333;--sk:#2c2c2c}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--tx);font-family:Roboto,"Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:1.4}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.85}
+:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 12px}
+header{background:linear-gradient(-180deg,#f53d2d,#f63)}
+.top{display:flex;justify-content:space-between;color:#fff;font-size:13px;padding:6px 0;gap:12px;flex-wrap:wrap}
+.top div{display:flex;gap:14px;flex-wrap:wrap}
+.main{display:flex;align-items:center;gap:24px;padding:14px 0 10px}
+.logo{display:flex;align-items:center;gap:8px;color:#fff;font-size:28px;font-weight:800;letter-spacing:-.5px;white-space:nowrap}
+.logo i{background:#fff;color:var(--or);width:36px;height:38px;border-radius:5px;display:grid;place-items:center;font-style:normal;font-size:22px}
+.sbox{flex:1;min-width:0}
+.search{display:flex;background:#fff;border-radius:3px;padding:3px;box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.search input{flex:1;min-width:0;border:0;padding:10px 12px;font-size:14px;background:transparent;color:#222;outline:0}
+.search button{background:var(--or);color:#fff;border:0;width:62px;border-radius:2px;font-size:16px;cursor:pointer}
+.trend{display:flex;gap:14px;margin-top:6px;color:#fff;font-size:12px;overflow:hidden;white-space:nowrap}
+.cart{color:#fff;font-size:26px;padding:0 10px;position:relative}
+.cart b{position:absolute;top:-8px;right:0;background:#fff;color:var(--or);font-size:12px;border-radius:10px;padding:0 7px;border:1px solid var(--or)}
+.hero{display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-top:20px}
+.car{position:relative;overflow:hidden;border-radius:3px;aspect-ratio:2/1;background:var(--sk)}
+.slides{display:flex;height:100%;transition:transform .5s}
+.slide{min-width:100%;display:flex;flex-direction:column;justify-content:center;padding:0 9%;color:#fff}
+.slide h2{font-size:clamp(22px,4vw,44px);line-height:1.05}
+.slide p{margin-top:8px;font-size:clamp(12px,1.5vw,18px);opacity:.95}
+.s1{background:linear-gradient(120deg,#ee4d2d,#ff9a3c)}.s2{background:linear-gradient(120deg,#0f9d8a,#6fd3a8)}.s3{background:linear-gradient(120deg,#5b3df5,#a96bff)}
+.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:7px}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;background:rgba(255,255,255,.55);cursor:pointer}
+.dots button.on{background:#fff}
+.arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.3);color:#fff;border:0;width:34px;height:52px;font-size:20px;cursor:pointer}
+.arr.l{left:0}.arr.r{right:0}
+.side{display:grid;grid-template-rows:1fr 1fr;gap:6px}
+.side div{border-radius:3px;display:flex;align-items:center;padding:0 10%;color:#fff;font-weight:700;font-size:clamp(14px,1.8vw,22px)}
+.side div:first-child{background:linear-gradient(120deg,#ffb100,#ff7a00)}.side div:last-child{background:linear-gradient(120deg,#e8336d,#ff7a9a)}
+.short{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;background:var(--card);margin-top:14px;padding:16px 8px;border-radius:3px}
+.short a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;font-size:12px}
+.ic{width:46px;height:46px;border-radius:12px;background:var(--sk);display:grid;place-items:center;font-size:22px}
+.box{background:var(--card);margin-top:14px;border-radius:3px}
+.bh{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.bh h3{color:var(--mut);font-size:16px;font-weight:500;text-transform:uppercase}
+.bh a{color:var(--or);font-size:13px}
+.cats{display:grid;grid-template-columns:repeat(10,1fr)}
+.cat{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 4px;text-align:center;font-size:12px;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:116px}
+.cat:hover{box-shadow:0 0 6px rgba(0,0,0,.2);position:relative}
+.cat .ic{width:60px;height:60px;border-radius:50%}
+.fl{color:var(--or)!important;font-weight:700!important;font-size:18px!important;display:flex;align-items:center;gap:12px}
+.tm{display:flex;gap:4px}
+.tm span{background:#222;color:#fff;font-weight:700;padding:2px 5px;border-radius:2px;font-size:14px;min-width:26px;text-align:center}
+.rail{display:grid;grid-template-columns:repeat(6,1fr);gap:0;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:12px}
+.ph{background:var(--card);border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.ph .im{aspect-ratio:1;background:var(--sk)}
+.ph .ln{height:10px;background:var(--sk);margin:10px;border-radius:2px}
+.ph .ln.s{width:50%}
+.tabs{display:flex;position:sticky;top:0;background:var(--card);z-index:5;box-shadow:0 2px 4px rgba(0,0,0,.08);border-radius:3px}
+.tabs button{flex:1;padding:16px;border:0;background:transparent;color:var(--tx);font-size:16px;text-transform:uppercase;cursor:pointer;border-bottom:3px solid transparent}
+.tabs button.on{color:var(--or);border-color:var(--or)}
+.more{display:block;margin:6px auto 18px;border:1px solid var(--line);background:var(--card);color:var(--tx);padding:10px 90px;cursor:pointer;font-size:14px}
+.empty{text-align:center;color:var(--mut);padding:6px 0 14px}
+footer{background:var(--card);margin-top:30px;border-top:4px solid var(--or)}
+.fc{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;padding:36px 12px;font-size:12px;color:var(--mut)}
+.fc h4{color:var(--tx);font-size:12px;text-transform:uppercase;margin-bottom:14px}
+.fc li{list-style:none;margin-bottom:9px}
+.pay{display:flex;gap:6px;flex-wrap:wrap}
+.pay span{background:var(--sk);border-radius:3px;padding:6px 10px;font-weight:700;color:var(--tx)}
+.copy{border-top:1px solid var(--line);text-align:center;color:var(--mut);font-size:12px;padding:20px 12px 28px}
+.chat{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--or);color:#fff;border-radius:4px;padding:10px 16px;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.3);z-index:9}
+@media(max-width:900px){.cats{grid-template-columns:repeat(5,1fr)}.rail,.grid{grid-template-columns:repeat(3,1fr)}.short{grid-template-columns:repeat(3,1fr);row-gap:16px}.fc{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.side{display:none}}
+@media(max-width:560px){.main{flex-wrap:wrap;gap:10px}.sbox{order:3;flex-basis:100%}.logo{font-size:22px}.cats{grid-template-columns:repeat(4,1fr)}.rail,.grid{grid-template-columns:repeat(2,1fr)}.tabs button{font-size:12px;padding:12px 4px}.top{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.slides{transition:none}}
 </style>
 </head>
-
 <body>
-
 <header>
-    <div class="logo">BOT<span>LAB</span></div>
-    <div class="subtitle">
-        Simulador visual de bots • laboratório local
-    </div>
+ <div class="wrap">
+  <div class="top">
+   <div><a href="#">Canal do Vendedor</a><a href="#">Seja um vendedor SHOO-PE</a><a href="#">Baixe o app</a><a href="#">Siga-nos</a></div>
+   <div><a href="#">🔔 Notificações</a><a href="#">❓ Ajuda</a><a href="#">🌐 Português</a><a href="#"><b>Cadastrar</b></a><a href="#"><b>Entrar</b></a></div>
+  </div>
+  <div class="main">
+   <a class="logo" href="#"><i>🛍</i>SHOO-PE</a>
+   <div class="sbox">
+    <form class="search" onsubmit="return false"><input type="search" placeholder="Busque na SHOO-PE" aria-label="Buscar"><button aria-label="Buscar">🔍</button></form>
+    <div class="trend"><a href="#">Ofertas do dia</a><a href="#">Frete grátis</a><a href="#">Cupons</a><a href="#">Mais vendidos</a><a href="#">Lançamentos</a><a href="#">Moda</a></div>
+   </div>
+   <a class="cart" href="#" aria-label="Carrinho">🛒<b>0</b></a>
+  </div>
+ </div>
 </header>
 
-<div class="container">
+<main class="wrap">
+ <section class="hero">
+  <div class="car" id="car">
+   <div class="slides" id="sl">
+    <div class="slide s1"><h2>Ofertas imperdíveis</h2><p>Frete grátis e cupons todos os dias</p></div>
+    <div class="slide s2"><h2>Cupom de boas-vindas</h2><p>Cadastre-se e ganhe desconto na primeira compra</p></div>
+    <div class="slide s3"><h2>SHOO-PE Live</h2><p>Assista, compre e economize ao vivo</p></div>
+   </div>
+   <button class="arr l" id="pv" aria-label="Anterior">‹</button><button class="arr r" id="nx" aria-label="Próximo">›</button>
+   <div class="dots" id="dt"></div>
+  </div>
+  <div class="side"><div>Cupons de frete grátis</div><div>Pague com PIX e economize</div></div>
+ </section>
 
-<div class="grid">
+ <section class="short">
+  <a href="#"><span class="ic">⚡</span>Ofertas Relâmpago</a>
+  <a href="#"><span class="ic">🚚</span>Frete Grátis</a>
+  <a href="#"><span class="ic">🎟</span>Cupons</a>
+  <a href="#"><span class="ic">🔴</span>SHOO-PE Live</a>
+  <a href="#"><span class="ic">🪙</span>Moedas SHOO-PE</a>
+  <a href="#"><span class="ic">💳</span>Pague com PIX</a>
+ </section>
 
-<!-- CONTROLES -->
+ <section class="box">
+  <div class="bh"><h3>Categorias</h3></div>
+  <div class="cats" id="cats"></div>
+ </section>
 
-<div class="card">
+ <section class="box">
+  <div class="bh"><h3 class="fl">⚡ Ofertas Relâmpago <span class="tm" id="tm"><span>00</span><span>00</span><span>00</span></span></h3><a href="#">Ver tudo ›</a></div>
+  <div class="rail" id="rail"></div>
+ </section>
 
-    <h2>Controle</h2>
+ <section class="box">
+  <div class="bh"><h3>Busca em alta</h3><a href="#">Ver mais ›</a></div>
+  <div class="rail" id="hot"></div>
+ </section>
 
-    <div id="status" class="status">
-        ● PARADO
-    </div>
+ <div class="tabs" style="margin-top:14px" id="tabs">
+  <button class="on">Para você</button><button>Mais vendidos</button><button>Lançamentos</button>
+ </div>
+ <div class="grid" id="grid"></div>
+ <p class="empty">Nenhum produto por aqui ainda.</p>
+ <button class="more">Ver mais</button>
+</main>
 
-    <label>
-        Quantidade de bots
-        <span id="botValue" class="value">50</span>
-    </label>
-
-    <input
-        id="botCount"
-        type="range"
-        min="1"
-        max="250"
-        value="50"
-    >
-
-    <label>
-        Intensidade
-        <span id="intensityValue" class="value">10</span>
-    </label>
-
-    <input
-        id="intensity"
-        type="range"
-        min="1"
-        max="50"
-        value="10"
-    >
-
-    <button onclick="startSimulation()">
-        ▶ INICIAR SIMULAÇÃO
-    </button>
-
-    <button class="stop" onclick="stopSimulation()">
-        ■ PARAR
-    </button>
-
-    <div class="warning">
-        ⚠️ Os bots deste projeto são apenas objetos virtuais
-        executados pelo navegador. Nenhum tráfego é enviado
-        para computadores, sites ou IPs externos.
-    </div>
-
-</div>
-
-<!-- PAINEL -->
-
-<div class="card">
-
-    <h2>Telemetria</h2>
-
-    <div class="stats">
-
-        <div class="stat">
-            <small>BOTS</small>
-            <strong id="bots">0</strong>
-        </div>
-
-        <div class="stat">
-            <small>REQUESTS</small>
-            <strong id="requests">0</strong>
-        </div>
-
-        <div class="stat">
-            <small>ACEITAS</small>
-            <strong id="accepted">0</strong>
-        </div>
-
-        <div class="stat">
-            <small>BLOQUEADAS</small>
-            <strong id="blocked">0</strong>
-        </div>
-
-    </div>
-
-    <canvas id="chart"></canvas>
-
-</div>
-
-</div>
-
-<!-- VISUALIZAÇÃO -->
-
-<div class="card">
-
-    <h2>Mapa dos Bots</h2>
-
-    <div id="botArea" class="bot-area">
-
-        <div class="target">
-            LAB
-        </div>
-
-    </div>
-
-</div>
-
-<!-- LOG -->
-
-<div class="card">
-
-    <h2>Eventos</h2>
-
-    <div id="log" class="log">
-        [SYSTEM] Bot Lab iniciado.
-    </div>
-
-</div>
-
-</div>
+<footer>
+ <div class="wrap">
+  <div class="fc">
+   <div><h4>Atendimento ao cliente</h4><ul><li>Central de Ajuda</li><li>Como comprar</li><li>Como vender</li><li>Pagamentos</li><li>Envios</li><li>Devolução e reembolso</li><li>Fale conosco</li></ul></div>
+   <div><h4>Sobre a SHOO-PE</h4><ul><li>Sobre nós</li><li>Carreiras</li><li>Políticas</li><li>Privacidade</li><li>Canal do Vendedor</li><li>Programa de afiliados</li></ul></div>
+   <div><h4>Pagamento</h4><div class="pay"><span>PIX</span><span>Visa</span><span>Master</span><span>Boleto</span><span>Elo</span></div></div>
+   <div><h4>Logística</h4><div class="pay"><span>Correios</span><span>Jadlog</span><span>SHOO-PE Envios</span></div></div>
+   <div><h4>Siga-nos</h4><ul><li>Instagram</li><li>Facebook</li><li>TikTok</li><li>YouTube</li></ul><h4 style="margin-top:18px">Baixe o app</h4><div class="pay"><span>App Store</span><span>Google Play</span></div></div>
+  </div>
+ </div>
+ <div class="copy">© 2026 SHOO-PE. Todos os direitos reservados. Projeto de estudo inspirado no layout de marketplaces.</div>
+</footer>
+<a class="chat" href="#">💬 Chat</a>
 
 <script>
-
-let running = false;
-
-let botCount = 50;
-let intensity = 10;
-
-let requests = 0;
-let accepted = 0;
-let blocked = 0;
-
-let bots = [];
-
-const botInput = document.getElementById("botCount");
-const intensityInput = document.getElementById("intensity");
-
-const botValue = document.getElementById("botValue");
-const intensityValue = document.getElementById("intensityValue");
-
-const botArea = document.getElementById("botArea");
-
-const status = document.getElementById("status");
-
-const canvas = document.getElementById("chart");
-const ctx = canvas.getContext("2d");
-
-const history = [];
-
-
-/* CONTROLES */
-
-botInput.addEventListener("input", () => {
-
-    botCount = Number(botInput.value);
-
-    botValue.textContent = botCount;
-
-    createBots();
-
-});
-
-
-intensityInput.addEventListener("input", () => {
-
-    intensity = Number(intensityInput.value);
-
-    intensityValue.textContent = intensity;
-
-});
-
-
-/* CRIAR BOTS */
-
-function createBots() {
-
-    bots.forEach(bot => bot.remove());
-
-    bots = [];
-
-    for(let i = 0; i < botCount; i++) {
-
-        const bot = document.createElement("div");
-
-        bot.className = "bot";
-
-        bot.style.left =
-            Math.random() * 75 + "%";
-
-        bot.style.top =
-            Math.random() * 90 + "%";
-
-        bot.dataset.x =
-            parseFloat(bot.style.left);
-
-        bot.dataset.y =
-            parseFloat(bot.style.top);
-
-        botArea.appendChild(bot);
-
-        bots.push(bot);
-    }
-}
-
-
-/* LOG */
-
-function log(message) {
-
-    const box = document.getElementById("log");
-
-    const time =
-        new Date().toLocaleTimeString();
-
-    box.innerHTML =
-        `[${time}] ${message}<br>` +
-        box.innerHTML;
-
-}
-
-
-/* INICIAR */
-
-function startSimulation() {
-
-    if(running) return;
-
-    running = true;
-
-    status.textContent = "● RODANDO";
-
-    status.classList.add("running");
-
-    log(
-        `Simulação iniciada com ${botCount} bots virtuais.`
-    );
-
-}
-
-
-/* PARAR */
-
-function stopSimulation() {
-
-    running = false;
-
-    status.textContent = "● PARADO";
-
-    status.classList.remove("running");
-
-    log("Simulação interrompida.");
-
-}
-
-
-/* SIMULAÇÃO */
-
-function simulationLoop() {
-
-    if(running) {
-
-        const generated = intensity;
-
-        requests += generated;
-
-        const newBlocked =
-            Math.floor(generated / 7);
-
-        blocked += newBlocked;
-
-        accepted +=
-            generated - newBlocked;
-
-        document.getElementById("bots").textContent =
-            botCount;
-
-        document.getElementById("requests").textContent =
-            requests;
-
-        document.getElementById("accepted").textContent =
-            accepted;
-
-        document.getElementById("blocked").textContent =
-            blocked;
-
-        history.push(
-            requests === 0
-            ? 0
-            : (blocked / requests) * 100
-        );
-
-        if(history.length > 80) {
-            history.shift();
-        }
-
-        moveBots();
-
-        drawChart();
-
-    }
-
-    requestAnimationFrame(simulationLoop);
-}
-
-
-/* MOVIMENTO */
-
-function moveBots() {
-
-    bots.forEach(bot => {
-
-        let x = Number(bot.dataset.x);
-        let y = Number(bot.dataset.y);
-
-        x += (80 - x) * 0.02;
-        y += (50 - y) * 0.02;
-
-        if(Math.abs(80 - x) < 1) {
-
-            x = Math.random() * 75;
-            y = Math.random() * 90;
-
-        }
-
-        bot.dataset.x = x;
-        bot.dataset.y = y;
-
-        bot.style.left = x + "%";
-        bot.style.top = y + "%";
-
-    });
-
-}
-
-
-/* GRÁFICO */
-
-function drawChart() {
-
-    const width =
-        canvas.width =
-        canvas.clientWidth * 2;
-
-    const height =
-        canvas.height =
-        canvas.clientHeight * 2;
-
-    ctx.clearRect(
-        0,
-        0,
-        width,
-        height
-    );
-
-    ctx.strokeStyle = "#1e293b";
-
-    ctx.lineWidth = 2;
-
-    for(let y = 40; y < height; y += 60) {
-
-        ctx.beginPath();
-
-        ctx.moveTo(0,y);
-
-        ctx.lineTo(width,y);
-
-        ctx.stroke();
-
-    }
-
-    if(history.length < 2)
-        return;
-
-    ctx.beginPath();
-
-    ctx.strokeStyle = "#38bdf8";
-
-    ctx.lineWidth = 5;
-
-    history.forEach((value,index) => {
-
-        const x =
-            index /
-            (history.length - 1) *
-            width;
-
-        const y =
-            height -
-            40 -
-            (value / 100) *
-            (height - 80);
-
-        if(index === 0)
-            ctx.moveTo(x,y);
-        else
-            ctx.lineTo(x,y);
-
-    });
-
-    ctx.stroke();
-
-}
-
-
-/* INICIALIZAÇÃO */
-
-createBots();
-
-simulationLoop();
-
+var C=[["👗","Moda Feminina"],["👔","Moda Masculina"],["📱","Celulares e Acessórios"],["🎧","Eletrônicos"],["🏠","Casa e Decoração"],["💄","Beleza"],["👶","Mães e Bebês"],["⚽","Esportes e Lazer"],["🚗","Automotivo"],["🧸","Brinquedos"],["🛒","Supermercado"],["💻","Computadores"],["📷","Câmeras"],["👜","Bolsas"],["👟","Calçados"],["⌚","Relógios"],["🐶","Pet Shop"],["🎮","Games"],["📚","Livros"],["🔧","Ferramentas"]];
+document.getElementById("cats").innerHTML=C.map(function(c){return '<a class="cat" href="#"><span class="ic">'+c[0]+'</span>'+c[1]+'</a>'}).join("");
+function sk(n){var s="";for(var i=0;i<n;i++)s+='<div class="ph"><div class="im"></div><div class="ln"></div><div class="ln s"></div></div>';return s}
+document.getElementById("rail").innerHTML=sk(6);
+document.getElementById("hot").innerHTML=sk(6);
+document.getElementById("grid").innerHTML=sk(12);
+var i=0,n=3,sl=document.getElementById("sl"),dt=document.getElementById("dt"),t;
+for(var k=0;k<n;k++){var b=document.createElement("button");b.setAttribute("aria-label","Banner "+(k+1));(function(k){b.onclick=function(){go(k)}})(k);dt.appendChild(b)}
+function go(x){i=(x+n)%n;sl.style.transform="translateX(-"+i*100+"%)";[].forEach.call(dt.children,function(d,j){d.className=j===i?"on":""});clearInterval(t);t=setInterval(function(){go(i+1)},4500)}
+document.getElementById("pv").onclick=function(){go(i-1)};document.getElementById("nx").onclick=function(){go(i+1)};go(0);
+var end=Date.now()+3*3600*1000+27*60000;
+function tick(){var s=Math.max(0,Math.floor((end-Date.now())/1000)),p=function(v){return String(v).padStart(2,"0")},e=document.getElementById("tm").children;e[0].textContent=p(Math.floor(s/3600));e[1].textContent=p(Math.floor(s%3600/60));e[2].textContent=p(s%60)}
+tick();setInterval(tick,1000);
+[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.onclick=function(){[].forEach.call(document.querySelectorAll("#tabs button"),function(x){x.className=""});b.className="on"}});
 </script>
-
 </body>
 </html>
